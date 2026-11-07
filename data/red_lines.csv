@@ -1,0 +1,189 @@
+line,a,from,b,to,value,faded,straight_km,road_km,main_period,p1,p2,p3,p4,p5,p6,p0,segments,note
+1,115,Newent,76,Hereford,17,False,25.54,34.16,1,0.84,0.0,0.0,0.0,0.157,0.0,0.0,83 225 226 358 359,
+2,48,Clyro,23,Brecon,10,False,22.46,23.33,1,0.911,0.0,0.0,0.076,0.0,0.0,0.0,101 102 112 428,"The red line appers to run past Brecon,  barely touching it."
+3,99,Llangadog,97,Llandeilo,0,True,9.89,10.67,5,0.0,0.0,0.0,0.0,0.985,0.0,0.0,183,Distance value absent or entirely faded
+4,151,St Clears,100,Llawhaden,11,False,20.39,25.37,4,0.0,0.0,0.0,0.894,0.0,0.0,0.099,333 355,"Carmarthen - Llawhaden line passes through or by a town the name of which is entirely faded, but given historical road data this is most likely St Clears"
+5,73,Haverfordwest,153,St David's,7,False,22.24,26.51,4,0.0,0.0,0.0,1.0,0.0,0.0,0.0,100 281 282,
+6,39,Cardigan,3,Aberystwyth,24,False,53.59,60.62,5,0.041,0.0,0.0,0.0,0.954,0.0,0.0,118 151 152,
+7,3,Aberystwyth,1,Aberdovey,12,False,14.67,16.4,4,0.0,0.0,0.0,0.889,0.111,0.0,0.0,95 152 325,
+8,1,Aberdovey,10,Barmouth,12,False,19.95,43.64,4,0.0,0.0,0.0,0.954,0.0,0.0,0.045,96 104 119 277 278 279 324,
+9,10,Barmouth,98,Llanenddwyn,12,False,7.77,7.71,4,0.0,0.0,0.0,0.994,0.0,0.0,0.0,436,"Distance value unclear,  may be 11"
+10,98,Llanenddwyn,71,Harlech,0,True,8.04,8.66,4,0.0,0.0,0.0,0.986,0.0,0.0,0.0,276,Distance value absent or entirely faded
+11,71,Harlech,55,Criccieth,12,False,10.37,20.83,4,0.0,0.0,0.0,0.98,0.0,0.0,0.0,280 326 327 434 437,
+12,55,Criccieth,33,Caernarfon,24,False,25.02,39.35,4,0.0,0.0,0.0,0.824,0.164,0.0,0.0,97 98 328 434 435,
+13,33,Caernarfon,8,Bangor,8,False,14.0,14.57,4,0.0,0.0,0.0,0.953,0.0,0.0,0.0,328,
+14,8,Bangor,38,Capel Curig,15,False,19.75,24.44,5,0.0,0.0,0.0,0.143,0.834,0.0,0.0,103 117 328,
+15,38,Capel Curig,52,Conwy,8,False,20.35,26.0,5,0.174,0.0,0.0,0.0,0.824,0.0,0.0,153 431 432 433,
+16,52,Conwy,2,Abergele,0,True,16.54,18.56,4,0.0,0.0,0.0,0.996,0.0,0.0,0.0,99,Distance value absent or entirely faded
+17,2,Abergele,132,Rhuddlan,4,False,7.62,8.16,4,0.0,0.0,0.0,0.934,0.04,0.0,0.0,99 154 430,
+18,170,Warrington,173,Wigan,8,False,17.51,19.89,1,0.88,0.0,0.085,0.0,0.0,0.0,0.0,3 311,Distance value faded
+19,173,Wigan,130,Preston,12,False,24.65,26.95,1,0.874,0.0,0.0,0.102,0.0,0.0,0.0,3 116 270 271,
+20,158,Stony Stratford,118,Northampton,11,False,20.39,22.05,5,0.039,0.0,0.0,0.0,0.944,0.0,0.0,46 452,"Distance value faded,  appears to be 11 but may also be 5,  6 or 10"
+21,144,Skipton,139,Settle,10,False,20.96,21.88,2,0.0,0.985,0.0,0.0,0.0,0.0,0.0,344,
+22,91,Leeming Bar,75,Helperby,12,False,25.26,27.17,1,0.536,0.0,0.0,0.0,0.0,0.0,0.46,2 444,
+23,91,Leeming Bar,65,Gilling,10,False,18.41,21.78,1,0.905,0.0,0.0,0.0,0.091,0.0,0.0,39 51 123 442,
+24,128,Pocklington,108,Market Weighton,7,False,10.4,11.03,1,0.408,0.0,0.368,0.0,0.207,0.0,0.0,90 125 126,
+25,23,Brecon,101,Llywel,10,False,17.53,15.72,1,0.892,0.0,0.0,0.0,0.089,0.0,0.0,299 360 428,"The red line appers to run past Brecon,  barely touching it."
+26,100,Llawhaden,73,Haverfordwest,8,False,12.19,13.93,4,0.0,0.0,0.0,0.809,0.0,0.0,0.18,282 355,
+27,42,Castle Bolton,74,Hawes,10,False,16.6,19.48,5,0.0,0.0,0.0,0.0,0.925,0.0,0.034,209 217,
+28,21,Bradford,144,Skipton,0,True,25.25,32.49,2,0.222,0.41,0.0,0.0,0.35,0.0,0.0,53 140 228 419,Distance value absent or entirely faded
+29,16,Bodmin,152,St Columb Major,0,True,16.34,19.1,1,0.665,0.0,0.0,0.0,0.324,0.0,0.0,192 193 257,"Distance value absent or entirely faded.  The descriptions of way stations east of Okehampton are now faded,  see General Guide"
+30,122,Okehampton,90,Launceston,16,False,27.58,29.31,1,0.911,0.0,0.0,0.0,0.084,0.0,0.0,246 408,"Distance value faded.  The descriptions of way stations east of Okehampton are now faded,  see General Guide"
+31,90,Launceston,36,Camelford,20,False,22.72,26.43,5,0.142,0.0,0.177,0.0,0.674,0.0,0.0,190 244 245 321 408,"The route may pass through an unnamed settlement.  The descriptions of way stations east of Okehampton are now faded,  see General Guide"
+32,36,Camelford,16,Bodmin,15,False,16.92,27.68,3,0.04,0.0,0.955,0.0,0.0,0.0,0.0,191 192 321,"Distance value very faded,  probably 15.  The descriptions of way stations east of Okehampton are now faded,  see General Guide"
+33,142,Sherborne,54,Crewkerne,20,False,20.81,23.63,5,0.0,0.0,0.0,0.0,0.975,0.0,0.0,451,Distance value very faded
+34,140,Shaftesbury,142,Sherborne,12,False,23.35,24.73,2,0.0,0.939,0.0,0.0,0.04,0.0,0.0,381 451,
+35,174,Winchelsea,12,Battle,7,False,15.57,21.55,5,0.0,0.0,0.0,0.0,0.988,0.0,0.0,197 198,"Boreham Street - Winchelsea line passes through a town the name of which is entirely faded,  but given historical road data this is most likely Battle"
+36,72,Havant,147,Southampton,0,True,30.2,33.46,1,0.912,0.0,0.0,0.0,0.081,0.0,0.0,35 297 298 406,Distance value absent or entirely faded
+37,135,Rye,174,Winchelsea,8,False,3.99,4.67,5,0.0,0.0,0.0,0.0,0.9,0.0,0.0,198 199,
+38,17,Boreham Street,93,Lewes,18,False,25.06,32.69,1,0.576,0.0,0.0,0.0,0.422,0.0,0.0,60 85 196 247 248 253,
+39,93,Lewes,22,Bramber,10,False,23.0,28.66,1,0.509,0.415,0.0,0.0,0.073,0.0,0.0,70 195 248 254 314 402,
+40,22,Bramber,7,Arundel,10,False,17.34,25.5,1,0.766,0.225,0.0,0.0,0.0,0.0,0.0,36 195 405,
+41,7,Arundel,47,Chichester,10,False,15.67,16.81,1,0.982,0.0,0.0,0.0,0.0,0.0,0.0,92 403,
+42,47,Chichester,72,Havant,22,False,14.38,14.64,1,0.984,0.0,0.0,0.0,0.0,0.0,0.0,35,
+43,86,Kingston,49,Cobham,5,False,11.94,13.07,3,0.0,0.0,0.783,0.149,0.0,0.0,0.0,33 34,
+44,69,Guildford,49,Cobham,15,False,15.08,17.45,3,0.0,0.0,0.941,0.0,0.0,0.0,0.0,33,
+45,63,Farnham,69,Guildford,9,False,15.65,16.68,1,0.959,0.0,0.018,0.0,0.0,0.0,0.0,26 33 258,
+46,175,Winchester,111,New Alresford,7,False,11.36,12.08,1,0.995,0.0,0.0,0.0,0.0,0.0,0.0,379 380,
+47,63,Farnham,5,Alton,7,False,14.99,15.51,1,0.828,0.152,0.0,0.0,0.0,0.0,0.0,258 378 411,
+48,5,Alton,111,New Alresford,7,False,14.0,18.96,1,0.867,0.124,0.0,0.0,0.0,0.0,0.0,378 379 411,
+49,136,Salisbury,175,Winchester,20,False,33.7,38.01,3,0.0,0.135,0.85,0.013,0.0,0.0,0.0,383 453 454 455,
+50,136,Salisbury,140,Shaftesbury,18,False,28.96,32.39,2,0.0,0.98,0.0,0.018,0.0,0.0,0.0,22 382 383,Distance value faded
+51,44,Chard,54,Crewkerne,12,False,11.96,12.86,1,0.509,0.0,0.0,0.0,0.478,0.0,0.0,75 309 451,
+52,79,Honiton,44,Chard,11,False,17.71,19.58,1,0.99,0.0,0.0,0.0,0.0,0.0,0.0,32 75 301,
+53,61,Exeter,79,Honiton,12,False,26.06,26.94,1,0.936,0.0,0.0,0.0,0.055,0.0,0.0,30 31 32 306 307,
+54,122,Okehampton,61,Exeter,20,False,33.01,35.71,2,0.081,0.912,0.0,0.0,0.0,0.0,0.0,187 188 246 307,
+55,24,Brentford,51,Colnbrook,17,False,14.69,15.7,2,0.267,0.726,0.0,0.0,0.0,0.0,0.0,62 357,Distance value may refer to the London - Colnbrook distance
+56,51,Colnbrook,104,Maidenhead,7,False,14.32,13.94,2,0.0,0.991,0.0,0.0,0.0,0.0,0.0,357 422,Distance value faded
+57,104,Maidenhead,131,Reading,10,False,19.02,21.43,2,0.0,0.956,0.0,0.0,0.031,0.0,0.0,24 200 335 422,Distance value very faded
+58,131,Reading,113,Newbury,15,False,25.3,27.25,5,0.0,0.0,0.0,0.0,0.977,0.0,0.0,24 200,Distance value is unclear
+59,113,Newbury,82,Hungerford,7,False,13.77,14.94,2,0.0,0.875,0.073,0.0,0.0,0.0,0.0,241 367,Distance value faded
+60,82,Hungerford,109,Marlborough,8,False,14.41,15.44,1,0.857,0.0,0.056,0.0,0.061,0.0,0.0,52 263 367 374,
+61,28,Bristol,109,Marlborough,50,False,60.23,62.06,5,0.065,0.322,0.0,0.0,0.611,0.0,0.0,23 242 243 372 373 375 389,"Divided into 30 + 20 units by a river,  probably the River Avon"
+62,105,Malmesbury,28,Bristol,20,False,37.27,41.19,5,0.043,0.0,0.0,0.0,0.955,0.0,0.0,205 243 264 389,
+63,62,Faringdon,105,Malmesbury,20,False,36.48,39.61,5,0.14,0.0,0.0,0.0,0.855,0.0,0.0,202 203 204 205 265,
+64,62,Faringdon,125,Oxford,10,False,24.73,29.14,2,0.295,0.437,0.08,0.0,0.175,0.0,0.0,19 69 202 310 339 371,
+65,119,Northleach,67,Gloucester,15,False,28.32,33.49,5,0.316,0.0,0.0,0.0,0.678,0.0,0.0,49 86 338 424,
+66,119,Northleach,31,Burford,8,False,14.26,15.25,5,0.0,0.016,0.0,0.0,0.964,0.0,0.0,423 424,
+67,125,Oxford,176,Witney,10,False,15.75,19.21,3,0.0,0.327,0.596,0.0,0.046,0.0,0.0,336 337 339,Distance value very faded
+68,159,Tetsworth,125,Oxford,10,False,18.24,20.18,2,0.0,0.783,0.0,0.0,0.199,0.0,0.0,268 315 339,
+69,78,High Wycombe,159,Tetsworth,10,False,19.82,21.37,5,0.425,0.0,0.0,0.0,0.501,0.0,0.057,61 266 267 268 269 286,
+70,164,Uxbridge,78,High Wycombe,12,False,20.93,21.95,5,0.0,0.0,0.13,0.0,0.858,0.0,0.0,61 340,
+71,31,Burford,176,Witney,12,False,10.79,12.44,5,0.0,0.02,0.0,0.0,0.942,0.0,0.0,336 423,"Distance value is difficult to read,  may be 7 which would be closer to the real distance as the crow flies"
+72,131,Reading,125,Oxford,20,False,38.71,45.53,2,0.223,0.42,0.0,0.077,0.271,0.0,0.0,25 200 201 240 292 293 312 339,"The line passes close to Wallingford,  which was on a major Oxford - Reading road."
+73,117,Newport,28,Bristol,15,False,26.71,28.44,5,0.008,0.108,0.0,0.0,0.881,0.0,0.0,10 206 389,
+74,67,Gloucester,115,Newent,7,False,13.13,14.56,1,0.578,0.0,0.0,0.0,0.418,0.0,0.0,12 66 302 359,
+75,76,Hereford,48,Clyro,12,False,29.94,35.85,1,0.575,0.328,0.0,0.049,0.045,0.0,0.0,83 102 112 426,
+76,97,Llandeilo,41,Carmarthen,10,False,21.76,23.44,1,0.825,0.0,0.0,0.0,0.17,0.0,0.0,110 184 185 262,
+77,41,Carmarthen,151,St Clears,0,True,13.87,14.35,4,0.0,0.0,0.0,0.983,0.014,0.0,0.0,186 334,"Carmarthen - Llawhaden line passes through or by a town the name of which is entirely faded, but given historical road data this is most likely St Clears.  Distance value absent or entirely faded."
+78,101,Llywel,99,Llangadog,18,False,16.38,21.17,5,0.459,0.0,0.0,0.0,0.536,0.0,0.0,111 182 183 299 360,Distance value difficult to read
+79,64,Flint,132,Rhuddlan,10,False,23.11,27.93,1,0.907,0.0,0.0,0.0,0.077,0.0,0.0,154 219 220 221,
+80,45,Chester,64,Flint,10,False,17.31,23.04,1,0.978,0.0,0.004,0.0,0.0,0.0,0.0,94 107 108 155,
+81,160,Tewkesbury,67,Gloucester,8,False,15.43,16.84,1,0.935,0.0,0.052,0.0,0.01,0.0,0.0,11 49 86 331 332,
+82,160,Tewkesbury,177,Worcester,13,False,22.53,24.27,2,0.0,0.653,0.34,0.0,0.0,0.0,0.0,15 16 313 331 429,
+83,177,Worcester,85,Kidderminster,12,False,22.17,26.22,2,0.0,0.741,0.065,0.0,0.182,0.0,0.0,14 16 68 330,
+84,85,Kidderminster,25,Bridgnorth,12,False,19.59,21.58,2,0.008,0.973,0.0,0.0,0.005,0.0,0.0,17 159 330 384,
+85,25,Bridgnorth,143,Shrewsbury,15,False,29.92,32.54,5,0.145,0.0,0.047,0.0,0.802,0.0,0.0,82 156 157 158 160 161,
+86,59,Droitwich,177,Worcester,10,False,9.91,11.04,1,0.946,0.0,0.031,0.0,0.0,0.0,0.0,13 16 385,
+87,14,Birmingham,59,Droitwich,10,False,28.46,29.01,1,0.965,0.0,0.0,0.0,0.0,0.0,0.0,44 67 385 447,
+88,94,Lichfield,14,Birmingham,10,False,23.81,28.1,1,0.899,0.0,0.0,0.0,0.067,0.0,0.0,4 44 165,
+89,146,Solihull,59,Droitwich,14,False,29.93,36.08,2,0.105,0.558,0.0,0.334,0.0,0.0,0.0,47 366 385 448,
+90,53,Coventry,146,Solihull,8,False,18.0,20.25,4,0.0,0.461,0.0,0.524,0.0,0.0,0.0,347 421,
+91,77,High Barnet,150,St Albans,10,False,14.59,14.79,5,0.012,0.0,0.0,0.079,0.882,0.0,0.0,74 179 449,
+92,150,St Albans,60,Dunstable,10,False,19.16,20.81,1,0.975,0.0,0.0,0.0,0.0,0.0,0.0,46 449,
+93,60,Dunstable,158,Stony Stratford,8,False,29.91,30.69,1,0.98,0.0,0.0,0.0,0.0,0.0,0.0,46,Distance value faded
+94,158,Stony Stratford,30,Buckingham,0,True,11.4,13.01,1,0.691,0.0,0.0,0.0,0.276,0.0,0.0,46 180 181 234,"Distance value absent or entirely faded.  LGGM identifies 'stratford' as Fenny Stratford.  Stony Startford on the direct Cary road from Buckingham is more probable,  but 'startford' may indicate either.  Both lie on a Roman road identified by Straet."
+95,30,Buckingham,162,Towcester,6,False,14.9,18.17,1,0.767,0.0,0.0,0.0,0.21,0.0,0.0,84 181,Distance value faded
+96,162,Towcester,56,Daventry,12,False,18.27,19.7,1,0.639,0.348,0.0,0.0,0.0,0.0,0.0,20 348,Distance value faded
+97,56,Daventry,53,Coventry,16,False,29.33,31.09,5,0.0,0.025,0.0,0.0,0.964,0.0,0.0,18 347 348,
+98,53,Coventry,50,Coleshill,8,False,16.3,18.71,2,0.0,0.682,0.0,0.0,0.293,0.0,0.0,347 364,
+99,50,Coleshill,94,Lichfield,12,False,22.15,24.56,5,0.0,0.265,0.0,0.0,0.726,0.0,0.0,162 163 164 165 364,
+100,94,Lichfield,157,Stone,0,True,32.87,35.79,5,0.0,0.0,0.072,0.0,0.896,0.0,0.027,165 166 290 291 346,Distance value absent or entirely faded
+101,157,Stone,114,Newcastle-under-Lyme,6,False,13.12,14.23,2,0.0,0.747,0.0,0.0,0.238,0.0,0.0,207 208 446,"Distance value faded,  may be 11"
+102,114,Newcastle-under-Lyme,170,Warrington,24,False,48.47,49.89,1,0.875,0.041,0.027,0.0,0.048,0.0,0.0,207 222 223 224 296 311 318,
+103,130,Preston,89,Lancaster,20,False,32.75,33.89,1,0.725,0.141,0.0,0.123,0.0,0.0,0.0,150 270 445,
+104,84,Kendal,89,Lancaster,16,False,31.38,34.92,5,0.0,0.471,0.0,0.0,0.526,0.0,0.0,122 145 146 147 150,
+105,141,Shap,84,Kendal,0,True,22.73,25.37,5,0.0,0.0,0.108,0.0,0.883,0.0,0.0,120 122,Distance value illegible.  LGGM suggests 20.
+106,141,Shap,126,Penrith,0,True,15.69,16.25,3,0.0,0.0,0.969,0.0,0.02,0.0,0.0,64 120,Distance value absent or entirely faded
+107,126,Penrith,40,Carlisle,16,False,28.47,28.8,1,0.91,0.0,0.0,0.0,0.082,0.0,0.0,1 64,
+108,118,Northampton,107,Market Harborough,12,False,26.77,27.2,1,0.986,0.0,0.0,0.0,0.005,0.0,0.0,21 272 452,
+109,107,Market Harborough,92,Leicester,12,False,22.69,23.67,1,0.98,0.0,0.011,0.0,0.0,0.0,0.0,21 43,
+110,53,Coventry,92,Leicester,16,False,35.57,43.4,2,0.306,0.4,0.021,0.0,0.263,0.0,0.0,18 43 109 167 341 347,Distance value faded
+111,92,Leicester,110,Melton Mowbray,10,False,22.31,24.32,5,0.268,0.0,0.01,0.0,0.714,0.0,0.0,43 169 233,
+112,110,Melton Mowbray,68,Grantham,10,False,23.26,26.62,5,0.465,0.0,0.0,0.0,0.531,0.0,0.0,8 170 232,
+113,94,Lichfield,57,Derby,16,False,35.73,37.53,1,0.932,0.0,0.0,0.0,0.059,0.0,0.0,4 5 165,
+114,57,Derby,46,Chesterfield,15,False,34.86,36.82,1,0.877,0.0,0.0,0.0,0.114,0.0,0.0,5 37 50 342,
+115,46,Chesterfield,58,Doncaster,16,False,37.37,42.39,1,0.937,0.0,0.0,0.0,0.061,0.0,0.0,236 237 308 342,
+116,58,Doncaster,166,Wakefield,13,False,30.17,31.65,5,0.271,0.145,0.0,0.0,0.581,0.0,0.0,137 138 139 308 349 420,
+117,166,Wakefield,21,Bradford,0,True,20.92,21.94,5,0.0,0.0,0.0,0.0,0.984,0.0,0.0,139,Distance value absent or entirely faded
+118,139,Settle,87,Kirkby Lonsdale,12,False,25.78,24.7,1,0.548,0.345,0.0,0.0,0.104,0.0,0.0,79 149 294 295 344,
+119,87,Kirkby Lonsdale,84,Kendal,8,False,16.87,19.04,5,0.0,0.0,0.0,0.0,0.993,0.0,0.0,122 148,
+120,87,Kirkby Lonsdale,141,Shap,0,True,36.8,43.86,1,0.76,0.0,0.062,0.0,0.174,0.0,0.0,79 120 121 149 239 343,Distance value absent or entirely faded
+121,87,Kirkby Lonsdale,138,Sedbergh,10,False,14.04,19.2,1,0.861,0.0,0.0,0.0,0.133,0.0,0.0,79 144 149,
+122,74,Hawes,138,Sedbergh,10,False,21.41,24.07,5,0.027,0.0,0.0,0.0,0.971,0.0,0.0,143 144,
+123,133,Richmond,42,Castle Bolton,10,False,16.66,20.14,5,0.0,0.0,0.0,0.0,0.952,0.0,0.0,142 209,
+124,12,Battle,17,Boreham Street,0,True,9.5,12.62,5,0.0,0.0,0.0,0.0,0.994,0.0,0.0,197 401,"Boreham Street - Winchelsea line passes through a town the name of which is entirely faded,  but given historical road data this is most likely Battle.  Distance value absent or entirely faded."
+125,148,Spalding,19,Boston,12,False,23.19,26.26,5,0.0,0.0,0.004,0.0,0.979,0.003,0.0,173 252 397,
+126,19,Boston,165,Wainfleet,12,False,22.62,27.84,4,0.0,0.0,0.121,0.868,0.0,0.002,0.0,76 77 78 252,
+127,123,Old Bolingbroke,80,Horncastle,5,False,10.06,13.0,4,0.0,0.0,0.0,0.985,0.0,0.0,0.0,316 317,
+128,19,Boston,123,Old Bolingbroke,9,False,21.13,23.12,5,0.0,0.0,0.0,0.076,0.805,0.002,0.106,76 172 216 252,
+129,80,Horncastle,34,Caistor,16,False,34.79,37.65,1,0.981,0.0,0.0,0.012,0.0,0.0,0.0,128 316 320 414 415 416,
+130,34,Caistor,11,Barton-upon-Humber,12,False,22.38,25.96,1,0.653,0.0,0.335,0.0,0.0,0.0,0.0,127 128 417,
+131,11,Barton-upon-Humber,66,Glanford Brigg,8,False,15.12,16.34,3,0.0,0.0,0.546,0.0,0.438,0.0,0.0,127 129 418,
+132,66,Glanford Brigg,88,Kirton in Lindsey,0,True,10.98,15.05,3,0.054,0.0,0.751,0.0,0.0,0.0,0.169,9 129 218,Distance value absent or entirely faded
+133,149,Spital-in-the-Street,95,Lincoln,10,False,18.33,18.33,1,0.976,0.0,0.0,0.018,0.0,0.0,0.0,9 285,
+134,66,Glanford Brigg,149,Spital-in-the-Street,10,False,17.55,19.85,3,0.423,0.0,0.569,0.0,0.0,0.0,0.0,9 129,
+135,145,Sleaford,95,Lincoln,14,False,27.39,31.58,4,0.23,0.029,0.0,0.738,0.0,0.0,0.0,40 41 55 80 259 260 284 285,
+136,19,Boston,95,Lincoln,26,False,44.43,60.98,6,0.002,0.0,0.0,0.007,0.0,0.988,0.0,40 252 285,"The line curves along the River Witham,  and represents the water route between Lincoln and Boston"
+137,169,Ware,9,Barkway,12,False,21.25,22.77,2,0.485,0.485,0.0,0.0,0.0,0.0,0.0,58 93 305 377,
+138,9,Barkway,35,Cambridge,12,False,23.83,25.24,5,0.0,0.317,0.0,0.0,0.672,0.0,0.0,178 377 438,
+139,120,Norwich,161,Thetford,32,False,44.69,46.07,5,0.22,0.063,0.0,0.0,0.699,0.0,0.0,115 177 323,
+140,161,Thetford,32,Bury St Edmunds,10,False,19.25,19.74,5,0.0,0.06,0.003,0.0,0.916,0.0,0.0,176 323 395,
+141,178,York,75,Helperby,10,False,24.09,26.75,5,0.122,0.0,0.429,0.008,0.432,0.0,0.0,89 106 130 136 227 300,
+142,81,Howden,178,York,16,False,28.01,37.95,3,0.024,0.0,0.716,0.006,0.248,0.0,0.0,89 130 133 134 135 227,
+143,178,York,106,Malton,14,False,26.74,28.27,5,0.032,0.0,0.0,0.0,0.959,0.0,0.0,130 131 261,
+144,106,Malton,127,Pickering,5,False,12.37,13.57,5,0.0,0.0,0.0,0.0,0.981,0.0,0.0,131 132,Distance value faded
+145,128,Pocklington,178,York,10,False,20.23,21.27,1,0.822,0.0,0.0,0.01,0.154,0.0,0.0,87 88 89 126 130 227,
+146,108,Market Weighton,178,York,16,False,29.37,30.78,1,0.85,0.0,0.132,0.007,0.004,0.0,0.0,87 88 89 90 125 130 227 229,
+147,13,Beverley,108,Market Weighton,8,False,15.66,16.3,3,0.0,0.0,0.983,0.0,0.0,0.0,0.0,125 398,
+148,13,Beverley,26,Bridlington,16,False,31.62,36.93,3,0.0,0.0,0.768,0.0,0.209,0.0,0.0,230 231 319 398,
+149,26,Bridlington,137,Scarborough,12,False,26.32,28.73,5,0.0,0.0,0.0,0.0,0.956,0.0,0.0,124 230,
+150,137,Scarborough,172,Whitby,12,False,26.38,34.0,0,0.0,0.0,0.0,0.0,0.038,0.0,0.938,124 215,
+151,172,Whitby,70,Guisborough,17,False,29.28,32.8,5,0.0,0.0,0.0,0.0,0.963,0.0,0.022,214 215,
+152,167,Waltham Holy Cross,169,Ware,8,False,14.11,17.88,1,0.751,0.0,0.0,0.0,0.129,0.0,0.093,213 249 439,
+153,169,Ware,134,Royston,13,False,26.2,27.92,1,0.928,0.0,0.0,0.0,0.049,0.0,0.0,58 304 352,
+154,134,Royston,43,Caxton,9,False,18.31,18.55,1,0.987,0.0,0.0,0.0,0.0,0.0,0.0,303 440,
+155,43,Caxton,83,Huntingdon,8,False,14.94,15.08,1,0.995,0.0,0.0,0.0,0.0,0.0,0.0,56 440,
+156,168,Wansford,156,Stamford,5,False,8.85,9.25,5,0.0,0.158,0.0,0.0,0.835,0.0,0.0,171 351 396,
+157,156,Stamford,68,Grantham,16,False,31.23,33.56,1,0.585,0.042,0.0,0.0,0.369,0.0,0.0,7 8 232 396,Ermine Street and the Great North Road diverge at Colsterworth
+158,68,Grantham,112,Newark-on-Trent,10,False,21.69,22.6,5,0.0,0.0,0.047,0.0,0.947,0.0,0.0,8 81 376 441,
+159,163,Tuxford,15,Blyth,10,False,19.73,22.29,5,0.383,0.152,0.0,0.0,0.412,0.0,0.014,6 235 238 289 350,Distance value faded
+160,112,Newark-on-Trent,163,Tuxford,10,False,18.12,20.69,4,0.0,0.474,0.017,0.499,0.0,0.0,0.0,6 376 450,Distance value faded
+161,15,Blyth,58,Doncaster,8,False,16.62,21.43,1,0.646,0.0,0.0,0.0,0.044,0.0,0.274,235 288 308,
+162,58,Doncaster,129,Pontefract,10,False,22.43,24.34,1,0.824,0.163,0.0,0.0,0.0,0.0,0.0,38 141 308 349 420,
+163,171,Wetherby,18,Boroughbridge,8,False,18.21,19.57,5,0.0,0.0,0.077,0.0,0.91,0.0,0.0,54 369 370,
+164,18,Boroughbridge,91,Leeming Bar,14,False,25.98,26.23,1,0.839,0.0,0.153,0.0,0.0,0.0,0.0,2 54,Distance value very faded
+165,129,Pontefract,171,Wetherby,20,False,26.54,28.89,1,0.475,0.203,0.017,0.0,0.293,0.0,0.0,29 141 368 370,Distance value faded
+166,65,Gilling,20,Bowes,10,False,20.72,24.52,1,0.913,0.0,0.0,0.0,0.081,0.0,0.0,51 123 287,
+167,20,Bowes,29,Brough,13,False,19.72,20.86,1,0.745,0.0,0.0,0.0,0.248,0.0,0.0,65 287,
+168,29,Brough,6,Appleby-in-Westmorland,11,False,12.57,13.09,5,0.485,0.0,0.0,0.0,0.505,0.0,0.0,65 362 363,"Distance value faded,  may be 6"
+169,6,Appleby-in-Westmorland,126,Penrith,10,False,19.62,21.08,1,0.606,0.0,0.0,0.0,0.39,0.0,0.0,64 361 363,
+170,32,Bury St Edmunds,116,Newmarket,10,False,21.21,23.01,5,0.379,0.0,0.003,0.0,0.601,0.0,0.0,174 175 395,
+171,116,Newmarket,35,Cambridge,10,False,20.18,21.38,5,0.162,0.0,0.0,0.0,0.833,0.0,0.0,27 114 178 356,
+172,157,Stone,155,Stafford,0,True,11.12,11.45,5,0.0,0.015,0.0,0.0,0.969,0.0,0.0,168 345 346,Distance value absent or entirely faded
+173,83,Huntingdon,121,Ogerston,14,False,22.39,26.27,1,0.513,0.0,0.241,0.232,0.0,0.0,0.0,28 42 45 56,"The red line passes through Ogerston between Wansford and Huntingdon.  The main Wansford - Sawtry travel route,  however,  will have been the Ermine St (Margary 2b) to the east,  attested by Straet and Weg placenames"
+175,45,Chester,96,Liverpool,10,False,24.94,27.62,3,0.0,0.0,0.936,0.0,0.0,0.0,0.0,155,
+176,167,Waltham Holy Cross,102,London,12,False,20.15,24.43,1,0.834,0.0,0.0,0.0,0.094,0.0,0.068,59 213 249,
+177,77,High Barnet,102,London,10,False,17.6,19.93,4,0.0,0.026,0.0,0.959,0.0,0.0,0.0,74 250 251,
+178,164,Uxbridge,102,London,15,False,27.67,29.07,5,0.247,0.071,0.037,0.0,0.643,0.0,0.0,57 62 71 72 73 250 251 340,
+179,24,Brentford,102,London,0,True,16.17,16.02,1,0.867,0.128,0.0,0.0,0.0,0.0,0.0,62 71 72 73 250 251,Distance value absent or entirely faded
+180,86,Kingston,102,London,10,False,19.18,19.9,4,0.136,0.362,0.0,0.498,0.0,0.0,0.0,34 322 412 413,
+181,67,Gloucester,117,Newport,15,False,24.88,25.5,2,0.032,0.967,0.0,0.0,0.0,0.0,0.0,10 365,Distance value faded
+182,37,Canterbury,135,Rye,17,False,43.09,50.62,5,0.462,0.0,0.0,0.0,0.532,0.0,0.0,48 105 199 400 404,The line touches but does not appear to pass through the symbol for Appledore
+183,27,Bridport,103,Lyme Regis,10,False,12.31,14.26,1,0.933,0.0,0.0,0.0,0.056,0.0,0.0,212 273 443,Line faded
+184,4,Abingdon,125,Oxford,5,False,9.31,10.57,5,0.16,0.029,0.22,0.0,0.561,0.0,0.0,19 91 339 371,Distance value unclear.  The line is very faded.
+185,45,Chester,124,Overton,12,False,24.7,29.38,5,0.051,0.307,0.003,0.0,0.636,0.0,0.0,94 108 155 211 329,
+186,143,Shrewsbury,124,Overton,12,False,31.76,34.83,5,0.0,0.0,0.0,0.0,0.999,0.0,0.0,210,"The line touches but does not seem to pass through Ellesmere,  which is on the Overton - Shrewsbury road."
+187,179,Redruth,154,St Ives,0,True,18.17,21.55,2,0.0,0.99,0.007,0.0,0.0,0.0,0.0,255 353,"The extension of the network of red lines past what is probably Redruth to St Ives is conventionally accepted (e.g. ,  Delano-Smith et al 2017) but unclear on the map,  see General Guide"
+188,152,St Columb Major,179,Redruth,0,True,30.41,31.29,1,0.794,0.0,0.0,0.0,0.2,0.0,0.0,194 256 257 407,"Distance value obscured by a crease and illegible.  The descriptions of way stations east of Okehampton are now faded,  see General Guide"
+174,168,Wansford,121,Ogerston,5,False,9.63,11.0,4,0.102,0.368,0.0,0.497,0.0,0.0,0.0,28 113 351,"The red line passes through Ogerston between Wansford and Huntingdon.  The main Wansford - Sawtry travel route,  however,  will have been the Ermine St (Margary 2b) to the east,  attested by Straet and Weg placenames"

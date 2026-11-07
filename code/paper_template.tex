@@ -1,0 +1,138 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\headfont{Inter}[UprightFont=*-ExtraBold,BoldFont=*-ExtraBold,Extension=.otf,Path=/usr/share/fonts/opentype/inter/]
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{graphicx,booktabs,float,caption,array,xcolor,longtable}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\setstretch{1.05}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\titleformat{\section}{\headfont\Large}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\headfont\large}{\thesubsection}{0.8em}{}
+\captionsetup{font=small,labelfont=bf}
+\urlstyle{same}
+\hypersetup{pdftitle={The Gough Map: Britain's Oldest Road Map, Measured},pdfauthor={Tristan Hotham}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries The Gough Map: Britain's Oldest Road Map, Measured\par}
+\vspace{0.4em}
+{\large Shape and distance on a map of about 1360:\\{{located.n|int}} way stations located on the parchment and {{units.n|int}} written mileages checked against the roads\par}
+\vspace{1.2em}
+{\large Tristan Hotham\par}
+\vspace{0.3em}
+{\small Independent researcher\\
+ORCID: 0000-0003-4931-9349\\
+DOI: DOIPLACEHOLDER\par}
+\vspace{0.8em}
+2026
+\end{center}
+
+\begin{quote}
+\small
+\begin{center}\textbf{Abstract}\end{center}
+The Gough Map (Bodleian Library, MS. Gough Gen. Top. 16), drawn about 1360 with east at the top, is the oldest surviving map of Britain to show a road network: red lines join way stations and most carry a distance in Roman numerals. I combine the GIS database of Oksanen and Brookes, which gives the true positions of its {{source.stations|int}} way stations, its {{source.red_lines|int}} red lines with their figures and the real routes they most likely stand for, with the positions of {{located.n|int}} way stations ({{located.pct|int}}\%) located by eye on a high-resolution photograph of the map. A similarity fit turns the map {{shape.turn_deg|int}}\textdegree{} from north-up; at its average scale the median way station is misplaced by {{shape.err_median_km|f1}} km, and an affine fit adds little (stretch {{shape.aniso|f2}}). Wales is drawn at {{regions.Wales.scale_rel|f2}} times the average scale with a median error of {{regions.Wales.err_median_km|f1}} km; Scotland, checked with a few control points, is compressed. One written mile corresponds to a median {{units.km_per_unit_road|f2}} km of road ({{units.statute_miles_road|f2}} statute miles) and {{units.km_per_unit_gc|f2}} km in a straight line; {{units.within25_pct|int}}\% of {{units.n|int}} figures are within 25\% of the road length at that rate. The written figures are more accurate than the drawn lengths of the same lines (median error {{drawn.num_err_median_pct|int}}\% against {{drawn.draw_err_median_pct|int}}\%), and summed along the network they give London to York as {{journeys.York.map_km|int}} km against {{journeys.York.road_km|int}} km of road. Of the {{roads.km|int}} km of road under the red lines, {{roads.by_period.Roman.pct|f1}}\% is Roman; the figures are equally good on Roman and later roads.
+
+\textbf{Keywords:} Gough Map; medieval cartography; road networks; itineraries; map distortion; historical GIS
+\end{quote}
+
+\section{Introduction}
+The Gough Map is a map of Great Britain on two pieces of parchment, about 115 by 56 cm, in the Bodleian Library, Oxford. It is named after the antiquary Richard Gough, who acquired it in 1774, and is usually dated to about 1360, with later revisions \citep{parsons,delano}. It is oriented with east at the top. Its most celebrated feature is a network of thin red lines joining towns, most of them with a distance written beside them in Roman numerals: the earliest surviving road map of Britain \citep{lilley,delano}. How the network was compiled, and how it relates to real roads, has long been debated; \citet{ads} recently published a GIS database that identifies, for each red line, the most likely real route on the ground, and dates its parts from Roman roads to the road books of the seventeenth and eighteenth centuries.
+
+This paper uses that database to ask two questions that need both the map and the ground: how wrong is the map's shape, region by region, and how right are its written distances? The first requires the positions of the way stations on the map itself, which the database does not give; I located them by eye. The study accompanies an interactive comparison of the map and an ink map of the same roads (\url{PAGEURL}).
+
+\section{Data}
+\textbf{The road database.} \citet{ads}: {{source.stations|int}} way stations (settlements joined by a red line) in British National Grid, with modern name, historic county and legibility of the name on the map; {{source.red_lines|int}} red lines between them with the written figure ({{source.faded|int}} absent or faded); and {{source.routes|int}} route segments, about {{source.route_km_all|int}} km in all, each with a period code, a category (Roman road, a road on Cary's maps, modern road), Margary numbers for Roman roads \citep{margary}, and the evidence used. The period codes are numeric and I could not reach the published key; from the categories and comments I read them as: 1 Roman road; 2 evidence before Domesday (1086), such as Anglo-Saxon charter bounds; 3 dated medieval evidence after Domesday, mostly bridges; 4 other medieval evidence, such as the routes of Gerald of Wales or the 1334 lay subsidy; 5 known only from the early modern road books \citep{ogilby}; 6 river; 0 undated or modern road. Results by period depend on that reading.
+
+\textbf{The map.} A photograph of the whole map, {{source.image_w|int}} by {{source.image_h|int}} pixels, from Wikimedia Commons (\url{https://commons.wikimedia.org/wiki/File:Gough_Kaart_(hoge_resolutie).jpg}), a faithful reproduction of a public domain work. \textbf{Outlines.} Natural Earth \citep{ne}.
+
+\section{Methods}
+\subsection{Locating the way stations}
+No published table gives where each way station is drawn. I located them on the photograph at full resolution, on gridded crops. I started from unmistakable towns (London, York, Exeter, St David's), fitted an affine and then a thin-plate spline from the National Grid to the image, and used it to predict where each remaining town should be drawn. Each was then identified on the crop: by its label where legible ({{located.high|int}}, ``high''), by the right town drawing at the end of the right red line with the right numeral ({{located.med|int}}, ``medium''), or with real doubt, usually among faded drawings or several candidates ({{located.low|int}}, ``low''). {{located.missing|int}} could not be placed, {{located.missing_cornwall|int}} of them in Cornwall, where the parchment is worn. Because the map has no red lines in Scotland, I added {{located.controls|int}} control points read the same way: Orkney, the Isle of May, the Bass Rock, Perth and the two ends of Hadrian's Wall (Table~\ref{tab:located}). As a consistency check, a smooth fit through all other points predicts each point to within a median {{located.loo_median_km|f1}} km.
+
+\subsection{Shape}
+Positions in National Grid kilometres were fitted to image pixels (with the image $y$ axis turned up) by least squares, first with a similarity (one scale, one rotation, a shift), then with a general affine transformation \citep{tobler}. A way station's misplacement is the distance between its true position and its map position taken back to the ground through the inverse of the overall similarity: how far the map puts it from where a correctly shaped map at the same scale and orientation would. Each region of at least six located places (groups of historic counties) has its own similarity fit, reported as its scale relative to the whole map and its rotation relative to the map's mean rotation, and an affine fit whose ratio of singular values measures stretch. For the figures, a thin-plate spline \citep{bookstein} with light smoothing carries the National Grid and the modern coastline onto the image, and back again at the overall similarity (the ``Gough shape'' of England and Wales). The spline is unconstrained far from located points and is not used for Scotland.
+
+\subsection{Distances}
+The route segments were joined into a network at the vertex level (vertices within 30 m merged; loose ends joined to the nearest vertex of another segment within 400 m). Each way station was put on the nearest vertex (median offset under 0.1 km, at most 1.7 km, added to the length), and each red line's road distance is the shortest path between its two way stations over segment lengths as given in the database. Straight-line distances are in the National Grid. For each of the {{units.n|int}} red lines with a legible figure, kilometres per written mile is road (or straight) distance divided by the figure; a figure ``agrees within 25\%'' when the figure times the median rate is within a factor of 1.25 of the road distance. The drawn length of a red line is the image distance between its two located stations divided by the overall similarity scale. Journeys are shortest paths over the red lines weighted by the written figure, with faded figures filled from the road length at the median rate.
+
+\section{Results}
+\subsection{The two maps}
+Figure~\ref{fig:maps} shows the located way stations on the photograph with the 25 km National Grid bent to fit. The grid is remarkably regular over England, tightening towards the north and opening out over Wales.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_maps.jpg}
+\caption{The Gough Map with the way stations located (black rings), the control points (blue) and the National Grid at 25 km carried onto the image by a thin-plate spline. East is at the top.}\label{fig:maps}\end{figure}
+
+\subsection{Shape}
+The similarity fit turns the map {{shape.turn_deg|int}}\textdegree{} anticlockwise from north-up ({{shape.turn_sure|int}}\textdegree{} with high and medium confidence points only): east at the top, with a further lean of about {{shape.turn_off|f1}}\textdegree. At the overall scale, the median way station is misplaced by {{shape.err_median_km|f1}} km and {{shape.err_within25_pct|int}}\% are within 25 km; the root mean square error is {{shape.rms_km|f1}} km. An affine fit barely improves on this (stretch {{shape.aniso|f2}}; {{shape.aniso_sure|f2}} for the surer points), so the map has no strong overall squeeze in one direction. Errors vary by region (Figure~\ref{fig:arrows}, Table~\ref{tab:regions}). The north of England ({{regions.North.err_median_km|f1}} km) and the south-east ({{regions.South-east.err_median_km|f1}} km) are best; the Midlands, East and South-west lie near 20 km. Wales is drawn at {{regions.Wales.scale_rel|f2}} times the overall scale and its way stations are misplaced by a median {{regions.Wales.err_median_km|f1}} km; the five worst-placed way stations are all on the coast of Cardigan Bay, led by {{shape.worst.0.name|raw}} ({{shape.worst.0.err_km|int}} km). The north of England is drawn small ({{regions.North.scale_rel|f2}}).
+
+\begin{figure}[tbp]\centering\includegraphics[width=.82\textwidth]{f_arrows.png}
+\caption{Misplacement of each located place: arrow from the true position to the map position at the overall scale and rotation, coloured by region.}\label{fig:arrows}\end{figure}
+
+{{TABLE_REGIONS}}
+
+North of the Wall the map is much less reliable. The Wall's ends are within about {{controls.wall_err_km|int}} km of their places. Orkney is {{scotland.Orkney.true_km|int}} km from the middle of the Wall but drawn at {{scotland.Orkney.map_km|int}} km ({{scotland.Orkney.ratio|f2}}), and is misplaced by {{controls.orkney_err_km|int}} km; Perth is drawn at {{scotland.Perth.ratio|f2}} of its distance, while the Isle of May and the Bass Rock, at the mouth of the Forth, are pushed out ({{scotland.Isle of May.ratio|f2}} and {{scotland.Bass Rock.ratio|f2}}). With four points these are indications only. Figure~\ref{fig:morph} shows England and Wales in the map's shape.
+
+\begin{figure}[tbp]\centering\includegraphics[width=.8\textwidth]{f_morph.png}
+\caption{The modern coastline of England and Wales carried onto the map by the thin-plate spline and back to the ground at the overall similarity: the island as the Gough Map draws it.}\label{fig:morph}\end{figure}
+
+\subsection{The written miles}
+One written mile corresponds to a median {{units.km_per_unit_road|f2}} km of road (interquartile range {{units.q25|f2}} to {{units.q75|f2}}) and {{units.km_per_unit_gc|f2}} km in a straight line, or {{units.statute_miles_road|f2}} and {{units.statute_miles_gc|f2}} statute miles; the roads are a median {{units.road_over_gc|f2}} times the straight line. At {{units.km_per_unit_road|f2}} km a mile, {{units.within25_pct|int}}\% of the {{units.n|int}} figures agree with the road within 25\% and {{units.within50_pct|int}}\% within 50\%; the rank correlation between figure and road length is {{units.spearman|f2}} (Figure~\ref{fig:miles}). The rate is lower for long lines ({{units.by_band.long.kpu|f2}} km for figures above 12) than for short ones ({{units.by_band.short.kpu|f2}} km for 8 or less), and ranges by region from {{units.by_region.South-west.kpu|f2}} (South-west) to {{units.by_region.Midlands.kpu|f2}} (Midlands). The largest misfits (Rye to Winchelsea, {{units.misfits.0.value|int}} miles for {{units.misfits.0.road_km|f1}} km; Barmouth to Llanenddwyn, {{units.misfits.1.value|int}} for {{units.misfits.1.road_km|f1}}) look like copying errors or misattributed figures.
+
+\begin{figure}[tbp]\centering\includegraphics[width=.9\textwidth]{f_miles.png}
+\caption{Written figure against road length for each red line with a legible figure, coloured by the period code covering most of the road. The band is agreement within 25\% at the median rate.}\label{fig:miles}\end{figure}
+
+\subsection{Drawing against numbers}
+For {{drawn.n|int}} lines with both ends located and a figure, the written figure is closer to the road length than the drawn length on {{drawn.num_better_pct|int}}\% of lines; median absolute errors are {{drawn.num_err_median_pct|int}}\% and {{drawn.draw_err_median_pct|int}}\%, and {{drawn.num_within25_pct|int}}\% of figures but only {{drawn.draw_within25_pct|int}}\% of drawn lengths are within 25\% (Figure~\ref{fig:drawn}). Rank correlations with the road are {{drawn.spearman_num|f2}} and {{drawn.spearman_draw|f2}}.
+
+\begin{figure}[tbp]\centering\includegraphics[width=.75\textwidth]{f_drawn.png}
+\caption{Absolute error of the written figure (at the median rate) against absolute error of the drawn length, per red line.}\label{fig:drawn}\end{figure}
+
+\subsection{Journeys}
+The red lines form {{network.components|int}} connected groups; the largest joins {{network.largest|int}} way stations. Summing written figures along the shortest routes from London gives York at {{journeys.York.miles|int}} miles ({{journeys.York.map_km|int}} km against {{journeys.York.road_km|int}} km of road), Bristol at {{journeys.Bristol.map_km|int}} against {{journeys.Bristol.road_km|int}}, Carlisle {{journeys.Carlisle.map_km|int}} against {{journeys.Carlisle.road_km|int}}, St David's {{journeys.St David's.map_km|int}} against {{journeys.St David's.road_km|int}} and Exeter {{journeys.Exeter.map_km|int}} against {{journeys.Exeter.road_km|int}}, the largest discrepancy (Figure~\ref{fig:journeys}).
+
+\begin{figure}[tbp]\centering\includegraphics[width=.85\textwidth]{f_journeys.png}
+\caption{Journeys from London: written figures summed along the shortest route over the red lines and converted at the median rate, against the road length along the same lines.}\label{fig:journeys}\end{figure}
+
+\subsection{Roads by period}
+The red lines use {{roads.segments_used|int}} route segments, {{roads.km|int}} km. By period code, {{roads.by_period.Roman.pct|f1}}\% is Roman road, {{roads.by_period.pre-1086.pct|f1}}\% has evidence before 1086, {{roads.by_period.medieval, dated.pct|f1}}\% dated medieval evidence, {{roads.by_period.medieval, other.pct|f1}}\% other medieval evidence and {{roads.by_period.early modern.pct|f1}}\% is known only from the early modern road books (Figure~\ref{fig:roads}). {{roads.lines_mainly_roman|int}} red lines ({{roads.lines_mainly_roman_pct|int}}\%) run mostly on Roman road. The rate per written mile is {{units.by_period.Roman.kpu|f2}} km on mainly Roman lines and {{units.by_period.early modern.kpu|f2}} km on lines known only from the road books, with {{units.by_period.Roman.within25_pct|int}}\% and {{units.by_period.early modern.within25_pct|int}}\% within 25\%.
+
+\begin{figure}[tbp]\centering\includegraphics[width=.8\textwidth]{f_roads.png}
+\caption{The route segments under the red lines by period code (my reading of the codes), with the way stations.}\label{fig:roads}\end{figure}
+
+\section{Limitations}
+The positions on the map are mine, read by eye; {{located.low|int}} are uncertain and {{located.missing|int}} are missing, and they favour legible places. Leaving the uncertain ones out moves the rotation by under two degrees and changes no conclusion, but individual misplacements, especially in Wales and the far north of England, should be read with that in mind. The road distances depend on Oksanen and Brookes' identification of the routes, which is itself an argument, and on my reading of the period codes. The similarity and affine fits summarise a map that was never drawn to one projection; the thin-plate spline is only a visual aid. The Scottish control points are few, and some are guesses. The statute mile is used only as a yardstick: the map's mile was a customary unit.
+
+\section{Conclusion}
+The Gough Map places the towns of England within a couple of tens of kilometres of where an accurate map at its scale would, and its errors are regional: Wales enlarged and spread, the north slightly shrunk, Scotland squeezed. Its written distances are more reliable than its drawing: in a medieval mile of about {{units.km_per_unit_road|f2}} km of road, most are within a quarter of the truth, and over long journeys the errors cancel. Whoever compiled the red lines worked from distances along roads, many of them Roman, many first recorded centuries later.
+
+\section*{Data and code availability}
+Data, code, the interactive page and the positions on the map are at \url{REPOURL} and \url{PAGEURL}, under the MIT licence (code) and CC BY 4.0 (text, figures and derived data). The road database is CC BY 4.0 \citep{ads}; the photograph is public domain.
+
+\section*{AI statement}
+I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.
+
+\begin{thebibliography}{9}
+\bibitem[Bookstein(1989)]{bookstein} Bookstein, F. L. (1989) Principal warps: thin-plate splines and the decomposition of deformations. \emph{IEEE Transactions on Pattern Analysis and Machine Intelligence} 11(6), 567-585.
+\bibitem[Delano-Smith et~al.(2017)]{delano} Delano-Smith, C. et al. (2017) New light on the medieval Gough Map of Britain. \emph{Imago Mundi} 69(1), 1-36.
+\bibitem[Lilley et~al.(2009)]{lilley} Lilley, K. D., Lloyd, C. D. and Campbell, B. M. S. (2009) Mapping the realm: a new look at the Gough map of Britain (c. 1360). \emph{Imago Mundi} 61(1), 1-28.
+\bibitem[Margary(1973)]{margary} Margary, I. D. (1973) \emph{Roman Roads in Britain}. 3rd edn. London: John Baker.
+\bibitem[Natural Earth(n.d.)]{ne} Natural Earth. Free vector and raster map data at 1:10m, 1:50m and 1:110m scales. Website, \url{https://www.naturalearthdata.com/} (accessed 2026). Public domain.
+\bibitem[Ogilby(1675)]{ogilby} Ogilby, J. (1675) \emph{Britannia}. London.
+\bibitem[Oksanen and Brookes(2024)]{ads} Oksanen, E. and Brookes, S. (2024) \emph{The Routes and Roads of the Gough Map: GIS Database} [data-set]. York: Archaeology Data Service [distributor]. \url{https://doi.org/10.5284/1124312}.
+\bibitem[Parsons(1958)]{parsons} Parsons, E. J. S. (1958) \emph{The Map of Great Britain circa A.D. 1360 known as the Gough Map: An Introduction to the Facsimile}, with ``The roads of the Gough Map'' by Sir Frank Stenton. Oxford: Bodleian Library and Royal Geographical Society.
+\bibitem[Tobler(1994)]{tobler} Tobler, W. R. (1994) Bidimensional regression. \emph{Geographical Analysis} 26(3), 187-212.
+\end{thebibliography}
+
+\clearpage
+{{TABLE_LOCATED}}
+\end{document}

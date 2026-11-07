@@ -1,0 +1,158 @@
+id,x,y,conf,note
+1,8100,5110,med,Aberdovey: after xii
+2,7180,4280,low,Abergele: faded vignette
+3,8520,5100,med,Aberystwyth: coastal vignette at end of xxiv line from Cardigan
+4,8910,2680,low,Abingdon: end of v line from Oxford (label not read)
+5,9500,2070,high,Alton: label Alton; vii from Farnham
+6,5870,3520,low,Appleby: vignette after xi
+7,9704,1765,low,Arundel: between two x numerals
+8,7080,4600,high,Bangor: cathedral spire; viii line from Caernarfon
+9,8290,1645,high,Barkway: label Berkway
+10,7910,5100,low,Barmouth: faded coastal vignette
+11,6600,2320,med,Barton upon Humber: spire on the south bank of the Humber
+12,9550,1095,low,Battle: faded town on the line (ADS note)
+13,6430,2290,med,Beverley: label Beuerley
+14,7720,2990,low,Birmingham: spire
+15,6830,2710,low,Blyth: vignette
+17,9605,1275,med,Boreham Street: start of xviii line
+18,6230,3060,low,Boroughbridge: spire by the red bridge
+19,7230,1925,med,Boston: big spire by label Boston
+20,5895,3190,low,Bowes: vignette at start of xiii line
+22,9686,1622,low,Bramber: next station after x
+23,8880,4030,med,Brecon: after x numeral
+24,8800,1835,med,Brentford: label Brayn(ford)
+25,8000,3610,low,Bridgnorth: spire after xv from Shrewsbury
+26,6450,2130,low,Bridlington: spire group by label B...
+27,10120,3250,low,Bridport: faded coastal vignette
+28,9230,3190,high,Bristol: big spire; label Bristoll; l (50) line to Marlborough
+29,5770,3470,low,Brough: vignette after xiii
+31,8830,2810,low,Burford: next vignette west
+32,7860,1230,high,Bury St Edmunds: big spire; label Bury
+33,7090,4830,med,Caernarfon: towered vignette at end of xxiv line
+34,6770,2230,med,Caistor: end of xii line from Barton
+35,8060,1595,high,Cambridge: label Cantebrigge
+37,9075,665,high,Canterbury: big church group labelled Cantuar; xvii line to Rye
+38,7210,4510,med,Capel Curig: end of xv line from Bangor
+39,8900,4940,med,Cardigan: spire on the coast; xxiv line to Aberystwyth
+41,9170,4640,med,Carmarthen: town group
+42,6230,3295,low,Castle Bolton: vignette after x
+43,8155,1800,high,Caxton: label Caxton; ix line
+44,9940,3515,low,Chard: faded vignette on chain
+45,7280,3720,high,Chester: cathedral city; xii line to Overton
+46,6890,2785,low,Chesterfield: tall spire on the Derby road
+47,9715,1815,high,Chichester: big spire labelled Cicestre
+48,8740,3830,med,Clyro: end of xii line from Hereford
+50,7830,2765,low,Coleshill: vignette after viii from Coventry
+51,9020,2020,med,Colnbrook: end of xvii line from Brentford
+52,7220,4410,med,Conwy: castle after viii
+53,8020,2700,med,Coventry: tall spire; xvi numerals either side
+54,9910,3285,low,Crewkerne: faded vignette on chain to Exeter
+55,7490,5095,med,Criccieth: coastal vignette; xxiv line to Caernarfon
+56,8170,2490,med,Daventry: spire group between Towcester and Coventry
+57,7090,2746,low,Derby: vignette at end of xv line
+58,6720,2865,low,Doncaster: large red-roofed vignette
+59,7960,3080,low,Droitwich: vignette by label Wyche; x numerals both sides
+60,8560,2020,high,Dunstable: label Dunstaple
+61,10140,3860,high,Exeter: label Exon; big spire
+62,9020,2720,med,Faringdon: xx line towards Malmesbury
+63,9420,2010,high,Farnham: label Farnham
+64,7330,3960,low,Flint: castle vignette
+65,6030,3115,low,Gilling: vignette with x numerals
+66,6720,2390,med,Glanford Brigg: end of viii line from Barton
+67,8890,3105,high,Gloucester: label Gloucestre; walled town
+68,7460,2375,med,Grantham: big spire; xvi line to Stamford
+69,9300,1800,low,Guildford: vignette above xv line to Farnham; label part read
+70,5720,2560,med,Guisborough: end of xvii line
+71,7720,5130,low,Harlech: faded coastal vignette
+72,9740,1990,med,Havant: end of xxii line
+73,9330,5030,med,Haverfordwest: spire; vii line to St Davids
+75,6230,2880,low,Helperby: vignette after x from York
+76,8640,3570,high,Hereford: big spire beside Herefordia; xvii line to Newent
+77,8790,1730,med,High Barnet: unlabelled vignette between London and St Albans; x lines
+79,10060,3690,low,Honiton: after xi numeral
+80,7030,2120,med,Horncastle: spire at end of xvi line
+82,9380,2570,low,Hungerford: label ...rford
+83,7980,1855,high,Huntingdon: label Huntyngdon
+84,6080,3680,low,Kendal: spire after xvi numeral
+85,8070,3390,low,Kidderminster: faded vignette between Bridgnorth and Worcester
+86,9020,1845,low,Kingston: faded label ...ston
+87,6210,3620,low,Kirkby Lonsdale: junction vignette
+89,6380,3700,med,Lancaster: big spire and castle group
+91,6040,2995,low,Leeming Bar: vignette after xiv
+92,7515,2672,med,Leicester: spire group by label Leycestre
+93,9672,1550,med,Lewes: end of xviii line
+94,7460,2920,low,Lichfield: spire group
+95,7165,2410,med,Lincoln: large walled town at the end of the x line from Spital
+96,7050,3820,low,Liverpool: vignette across the estuary from Chester
+97,8940,4510,low,Llandeilo: faded vignette
+98,7800,5110,low,Llanenddwyn: faded coastal vignette
+99,8950,4400,low,Llangadog: faded vignette
+100,9230,4880,low,Llawhaden: faded vignette after viii
+101,8945,4240,low,Llywel: after second x
+102,8840,1610,high,London castle
+103,10170,3450,low,Lyme Regis: faded coastal vignette
+104,9045,2150,med,Maidenhead: spire cluster after vii
+105,9100,2950,med,Malmesbury: spire; label ...mesbury; xx line to Bristol
+106,6430,2540,low,Malton: spire near Pickering
+107,7800,2455,low,Market Harborough: vignette between Northampton and Leicester
+109,9300,2730,med,Marlborough: end of l line from Bristol
+110,7362,2665,low,Melton Mowbray: spire between Leicester and Grantham
+111,9545,2120,med,New Alresford: end of vii line from Winchester
+112,7335,2520,high,Newark: label Newerk
+113,9300,2550,med,Newbury: label Neubury
+115,8740,3320,med,Newent: end of xvii line from Hereford
+116,7880,1460,high,Newmarket: label Newmarket
+117,9100,3205,med,Newport: label Newport across the Severn
+118,8150,2310,high,Northampton: label Northampton; big spire
+119,8810,2950,low,Northleach: start of xv line to Gloucester
+120,7360,950,high,Norwich: walled city; label Norwyc
+121,7970,2020,med,Ogerston: unlabelled vignette at end of xiv line from Huntingdon
+122,10220,4260,med,Okehampton: end of xx line from Exeter
+123,7110,2030,low,Old Bolingbroke: vignette between Boston and Horncastle
+124,7560,3810,med,Overton: between two xii numerals
+125,8790,2490,high,Oxford: largest spire in the area; lines to Tetsworth Reading Witney Faringdon
+126,5650,3640,low,Penrith: vignette near label
+127,6280,2530,low,Pickering: by label Pykeryng
+129,6560,2895,low,Pontefract: vignette
+130,6690,3680,med,Preston: spire on the road south of Lancaster
+131,9060,2440,med,Reading: large spire; xv line to Newbury
+132,7290,4090,low,Rhuddlan: castle vignette
+133,6100,3180,low,Richmond: spire vignette
+134,8320,1750,high,Royston: label Royston; spire
+135,9375,860,med,Rye: end of xvii line from Kent on the coast
+136,9690,2600,high,Salisbury: label Salesbury; xx line from Winchester
+137,6190,2420,low,Scarborough: coastal spire group
+139,6230,3440,low,Settle: end of x line from Kirkby Lonsdale
+140,9760,2930,med,Shaftesbury: label Shaftesbury; spire
+141,5880,3640,low,Shap: spire vignette
+142,9810,3225,med,Sherborne: end of xii line from Shaftesbury
+143,7880,3850,med,Shrewsbury: spire; end of xii line
+144,6210,3330,low,Skipton: vignette at end of x line from Settle
+145,7254,2235,low,Sleaford: vignette by xiiii numeral
+146,7870,2870,low,Solihull: vignette after viii from Coventry
+147,9780,2235,high,Southampton: label Hampton; spire; no numeral from Havant
+148,7550,1905,low,Spalding: spire at end of xii line from Boston
+149,7020,2410,med,Spital in the Street: vignette between two x numerals
+150,8665,1855,high,St Albans: label S Albon; big spire
+151,9200,4730,low,St Clears: faded vignette
+153,9190,5230,high,St Davids: big church at the tip; vii line from Haverfordwest
+156,7720,2200,med,Stamford: town group at end of v line; xvi line onward
+158,8470,2270,med,Stony Stratford: label Stratford
+159,8810,2260,med,Tetsworth: label ...worth; x line from Oxford
+161,7700,1180,med,Thetford: label Thetford; end of xxxii line from Norwich
+162,8330,2370,low,Towcester: vignette
+163,7130,2630,low,Tuxford: vignette after x from Newark
+164,8910,2040,med,Uxbridge: end of xv line from London; label Uxbrig
+165,7050,1900,med,Wainfleet: coastal vignette at end of xii line from Boston
+166,6505,3030,low,Wakefield: vignette
+167,8705,1665,high,Waltham: label Waltham; xii from London
+168,7820,2110,high,Wansford: label Walmesford
+169,8510,1715,high,Ware: label Ware; spire
+170,7060,3550,low,Warrington: end of xxiv line from the south
+172,5940,2480,med,Whitby: abbey spire on the coast; xvii line to Guisborough
+173,6880,3580,low,Wigan: vignette on the road
+174,9555,1010,med,Winchelsea: end of viii line from Rye
+175,9590,2320,high,Winchester: label Wynchestre
+176,8800,2700,low,Witney: first vignette west of Oxford
+177,8460,3200,high,Worcester: spire; label Wircestre
+178,6420,2780,high,"York: walled city above the label Eboracum, on the Ouse"

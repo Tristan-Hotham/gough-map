@@ -1,0 +1,674 @@
+{
+ "meta": {
+  "page": "https://maps.tristanhotham.com/gough-map/",
+  "repo": "https://github.com/Tristan-Hotham/gough-map",
+  "slug": "gough-map"
+ },
+ "source": {
+  "stations": 179,
+  "red_lines": 188,
+  "routes": 455,
+  "legible_names": 168,
+  "faded": 19,
+  "with_figure": 169,
+  "image_w": 12224,
+  "image_h": 6021,
+  "route_km_all": 4542,
+  "counties": 48,
+  "tiles": 1549
+ },
+ "located": {
+  "n": 157,
+  "pct": 88,
+  "high": 33,
+  "med": 56,
+  "low": 68,
+  "missing": 22,
+  "controls": 6,
+  "n_fit": 163,
+  "n_sure": 93,
+  "loo_median_km": 8.1,
+  "missing_cornwall": 6
+ },
+ "shape": {
+  "turn_deg": 95,
+  "turn_off": 4.6,
+  "turn_sure": 96,
+  "px_per_km": 9.8752,
+  "rms_km": 31.3,
+  "aniso": 1.11,
+  "aniso_sure": 1.07,
+  "err_median_km": 17.6,
+  "err_within25_pct": 76,
+  "err_over50": 6,
+  "worst": [
+   {
+    "name": "Aberystwyth",
+    "err_km": 70,
+    "region": "Wales"
+   },
+   {
+    "name": "Aberdovey",
+    "err_km": 66,
+    "region": "Wales"
+   },
+   {
+    "name": "Barmouth",
+    "err_km": 63,
+    "region": "Wales"
+   },
+   {
+    "name": "Harlech",
+    "err_km": 62,
+    "region": "Wales"
+   },
+   {
+    "name": "Llanenddwyn",
+    "err_km": 61,
+    "region": "Wales"
+   }
+  ]
+ },
+ "regions": {
+  "South-east": {
+   "n": 39,
+   "scale_rel": 1.042,
+   "turn_deg": 7.6,
+   "aniso": 1.09,
+   "rms_km": 10.3,
+   "err_median_km": 13.9
+  },
+  "South-west": {
+   "n": 17,
+   "scale_rel": 1.012,
+   "turn_deg": 3.0,
+   "aniso": 1.11,
+   "rms_km": 7.4,
+   "err_median_km": 19.1
+  },
+  "Midlands": {
+   "n": 25,
+   "scale_rel": 1.02,
+   "turn_deg": 4.9,
+   "aniso": 1.07,
+   "rms_km": 17.8,
+   "err_median_km": 20.3
+  },
+  "East": {
+   "n": 21,
+   "scale_rel": 1.011,
+   "turn_deg": 10.7,
+   "aniso": 1.13,
+   "rms_km": 7.4,
+   "err_median_km": 19.6
+  },
+  "North": {
+   "n": 33,
+   "scale_rel": 0.896,
+   "turn_deg": -6.7,
+   "aniso": 1.1,
+   "rms_km": 15.7,
+   "err_median_km": 12.6
+  },
+  "Wales": {
+   "n": 24,
+   "scale_rel": 1.22,
+   "turn_deg": 5.2,
+   "aniso": 1.23,
+   "rms_km": 22.4,
+   "err_median_km": 33.2
+  }
+ },
+ "region_err_rank": [
+  "Wales",
+  "Midlands",
+  "East",
+  "South-west",
+  "South-east",
+  "North"
+ ],
+ "scotland": {
+  "Orkney": {
+   "true_km": 450,
+   "map_km": 356,
+   "ratio": 0.79
+  },
+  "Isle of May": {
+   "true_km": 135,
+   "map_km": 167,
+   "ratio": 1.24
+  },
+  "Bass Rock": {
+   "true_km": 124,
+   "map_km": 136,
+   "ratio": 1.1
+  },
+  "Perth": {
+   "true_km": 172,
+   "map_km": 115,
+   "ratio": 0.67
+  }
+ },
+ "controls": {
+  "orkney_err_km": 246,
+  "may_err_km": 83,
+  "bass_err_km": 49,
+  "perth_err_km": 68,
+  "wall_err_km": 31,
+  "scot_median_km": 75.4
+ },
+ "units": {
+  "n": 169,
+  "km_per_unit_road": 2.08,
+  "km_per_unit_gc": 1.89,
+  "q25": 1.85,
+  "q75": 2.37,
+  "statute_miles_road": 1.29,
+  "statute_miles_gc": 1.17,
+  "mile_km": 1.609344,
+  "within25_pct": 72,
+  "within50_pct": 89,
+  "spearman": 0.74,
+  "pearson": 0.76,
+  "road_over_gc": 1.1,
+  "max_value": 50,
+  "value_median": 11,
+  "by_band": {
+   "short": {
+    "n": 36,
+    "kpu": 2.21
+   },
+   "mid": {
+    "n": 79,
+    "kpu": 2.14
+   },
+   "long": {
+    "n": 54,
+    "kpu": 1.93
+   }
+  },
+  "by_region": {
+   "South-east": {
+    "n": 43,
+    "kpu": 2.02
+   },
+   "South-west": {
+    "n": 22,
+    "kpu": 1.86
+   },
+   "Midlands": {
+    "n": 32,
+    "kpu": 2.34
+   },
+   "East": {
+    "n": 19,
+    "kpu": 2.16
+   },
+   "North": {
+    "n": 35,
+    "kpu": 2.18
+   },
+   "Wales": {
+    "n": 18,
+    "kpu": 1.93
+   }
+  },
+  "by_period": {
+   "Roman": {
+    "n": 65,
+    "kpu": 2.1,
+    "within25_pct": 71
+   },
+   "pre-1086": {
+    "n": 20,
+    "kpu": 2.1,
+    "within25_pct": 85
+   },
+   "medieval, dated": {
+    "n": 11,
+    "kpu": 2.04,
+    "within25_pct": 73
+   },
+   "medieval, other": {
+    "n": 18,
+    "kpu": 2.05,
+    "within25_pct": 72
+   },
+   "early modern": {
+    "n": 53,
+    "kpu": 2.1,
+    "within25_pct": 68
+   }
+  },
+  "longest": {
+   "from": "Bristol",
+   "to": "Marlborough",
+   "value": 50,
+   "road_km": 62,
+   "kpu": 1.24
+  },
+  "misfits": [
+   {
+    "from": "Rye",
+    "to": "Winchelsea",
+    "value": 8,
+    "road_km": 4.7,
+    "ratio": 0.28
+   },
+   {
+    "from": "Barmouth",
+    "to": "Llanenddwyn",
+    "value": 12,
+    "road_km": 7.7,
+    "ratio": 0.31
+   },
+   {
+    "from": "Chichester",
+    "to": "Havant",
+    "value": 22,
+    "road_km": 14.6,
+    "ratio": 0.32
+   },
+   {
+    "from": "Brentford",
+    "to": "Colnbrook",
+    "value": 17,
+    "road_km": 15.7,
+    "ratio": 0.44
+   },
+   {
+    "from": "Burford",
+    "to": "Witney",
+    "value": 12,
+    "road_km": 12.4,
+    "ratio": 0.5
+   },
+   {
+    "from": "Chard",
+    "to": "Crewkerne",
+    "value": 12,
+    "road_km": 12.9,
+    "ratio": 0.51
+   }
+  ]
+ },
+ "drawn": {
+  "n": 146,
+  "draw_err_median_pct": 31,
+  "num_err_median_pct": 13,
+  "num_better_pct": 66,
+  "draw_within25_pct": 47,
+  "num_within25_pct": 71,
+  "spearman_draw": 0.47,
+  "spearman_num": 0.72
+ },
+ "roads": {
+  "segments_used": 436,
+  "km": 4505,
+  "by_period": {
+   "Roman": {
+    "km": 1597,
+    "pct": 35.4
+   },
+   "pre-1086": {
+    "km": 592,
+    "pct": 13.1
+   },
+   "medieval, dated": {
+    "km": 304,
+    "pct": 6.7
+   },
+   "medieval, other": {
+    "km": 410,
+    "pct": 9.1
+   },
+   "early modern": {
+    "km": 1474,
+    "pct": 32.7
+   },
+   "river": {
+    "km": 62,
+    "pct": 1.4
+   },
+   "undated": {
+    "km": 66,
+    "pct": 1.5
+   }
+  },
+  "lines_mainly_roman": 71,
+  "lines_mainly_roman_pct": 38,
+  "lines_mainly_early_modern": 59,
+  "margary_named": 181,
+  "medieval_pct": 28.9
+ },
+ "network": {
+  "components": 4,
+  "largest": 154
+ },
+ "journeys": {
+  "York": {
+   "miles": 202,
+   "map_km": 420,
+   "road_km": 424,
+   "gc_km": 281,
+   "legs": 19,
+   "faded": 0,
+   "ratio": 0.99,
+   "via": [
+    "Waltham Holy Cross",
+    "Ware",
+    "Royston",
+    "Caxton",
+    "Huntingdon",
+    "Ogerston",
+    "Wansford",
+    "Stamford",
+    "Grantham",
+    "Newark-on-Trent",
+    "Tuxford",
+    "Blyth",
+    "Doncaster",
+    "Pontefract",
+    "Wetherby",
+    "Boroughbridge",
+    "Leeming Bar",
+    "Helperby"
+   ]
+  },
+  "Carlisle": {
+   "miles": 233,
+   "map_km": 485,
+   "road_km": 493,
+   "gc_km": 422,
+   "legs": 22,
+   "faded": 4,
+   "ratio": 0.98,
+   "via": [
+    "Waltham Holy Cross",
+    "Ware",
+    "Royston",
+    "Caxton",
+    "Huntingdon",
+    "Ogerston",
+    "Wansford",
+    "Stamford",
+    "Grantham",
+    "Newark-on-Trent",
+    "Tuxford",
+    "Blyth",
+    "Doncaster",
+    "Wakefield",
+    "Bradford",
+    "Skipton",
+    "Settle",
+    "Kirkby Lonsdale",
+    "Kendal",
+    "Shap",
+    "Penrith"
+   ]
+  },
+  "Lancaster": {
+   "miles": 185,
+   "map_km": 386,
+   "road_km": 392,
+   "gc_km": 336,
+   "legs": 16,
+   "faded": 2,
+   "ratio": 0.98,
+   "via": [
+    "High Barnet",
+    "St Albans",
+    "Dunstable",
+    "Stony Stratford",
+    "Buckingham",
+    "Towcester",
+    "Daventry",
+    "Coventry",
+    "Coleshill",
+    "Lichfield",
+    "Stone",
+    "Newcastle-under-Lyme",
+    "Warrington",
+    "Wigan",
+    "Preston"
+   ]
+  },
+  "Chester": {
+   "miles": 173,
+   "map_km": 361,
+   "road_km": 380,
+   "gc_km": 267,
+   "legs": 16,
+   "faded": 1,
+   "ratio": 0.95,
+   "via": [
+    "High Barnet",
+    "St Albans",
+    "Dunstable",
+    "Stony Stratford",
+    "Buckingham",
+    "Towcester",
+    "Daventry",
+    "Coventry",
+    "Solihull",
+    "Droitwich",
+    "Worcester",
+    "Kidderminster",
+    "Bridgnorth",
+    "Shrewsbury",
+    "Overton"
+   ]
+  },
+  "Bristol": {
+   "miles": 97,
+   "map_km": 202,
+   "road_km": 203,
+   "gc_km": 174,
+   "legs": 7,
+   "faded": 0,
+   "ratio": 1.0,
+   "via": [
+    "Uxbridge",
+    "High Wycombe",
+    "Tetsworth",
+    "Oxford",
+    "Faringdon",
+    "Malmesbury"
+   ]
+  },
+  "Exeter": {
+   "miles": 165,
+   "map_km": 343,
+   "road_km": 292,
+   "gc_km": 257,
+   "legs": 14,
+   "faded": 0,
+   "ratio": 1.18,
+   "via": [
+    "Kingston",
+    "Cobham",
+    "Guildford",
+    "Farnham",
+    "Alton",
+    "New Alresford",
+    "Winchester",
+    "Salisbury",
+    "Shaftesbury",
+    "Sherborne",
+    "Crewkerne",
+    "Chard",
+    "Honiton"
+   ]
+  },
+  "St David's": {
+   "miles": 214,
+   "map_km": 445,
+   "road_km": 432,
+   "gc_km": 360,
+   "legs": 20,
+   "faded": 2,
+   "ratio": 1.03,
+   "via": [
+    "Uxbridge",
+    "High Wycombe",
+    "Tetsworth",
+    "Oxford",
+    "Witney",
+    "Burford",
+    "Northleach",
+    "Gloucester",
+    "Newent",
+    "Hereford",
+    "Clyro",
+    "Brecon",
+    "Llywel",
+    "Llangadog",
+    "Llandeilo",
+    "Carmarthen",
+    "St Clears",
+    "Llawhaden",
+    "Haverfordwest"
+   ]
+  },
+  "Norwich": {
+   "miles": 106,
+   "map_km": 221,
+   "road_km": 201,
+   "gc_km": 157,
+   "legs": 8,
+   "faded": 0,
+   "ratio": 1.1,
+   "via": [
+    "Waltham Holy Cross",
+    "Ware",
+    "Barkway",
+    "Cambridge",
+    "Newmarket",
+    "Bury St Edmunds",
+    "Thetford"
+   ]
+  },
+  "Caernarfon": {
+   "miles": 237,
+   "map_km": 494,
+   "road_km": 523,
+   "gc_km": 338,
+   "legs": 23,
+   "faded": 2,
+   "ratio": 0.94,
+   "via": [
+    "High Barnet",
+    "St Albans",
+    "Dunstable",
+    "Stony Stratford",
+    "Buckingham",
+    "Towcester",
+    "Daventry",
+    "Coventry",
+    "Solihull",
+    "Droitwich",
+    "Worcester",
+    "Kidderminster",
+    "Bridgnorth",
+    "Shrewsbury",
+    "Overton",
+    "Chester",
+    "Flint",
+    "Rhuddlan",
+    "Abergele",
+    "Conwy",
+    "Capel Curig",
+    "Bangor"
+   ]
+  },
+  "Scarborough": {
+   "miles": 254,
+   "map_km": 529,
+   "road_km": 537,
+   "gc_km": 309,
+   "legs": 23,
+   "faded": 0,
+   "ratio": 0.98,
+   "via": [
+    "Waltham Holy Cross",
+    "Ware",
+    "Royston",
+    "Caxton",
+    "Huntingdon",
+    "Ogerston",
+    "Wansford",
+    "Stamford",
+    "Grantham",
+    "Newark-on-Trent",
+    "Tuxford",
+    "Blyth",
+    "Doncaster",
+    "Pontefract",
+    "Wetherby",
+    "Boroughbridge",
+    "Leeming Bar",
+    "Helperby",
+    "York",
+    "Market Weighton",
+    "Beverley",
+    "Bridlington"
+   ]
+  }
+ },
+ "regions_table": [
+  {
+   "region": "South-east",
+   "n": 39,
+   "scale_rel": 1.042,
+   "turn_deg": 7.6,
+   "aniso": 1.09,
+   "rms_km": 10.3,
+   "err_median_km": 13.9
+  },
+  {
+   "region": "South-west",
+   "n": 17,
+   "scale_rel": 1.012,
+   "turn_deg": 3.0,
+   "aniso": 1.11,
+   "rms_km": 7.4,
+   "err_median_km": 19.1
+  },
+  {
+   "region": "Midlands",
+   "n": 25,
+   "scale_rel": 1.02,
+   "turn_deg": 4.9,
+   "aniso": 1.07,
+   "rms_km": 17.8,
+   "err_median_km": 20.3
+  },
+  {
+   "region": "East",
+   "n": 21,
+   "scale_rel": 1.011,
+   "turn_deg": 10.7,
+   "aniso": 1.13,
+   "rms_km": 7.4,
+   "err_median_km": 19.6
+  },
+  {
+   "region": "North",
+   "n": 33,
+   "scale_rel": 0.896,
+   "turn_deg": -6.7,
+   "aniso": 1.1,
+   "rms_km": 15.7,
+   "err_median_km": 12.6
+  },
+  {
+   "region": "Wales",
+   "n": 24,
+   "scale_rel": 1.22,
+   "turn_deg": 5.2,
+   "aniso": 1.23,
+   "rms_km": 22.4,
+   "err_median_km": 33.2
+  }
+ ]
+}

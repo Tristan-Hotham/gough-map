@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Gough Map</title>
+<meta name="description" content="Britain's oldest road map, measured: {{located.n|int}} of its {{source.stations|int}} way stations found by eye, its shape fitted to the real island, and {{units.n|int}} written mileages checked against the real roads.">
+<meta property="og:title" content="The Gough Map: Britain's oldest road map, measured">
+<meta property="og:description" content="Drawn about 1360 with east at the top. Its shape misplaces a typical town by {{shape.err_median_km|int}} km, but its written distances are right to within 25% on {{units.within25_pct|int}}% of roads.">
+<meta property="og:image" content="https://maps.tristanhotham.com/gough-map/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/gough-map/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=IM+Fell+English:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+/* Paper and ink: the parchment of the Inked World, iron-gall ink, vermilion for the Gough Map's red roads. */
+:root{
+  --bg:#F6EEDA; --panel:#EFE3C6; --fg:#2B2119; --muted:#6B5D4C; --rule:#E2D3B0; --card:#FBF5E6; --border:#CDB990;
+  --red:#A3261B; --blue:#3D6E9E; --gold:#9C7A2E; --green:#6E8250; --paper:#F3E5BF; --sea:#B9CFE0;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --fell:"IM Fell English",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17130E; --panel:#211B14; --fg:#EFE6D2; --muted:#B0A38C; --rule:#3A3126; --card:#1C1711; --border:#54483A;
+  --red:#EE7A63; --blue:#86B2DE; --gold:#E2B654; --green:#A9C07F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17130E; --panel:#211B14; --fg:#EFE6D2; --muted:#B0A38C; --rule:#3A3126; --card:#1C1711; --border:#54483A;
+  --red:#EE7A63; --blue:#86B2DE; --gold:#E2B654; --green:#A9C07F; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:700px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1240px,calc(100vw - 32px));margin-left:calc((100% - min(1240px,100vw - 32px))/2)}
+a{color:inherit;text-decoration-color:var(--red);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--red);color:#fff;padding:5px 8px;font-weight:500}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(44px,11vw,86px)/.92 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 span{color:var(--red);font:400 1em/1 var(--fell);letter-spacing:0}
+.mark{width:clamp(78px,16vw,128px);height:auto;display:block;color:var(--fg)}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:58ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--red);display:block;letter-spacing:.1em;margin-bottom:10px}
+p{margin:0 0 16px}
+.lede::first-letter{font:400 78px/.8 var(--fell);float:left;margin:6px 10px 0 0;color:var(--red)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(22px,4.4vw,32px)/1 var(--display);letter-spacing:-.01em}
+.stats b.a{color:var(--red)} .stats b.b{color:var(--blue)} .stats b.c{color:var(--green)} .stats b.d{color:var(--gold)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:300px;z-index:1000;transform:translate(-50%,calc(-100% - 12px));display:none}
+.controls{display:flex;gap:8px;align-items:center;margin:0 0 10px;flex-wrap:wrap}
+.scrollrow{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:2px;max-width:100%}
+.scrollrow .btn{flex:0 0 auto;white-space:nowrap}
+.ctl-l{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px;flex:0 0 auto;align-self:center}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.searchbox{position:relative;flex:1 1 260px;min-width:0}
+input[type=search]{font:400 15px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 11px;min-height:40px;width:100%}
+.suggest{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--border);z-index:1003;font:400 13px/1.3 var(--mono);display:none;max-height:340px;overflow:auto}
+.suggest li{padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--rule)}
+.suggest li span{color:var(--muted)}
+.suggest li[aria-selected="true"],.suggest li:hover{background:var(--panel)}
+.twin{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:860px){.twin{grid-template-columns:1fr}}
+.mapcap{font:500 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:4px 0 6px;display:flex;justify-content:space-between;gap:8px;align-items:end;flex-wrap:wrap}
+.mapcap b{color:var(--fg);font-weight:500}
+.lmap{border:1px solid var(--border);background:#E2D6B8;border-radius:2px;position:relative;overflow:hidden;height:560px}
+@media (max-width:860px){.lmap{height:min(64vh,460px)}}
+.morph{display:flex;gap:10px;align-items:center;font:400 12px/1.3 var(--mono);color:var(--muted);margin:8px 0 0;flex-wrap:wrap}
+.morph input{flex:1 1 200px;accent-color:var(--red)}
+.morph b{color:var(--fg);font-weight:500}
+.side{overflow-x:auto;background:var(--card);border:1px solid var(--border);padding:12px 14px 10px;font:400 13px/1.5 var(--mono);margin-top:12px;min-height:90px}
+.side .big{font:400 30px/1.1 var(--fell);margin:2px 0 4px}
+.side .sub{color:var(--muted);font-size:12px;margin:0 0 8px}
+.side table{border-collapse:collapse;margin:6px 0;width:100%}
+.side td,.side th{padding:3px 10px 3px 0;vertical-align:top;text-align:left}
+.side th{font:500 10.5px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+.side td.r,.side th.r{text-align:right;white-space:nowrap}
+.side table.kv{width:auto}
+.side .kv td:first-child{color:var(--muted);white-space:nowrap}
+.side .legs tbody tr{cursor:pointer}
+.side .legs tbody tr:hover td{background:var(--panel)}
+.rn{font:italic 400 15px/1 var(--fell);color:var(--red)}
+.chip{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.ok{color:var(--green)}.mid{color:var(--gold)}.bad{color:var(--red)}
+.maplibregl-map{font:400 12px/1.4 var(--mono)}
+.maplibregl-ctrl-attrib{background:rgba(251,245,230,.85)!important;color:#6B5D4C}
+.maplibregl-ctrl-attrib a{color:#2B2119}
+.lyrWrap{position:absolute;top:10px;left:10px;z-index:3}
+.lyrBtn{background:#FBF5E6;color:#2B2119;border:1px solid #CDB990;border-radius:3px;font:600 12px/1 var(--mono);padding:9px 10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.lyrBtn[aria-expanded="true"]{background:#2B2119;color:#FBF5E6}
+.lyrPanel{background:#FBF5E6;color:#2B2119;border:1px solid #CDB990;border-radius:3px;padding:10px 12px 8px;margin-top:6px;width:250px;box-shadow:0 2px 10px rgba(0,0,0,.15);font:400 12px/1.3 var(--mono);max-height:min(56vh,420px);overflow:auto}
+.lyrPanel .row{margin:0 0 9px}
+.lyrPanel label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600}
+.lyrPanel input[type=range]{width:100%;accent-color:#2B2119}
+.lyrPanel .sub{display:flex;gap:6px;align-items:center;color:#6B5D4C;font-size:11px;margin-top:3px}
+.lyrPanel .hd{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#6B5D4C;margin:10px 0 7px;border-top:1px solid #E2D3B0;padding-top:9px}
+.lyrPanel .hd:first-child{border-top:0;padding-top:0;margin-top:0}
+.lyrPanel .reset{font:400 11px var(--mono);color:#6B5D4C;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.pinL{font:400 15px/1.1 var(--fell);color:#2B2119;background:rgba(251,245,230,.92);border:1px solid #CDB990;padding:3px 7px;border-radius:2px;white-space:nowrap;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 13px var(--mono);color:#6B5D4C;z-index:1;text-align:center;padding:20px}
+.fallback{position:absolute;inset:0;width:100%;height:100%}
+.fbnote{position:absolute;left:10px;bottom:10px;right:10px;font:400 12px/1.4 var(--mono);color:#6B5D4C;background:rgba(251,245,230,.92);padding:6px 9px;border:1px solid #CDB990;border-radius:3px;pointer-events:none}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px;align-items:center}
+.legend span{display:inline-flex;align-items:center}
+.legend i{display:inline-block;width:11px;height:11px;margin-right:6px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
+.legend i.ln{height:0;border:0;border-top:3px solid;width:18px;border-radius:0}
+.legend i.sq{border-radius:2px;width:14px}
+.pull{font:400 28px/1.25 var(--fell);border-left:6px solid var(--red);padding:4px 0 4px 18px;margin:30px 0}
+table.tbl{width:100%;border-collapse:collapse;font:400 13px/1.4 var(--mono)}
+table.tbl th{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 6px 6px 0;border-bottom:2px solid var(--fg);white-space:nowrap}
+table.tbl td{padding:6px 6px 6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+table.tbl td.r,table.tbl th.r{text-align:right;white-space:nowrap}
+.tablebox{overflow:auto;border:1px solid var(--border);background:var(--card);padding:0 10px}
+details{margin:14px 0}
+summary{font:500 13px/1.4 var(--mono);cursor:pointer;padding:8px 0}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--red);border-color:var(--red);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>History</span><span>A medieval road map</span></div>
+<header class="hero">
+  <h1>The Gough <span>Map</span></h1>
+  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">Britain's oldest surviving road map, drawn about 1360 with east at the top. I found {{located.n|int}} of its {{source.stations|int}} way stations by eye, fitted its shape to the real island, and checked {{units.n|int}} of the distances written beside its red roads against the real roads. The shape wanders. The numbers, mostly, hold.</p>
+</header>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Sources: Oksanen and Brookes, the Routes and Roads of the Gough Map (Archaeology Data Service, CC BY 4.0); the Gough Map, Bodleian Library, photograph on Wikimedia Commons (public domain); Natural Earth</div>
+
+<div class="stats">
+  <div><b class="a">{{shape.turn_deg|int}}°</b><span>the map is turned from north-up: north points to the left</span></div>
+  <div><b class="b">{{shape.err_median_km|int}} km</b><span>how far a typical town sits from where the map's average scale would put it</span></div>
+  <div><b class="c">{{units.within25_pct|int}}%</b><span>of {{units.n|int}} written distances agree with the real road to within 25%</span></div>
+  <div><b class="d">{{units.km_per_unit_road|f2}} km</b><span>of road for each mile written on the map: about {{units.statute_miles_road|f2}} of today's miles</span></div>
+</div>
+
+<p class="lede">In the Bodleian Library in Oxford is a map of Britain on two skins of parchment, about 115 by 56 centimetres. Nobody knows who drew it. It is named after Richard Gough, the antiquary who bought it in 1774, and it is usually dated to about 1360. East is at the top, so Scotland stretches away to the left, Wales bulges out at the bottom and Kent sits up near the top right corner. Across England and Wales run thin red lines, joining towns drawn as little houses and churches, and beside most of them a Roman numeral: how far it is to the next town.</p>
+<p>Those red lines make it the oldest surviving road map of Britain. In 2024 the historians Eljas Oksanen and Stuart Brookes published a database of them: {{source.stations|int}} way stations, the {{source.red_lines|int}} red lines between them with the figure written on each, and the real road each line most likely stands for, traced on the ground and dated from Roman roads to the road books of the seventeenth century. Their database tells you where each town really is. It does not tell you where the map draws it. So I found {{located.n|int}} of the {{source.stations|int}} towns on the map by eye, and set the two side by side. Click a town on either map to see it on the other.</p>
+
+<h2><span class="n">01 · Two maps</span>The parchment and the island</h2>
+<div class="bleed" id="atlas">
+<div class="controls">
+  <div class="searchbox"><input type="search" id="q" placeholder="Search a town (York, Exeter, St David's, Lincoln...)" aria-label="Search a town" autocomplete="off"><ul class="suggest" id="sug" role="listbox"></ul></div>
+</div>
+<div class="controls"><div class="scrollrow" id="focusRow"><span class="ctl-l">Go to</span></div></div>
+<div class="twin">
+<div><div class="mapcap"><span><b>The Gough Map</b> · about 1360 · east at the top</span><button class="btn" id="northUp" aria-pressed="false">Turn north up</button></div>
+<div id="fmap" class="lmap" data-fullscreen-map role="application" aria-label="The Gough Map, zoomable, with the towns I located marked"><div class="loading">Unrolling the map...</div></div></div>
+<div><div class="mapcap"><span><b>The same roads, inked on the real island</b></span><span>north at the top</span></div>
+<div id="mmap" class="lmap" data-fullscreen-map role="application" aria-label="Modern ink map of the way stations, red lines and real roads"><div class="loading">Inking the map...</div></div>
+<div class="morph"><span>True island</span><input type="range" id="morph" min="0" max="100" value="0" aria-label="Bend the island into the Gough Map's shape"><span><b>Gough's island</b></span></div></div>
+</div>
+<div class="legend" id="legend"></div>
+<div class="side" id="side" aria-live="polite"></div>
+<p class="src">Left: the Gough Map (Bodleian Library, MS. Gough Gen. Top. 16), photograph on Wikimedia Commons, public domain. Rings: the {{located.n|int}} way stations I located, strong for a label read or the right drawing on the right red line, faint where I was unsure; blue rings mark the control points in Scotland and on Hadrian's Wall. In Map layers you can lay the National Grid and the modern coastline over the parchment, bent to fit. Right: the way stations at their true places, the red lines with their written miles in Roman numerals, and the real roads under them by period (Oksanen and Brookes, CC BY 4.0). Drag the slider to bend the island, its towns and red lines into the shape the Gough Map gives them. Land: Natural Earth.</p>
+</div>
+
+<h2><span class="n">02 · The shape</span>Turned on its side, and mostly right</h2>
+<p>Fit the located towns to their real places with a single scale and a single turn, the best a flat copy of the real island could do, and the map comes out turned {{shape.turn_deg|int}}° from north-up: east at the top, as everyone says, but leaning a further {{shape.turn_off|f1}}°. Allowing for that, the typical town sits {{shape.err_median_km|f1}} km from where it should, and {{shape.err_within25_pct|int}}% of them are within 25 km. A general stretch in one direction barely helps: the best straight-line fit is only {{shape.aniso|f2}} times longer one way than the other. For a map drawn without any survey, this is remarkably good.</p>
+<div class="figure"><p class="fig-h">How far each region is out of place, and at what scale it is drawn</p><p class="fig-sub">For each region: the median distance between a town's true place and where the map puts it (bars), and its own best scale against the map's average (labels). Hover a bar.</p><div class="chart" id="regChart"></div></div>
+<p>The errors are not spread evenly. England's south-east and the north are drawn closest to the truth, with median misplacements of {{regions.South-east.err_median_km|f1}} and {{regions.North.err_median_km|f1}} km. Wales is the outlier: its towns are misplaced by a median {{regions.Wales.err_median_km|f1}} km, and the whole country is drawn at {{regions.Wales.scale_rel|f2}} times the scale of the rest, as if seen through a magnifying glass. The coast of Cardigan Bay is pulled out the furthest: {{shape.worst.0.name|raw}} is {{shape.worst.0.err_km|int}} km out of place, and {{shape.worst.1.name|raw}}, {{shape.worst.2.name|raw}} and {{shape.worst.3.name|raw}} more than 60 km. The north of England, on the other hand, is drawn small, at {{regions.North.scale_rel|f2}} of the average scale.</p>
+<p>Scotland is where the map gives up. There are no red lines north of the border, and few names I could read with confidence, so I added four Scottish places I could, and the two ends of Hadrian's Wall. The Wall itself is drawn well, its ends within about {{controls.wall_err_km|int}} km of their places. Beyond it the land is squashed: Orkney lies {{scotland.Orkney.true_km|int}} km from the Wall in reality but only {{scotland.Orkney.map_km|int}} km on the map, and it is drawn {{controls.orkney_err_km|int}} km from its true place. Perth is drawn at {{scotland.Perth.ratio|f2}} of its true distance from the Wall, while the islands at the mouth of the Forth are pushed out. With so few points the slider above bends only England and Wales: north of the Wall it would be guesswork.</p>
+
+<h2><span class="n">03 · The miles</span>What a Gough Map mile was</h2>
+<p>Of the {{source.red_lines|int}} red lines, {{source.with_figure|int}} still carry a legible figure; on {{source.faded|int}} it is faded away. The figures run from 4 to {{units.max_value|int}}, with a median of {{units.value_median|int}}. Following each line along the real road that Oksanen and Brookes traced for it, one written mile covers a median {{units.km_per_unit_road|f2}} km of road, or {{units.km_per_unit_gc|f2}} km as the crow flies. That is about {{units.statute_miles_road|f2}} of today's statute miles, so the map's mile was a longer, older, customary mile, not the one fixed by statute in 1593.</p>
+<div class="figure"><p class="fig-h">Each red line: the figure on the map against the length of the real road</p><p class="fig-sub">{{units.n|int}} red lines with a legible figure, coloured by the period of most of the road under them. The dashed line is {{units.km_per_unit_road|f2}} km per written mile; the band is 25% either way. Hover or tap a dot.</p><div class="chart" id="mileChart"></div><div class="legend" id="mileLegend"></div></div>
+<p>The figures track the roads well: {{units.within25_pct|int}}% of them are within 25% of the road length at that rate, and {{units.within50_pct|int}}% within 50% (rank correlation {{units.spearman|f2}}). The longest figure on the map, L (50) for Bristol to {{units.longest.to|raw}}, is also one of the most generous, at {{units.longest.kpu|f2}} km a mile; that line runs {{units.longest.road_km|int}} km on the ground. The worst misfits look like a slip of the pen or a misread: Rye to Winchelsea is written as {{units.misfits.0.value|int}} miles for {{units.misfits.0.road_km|f1}} km of road.</p>
+<p>Was the mile the same everywhere? Roughly. By region of the line's first town it ranges from {{units.by_region.South-west.kpu|f2}} km in the south-west to {{units.by_region.Midlands.kpu|f2}} km in the Midlands. Short lines run a little longer per mile ({{units.by_band.short.kpu|f2}} km for figures up to 8) than long ones ({{units.by_band.long.kpu|f2}} km for figures over 12), as you would expect if a short stage were rounded up to a whole mile, or measured along a winding lane.</p>
+
+<div class="pull">The drawing puts a town tens of kilometres out. The number beside the red line gets the road right.</div>
+<p>Here is the strangest thing about the Gough Map. For {{drawn.n|int}} red lines with both towns located, I can compare two ways of reading the distance: the length of the line as drawn, at the map's average scale, and the figure written beside it. The written figure is wrong by a median {{drawn.num_err_median_pct|int}}%; the drawing by {{drawn.draw_err_median_pct|int}}%. The figure is closer to the real road on {{drawn.num_better_pct|int}}% of lines, and within 25% on {{drawn.num_within25_pct|int}}% of them, against {{drawn.draw_within25_pct|int}}% for the drawing. Whoever made the map, or the itineraries behind it, knew the roads by distance, not by shape.</p>
+<div class="figure"><p class="fig-h">The drawing against the numbers</p><p class="fig-sub">For each red line, the error of the drawn length and of the written figure against the real road. Lines to the left of the diagonal: the number is better. Hover a dot.</p><div class="chart" id="drawChart"></div></div>
+
+<h2><span class="n">04 · The traveller</span>London to York in {{journeys.York.miles|int}} miles</h2>
+<p>Could you have planned a journey with it? Adding up the figures along the red lines from London, the road to York comes to {{journeys.York.miles|int}} miles, which at {{units.km_per_unit_road|f2}} km a mile is {{journeys.York.map_km|int}} km, against {{journeys.York.road_km|int}} km along the real roads beneath. To Bristol the map gives {{journeys.Bristol.map_km|int}} km for {{journeys.Bristol.road_km|int}}; to Carlisle {{journeys.Carlisle.map_km|int}} for {{journeys.Carlisle.road_km|int}}; to St David's {{journeys.St David's.map_km|int}} for {{journeys.St David's.road_km|int}}. Over a long journey the slips cancel out. The worst is the road to Exeter, where the map's {{journeys.Exeter.miles|int}} miles make {{journeys.Exeter.map_km|int}} km, {{journeys.Exeter.ratio|f2}} times the road.</p>
+<div class="figure"><p class="fig-h">Journeys from London, by the map's own figures</p><p class="fig-sub">Shortest route over the red lines, adding up the written miles (a few faded figures filled in from the road), converted at {{units.km_per_unit_road|f2}} km a mile, against the real road along the same lines. Hover a bar for the route.</p><div class="chart" id="jChart"></div><div class="legend" id="jLegend"></div></div>
+
+<h2><span class="n">05 · The roads</span>Roman, medieval, or later</h2>
+<p>Which roads do the red lines follow? Of the {{roads.km|int}} km of real road that Oksanen and Brookes traced under them, {{roads.by_period.Roman.pct|f1}}% is Roman road. Another {{roads.medieval_pct|f1}}% has medieval evidence: {{roads.by_period.pre-1086.pct|f1}}% is known from before Domesday Book in 1086, from Anglo-Saxon charters and place names, and the rest from bridges, charters and travellers' accounts of the centuries after. {{roads.by_period.early modern.pct|f1}}% is known only from the road books of the seventeenth and eighteenth centuries, Ogilby and Cary, though the map shows it was already a route by 1360. {{roads.lines_mainly_roman|int}} of the {{source.red_lines|int}} red lines ({{roads.lines_mainly_roman_pct|int}}%) run mostly along a Roman road.</p>
+<div class="figure"><p class="fig-h">The real roads under the red lines, by period</p><p class="fig-sub">Kilometres of traced road under the red lines, by the period code in the database (my reading of the codes). Hover a block.</p><div class="chart" id="perChart"></div></div>
+<p>The age of the road makes no difference to the figure. Lines mostly on Roman roads come out at {{units.by_period.Roman.kpu|f2}} km a mile, those known only from the later road books at {{units.by_period.early modern.kpu|f2}}, and the share within 25% is much the same. The map's distances were the distances people travelled, on whatever road they used.</p>
+
+<h2><span class="n">06 · How I did this</span>Methods and caveats</h2>
+<p><b>The data.</b> Oksanen and Brookes' GIS database (Archaeology Data Service, 2024, CC BY 4.0): {{source.stations|int}} way stations with modern names and historic counties, {{source.red_lines|int}} red lines with the written figure, and {{source.routes|int}} traced road segments with period codes. The codes are numbers without a key in the files I could reach; I read them from the categories and comments as Roman road, evidence before Domesday, dated medieval evidence after Domesday, other medieval evidence, early modern road books only, river and undated. Road distances follow the traced segments between each line's two towns (shortest path, towns snapped to the nearest traced road; road lengths as given in the database).</p>
+<p><b>Towns on the parchment.</b> No table gives where each town is drawn, so I found them by eye on the photograph at full resolution (12,224 by 6,021 pixels): {{located.high|int}} by a label I could read, {{located.med|int}} by the right drawing at the end of the right red line with the right numeral, and {{located.low|int}} with real doubt, mostly among faded drawings. {{located.missing|int}} I could not place, {{located.missing_cornwall|int}} of them in Cornwall, where the parchment is worn. A check: leaving each town out, a smooth fit through the others predicts its place to within a median {{located.loo_median_km|f1}} km. Fitting only the surer ones turns the map {{shape.turn_sure|int}}° instead of {{shape.turn_deg|int}}°, and changes no conclusion here.</p>
+<p><b>Shape.</b> Similarity and affine fits by least squares from British National Grid to image pixels; misplacement is the distance between a town's true place and its map place taken back through the overall similarity. Region fits use at least 6 towns. The warped grid, the bent coastline and the morph use a thin-plate spline through all located places, and say nothing about land far from them. The Scottish points are few and partly guessed.</p>
+<p><b>Miles.</b> Kilometres per written mile, medians over lines with a legible figure. The statute mile ({{units.mile_km|f2}} km) is only a yardstick: the map's own mile was not standardised. Journeys use the shortest route by written figure; faded figures are filled from the road length.</p>
+<details><summary>Sources and licences</summary>
+<ul>
+<li>Oksanen, E. and Brookes, S. (2024) The Routes and Roads of the Gough Map: GIS Database. Archaeology Data Service. https://doi.org/10.5284/1124312. CC BY 4.0.</li>
+<li>The Gough Map, about 1360, Bodleian Library, MS. Gough Gen. Top. 16. Photograph: Wikimedia Commons, "Gough Kaart (hoge resolutie).jpg", a faithful reproduction of a two-dimensional public domain work.</li>
+<li>Natural Earth (public domain). Optional modern map and labels: © OpenStreetMap contributors, © CARTO. Optional relief: Esri.</li>
+<li>Lettering on the ink map: the Inked World's glyphs, made from IM Fell and MedievalSharp (SIL Open Font Licence 1.1).</li>
+</ul></details>
+
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.24043678">Read the paper</a><a href="https://github.com/Tristan-Hotham/gough-map">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/gough-map/">Blog post</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) The Gough Map: Britain's oldest road map, measured. Zenodo. <a href="https://doi.org/10.5281/zenodo.24043678">https://doi.org/10.5281/zenodo.24043678</a></p>
+<p>Licence: code MIT; text, figures and derived data CC BY 4.0. The road database is CC BY 4.0 (Oksanen and Brookes); the map photograph is public domain.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const R = /*RESULTS*/;
+const SITE = /*SITE*/;
+const LAND = /*LAND*/;
+const fmt = n => n == null || n === "" ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+document.addEventListener("click", e => { if (!e.target.closest("svg")) hideTip(); });
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const redraws = [];
+function resp(box, render) { let last = 0; const go = force => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+const small = () => innerWidth < 860;
+function roman(n) { if (!n) return "faded"; const T = [[50, "l"], [40, "xl"], [10, "x"], [9, "ix"], [5, "v"], [4, "iv"], [1, "i"]]; let s = ""; for (const [v, r] of T) while (n >= v) { s += r; n -= v; } return s; }
+const INK = "#2B2119", PAPER = "#F3E5BF", RED = "#A3261B", BLUE = "#3D6E9E";
+const C = {}; SITE.cols.forEach((k, i) => C[k] = i);
+const ST = SITE.st, byId = {}; ST.forEach((r, i) => byId[r[C.id]] = r);
+const LINES = SITE.lines, K = SITE.K, IM = SITE.image;
+const RN = SITE.regions.map(r => r[0]), RC = SITE.regions.map(r => r[1]);
+const PER = {}; SITE.periods.forEach(p => PER[p[0]] = { name: p[1], short: p[2], col: p[3] });
+const linesOf = id => LINES.filter(l => l[1] === id || l[2] === id);
+
+/* hero mark: a red road between two little Gough houses */
+(function () {
+  const g = document.getElementById("heroMark");
+  const house = (x, y) => { el("path", { d: `M${x - 13} ${y} L${x - 13} ${y - 14} L${x + 13} ${y - 14} L${x + 13} ${y} Z`, fill: "none", stroke: "currentColor", "stroke-width": 2.4 }, g);
+    el("path", { d: `M${x - 16} ${y - 14} L${x} ${y - 28} L${x + 16} ${y - 14} Z`, fill: RED, stroke: "currentColor", "stroke-width": 2 }, g);
+    el("path", { d: `M${x - 3} ${y} L${x - 3} ${y - 8} L${x + 3} ${y - 8} L${x + 3} ${y}`, fill: "none", stroke: "currentColor", "stroke-width": 1.8 }, g); };
+  el("path", { d: "M24 96 L96 46", stroke: RED, "stroke-width": 3.2, fill: "none" }, g);
+  house(22, 104); house(98, 52);
+  const t = el("text", { x: 52, y: 66, transform: "rotate(-35 52 66)", "font-size": 18, "font-style": "italic", style: "font-family:'IM Fell English',Georgia,serif;fill:" + RED }, g); t.textContent = "xii";
+})();
+
+/* facsimile pixels to pseudo coordinates (the image laid on Web Mercator at zoom 6, one pixel per world pixel) */
+const px2ll = (x, y) => { const X = IM.x0 + x, Y = IM.y0 + y; const lon = X / IM.world * 360 - 180; const n = Math.PI - 2 * Math.PI * Y / IM.world; return [lon, 180 / Math.PI * Math.atan(Math.sinh(n))]; };
+const FB0 = px2ll(0, IM.full[1]), FB1 = px2ll(IM.full[0], 0);
+
+/* layers */
+const LYDEF = { fdots: true, grid: false, coast: false, flab: true, rlines: true, numerals: true, roads: true, names: true, arrows: false, modern: false, modernK: 45, relief: false, reliefK: 35, mlabels: false };
+const LY = { ...LYDEF };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("gm_layers") || "{}")); } catch (e) {}
+const saveLY = () => { try { localStorage.setItem("gm_layers", JSON.stringify(LY)); } catch (e) {} };
+let SEL = null, T = 0;
+const FC = f => ({ type: "FeatureCollection", features: f });
+const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+const posM = r => r[C.map_lon] != null && T > 0 ? lerp([r[C.lon], r[C.lat]], [r[C.map_lon], r[C.map_lat]], T) : [r[C.lon], r[C.lat]];
+function fFeat() { return FC(ST.filter(r => r[C.x] != null).map(r => ({ type: "Feature", properties: { k: r[C.id], n: r[C.name], sure: r[C.conf] === "low" ? 0 : 1, cp: r[C.kind] }, geometry: { type: "Point", coordinates: px2ll(r[C.x], r[C.y]) } }))); }
+function fLines() { return FC(LINES.filter(l => byId[l[1]][C.x] != null && byId[l[2]][C.x] != null).map(l => ({ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: [px2ll(byId[l[1]][C.x], byId[l[1]][C.y]), px2ll(byId[l[2]][C.x], byId[l[2]][C.y])] } }))); }
+const fGrid = () => FC(SITE.grid.map(c => ({ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: c.map(p => px2ll(p[0], p[1])) } })));
+const fCoast = () => FC(SITE.coast_on_map.map(c => ({ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: c.map(p => px2ll(p[0], p[1])) } })));
+function mSt() { return FC(ST.filter(r => r[C.kind] === 0 || r[C.map_lon] != null).map(r => ({ type: "Feature", properties: { k: r[C.id], n: r[C.name], cp: r[C.kind], loc: r[C.x] != null ? 1 : 0 }, geometry: { type: "Point", coordinates: posM(r) } }))); }
+function mLines() { return FC(LINES.map(l => { const a = posM(byId[l[1]]), b = posM(byId[l[2]]); return { type: "Feature", properties: { v: l[3], rn: roman(l[3]), p: l[6] == null ? 0 : l[6] }, geometry: { type: "LineString", coordinates: [a, b] } }; })); }
+function mArrows() { return FC(ST.filter(r => r[C.map_lon] != null).map(r => ({ type: "Feature", properties: { e: r[C.err] }, geometry: { type: "LineString", coordinates: [[r[C.lon], r[C.lat]], [r[C.map_lon], r[C.map_lat]]] } }))); }
+function mMorph() { return FC(SITE.morph.map(m => ({ type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [m.true.map((p, i) => lerp(p, m.gough[i], T))] } }))); }
+
+let fm = null, mm = null, fReady = false, mReady = false, pins = [];
+function inkIcons(map) {
+  const k = 3, mk = (w, h, draw) => { const c = document.createElement("canvas"); c.width = w * k; c.height = h * k; const x = c.getContext("2d"); x.scale(k, k); x.lineJoin = "round"; x.lineCap = "round"; draw(x); return { width: w * k, height: h * k, data: x.getImageData(0, 0, w * k, h * k).data }; };
+  const house = (x, red) => { x.fillStyle = "rgba(243,229,191,.97)"; x.strokeStyle = INK; x.lineWidth = 1.2;
+    x.beginPath(); x.rect(4, 9, 12, 8); x.fill(); x.stroke();
+    x.beginPath(); x.moveTo(2.5, 9.5); x.lineTo(10, 3); x.lineTo(17.5, 9.5); x.closePath(); x.fillStyle = red; x.fill(); x.stroke();
+    x.beginPath(); x.moveTo(8.5, 17); x.lineTo(8.5, 13); x.lineTo(11.5, 13); x.lineTo(11.5, 17); x.stroke(); };
+  map.addImage("town", mk(20, 19, x => house(x, RED)), { pixelRatio: k });
+  map.addImage("town-pale", mk(20, 19, x => { x.globalAlpha = .75; house(x, "#C9A24A"); }), { pixelRatio: k });
+  map.addImage("tower", mk(16, 20, x => { x.strokeStyle = INK; x.fillStyle = "rgba(243,229,191,.97)"; x.lineWidth = 1.2; x.beginPath(); x.rect(4, 6, 8, 12); x.fill(); x.stroke();
+    x.beginPath(); for (let i = 0; i < 3; i++) x.rect(4 + i * 3, 3, 2, 3); x.stroke(); x.fillStyle = RED; x.beginPath(); x.moveTo(8, 3); x.lineTo(8, 0.5); x.lineTo(11, 1.5); x.lineTo(8, 2.5); x.fill(); }), { pixelRatio: k });
+}
+function startMaps() {
+  if (typeof maplibregl === "undefined") { fallback(); return; }
+  const glyphs = new URL("fonts/{fontstack}/{range}.pbf", location.href).href.replace(/%7B/g, "{").replace(/%7D/g, "}");
+  try {
+    fm = new maplibregl.Map({ container: "fmap", bounds: [FB0, FB1], fitBoundsOptions: { padding: 4 }, maxBounds: [[FB0[0] - 40, FB0[1] - 25], [FB1[0] + 40, FB1[1] + 25]],
+      minZoom: 1, maxZoom: 8.2, renderWorldCopies: false, dragRotate: false, pitchWithRotate: false, touchPitch: false, fadeDuration: 0,
+      attributionControl: { compact: true, customAttribution: "The Gough Map, Bodleian Library (photograph: Wikimedia Commons, public domain)" },
+      style: { version: 8, glyphs, sources: {
+        gm: { type: "raster", tiles: [new URL("tiles/{z}/{x}/{y}.jpg", location.href).href.replace(/%7B/g, "{").replace(/%7D/g, "}")], tileSize: 256, minzoom: 0, maxzoom: IM.maxzoom, bounds: [FB0[0], FB0[1], FB1[0], FB1[1]] },
+        pts: { type: "geojson", data: fFeat() }, rl: { type: "geojson", data: fLines() }, grid: { type: "geojson", data: fGrid() }, coast: { type: "geojson", data: fCoast() },
+        sel: { type: "geojson", data: FC([]) } },
+        layers: [{ id: "bg", type: "background", paint: { "background-color": "#E2D6B8" } },
+          { id: "gm", type: "raster", source: "gm", paint: { "raster-fade-duration": 0 } },
+          { id: "grid", type: "line", source: "grid", layout: { visibility: "none" }, paint: { "line-color": BLUE, "line-width": ["interpolate", ["linear"], ["zoom"], 2, .6, 6, 1.6], "line-opacity": .75 } },
+          { id: "coast", type: "line", source: "coast", layout: { visibility: "none", "line-join": "round" }, paint: { "line-color": "#1F4E7A", "line-width": ["interpolate", ["linear"], ["zoom"], 2, 1, 6, 2.6], "line-opacity": .85 } },
+          { id: "pts", type: "circle", source: "pts", paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 2, 3, 5, 7, 7, 13], "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": ["case", ["==", ["get", "cp"], 1], BLUE, INK], "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 2, 1.2, 6, 2.2], "circle-stroke-opacity": ["case", ["==", ["get", "sure"], 1], .95, .6] } },
+          { id: "plab", type: "symbol", source: "pts", minzoom: 3.6, layout: { "text-field": ["get", "n"], "text-font": ["Ink Italic"], "text-size": ["interpolate", ["linear"], ["zoom"], 3.6, 11, 7, 16], "text-offset": [0, 1.1], "text-anchor": "top", "text-optional": true },
+            paint: { "text-color": "#1F4E7A", "text-halo-color": "rgba(243,229,191,.9)", "text-halo-width": 1.6 } },
+          { id: "sel", type: "circle", source: "sel", paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 2, 9, 7, 20], "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": RED, "circle-stroke-width": 3 } }] } });
+    fm.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+    fm.on("error", e => console.warn("map", e && e.error && e.error.message));
+    fm.on("load", () => { fReady = true; document.querySelector("#fmap .loading")?.remove(); bind(fm, "pts"); applyLayers(); drawSel(); });
+
+    mm = new maplibregl.Map({ container: "mmap", center: [-2.6, 53.6], zoom: small() ? 4.3 : 4.75, minZoom: 3.5, maxZoom: 12, renderWorldCopies: false, dragRotate: false, pitchWithRotate: false, touchPitch: false, fadeDuration: 0,
+      attributionControl: { compact: true, customAttribution: "Roads: Oksanen and Brookes (ADS, CC BY 4.0) · Natural Earth" },
+      style: { version: 8, glyphs, sources: {
+        land: { type: "geojson", data: LAND }, rip: { type: "geojson", data: "data/ripples.json" },
+        modern: { type: "raster", tiles: ["https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png", "https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png"], tileSize: 256, attribution: "© OpenStreetMap contributors © CARTO" },
+        mlab: { type: "raster", tiles: ["https://a.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png"], tileSize: 256, attribution: "© OpenStreetMap contributors © CARTO" },
+        relief: { type: "raster", tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}"], tileSize: 256, maxzoom: 13, attribution: "Relief: Esri" },
+        roads: { type: "geojson", data: "data/roads.geojson" }, morph: { type: "geojson", data: mMorph() }, rl: { type: "geojson", data: mLines() }, st: { type: "geojson", data: mSt() },
+        arr: { type: "geojson", data: mArrows() }, sel: { type: "geojson", data: FC([]) } },
+        layers: [{ id: "sea", type: "background", paint: { "background-color": "#C9D9E4" } },
+          { id: "rip", type: "line", source: "rip", paint: { "line-color": "#5D88B4", "line-width": ["match", ["get", "d"], 3, 1.1, 7, .8, .55], "line-opacity": ["match", ["get", "d"], 3, .75, 7, .55, .4] } },
+          { id: "land", type: "fill", source: "land", paint: { "fill-color": PAPER } },
+          { id: "coastline", type: "line", source: "land", paint: { "line-color": INK, "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1, 9, 2.2] } },
+          { id: "modern", type: "raster", source: "modern", layout: { visibility: "none" }, paint: { "raster-opacity": LY.modernK / 100 } },
+          { id: "relief", type: "raster", source: "relief", layout: { visibility: "none" }, paint: { "raster-opacity": LY.reliefK / 100 } },
+          { id: "morphf", type: "fill", source: "morph", layout: { visibility: "none" }, paint: { "fill-color": "#EBD7A6", "fill-opacity": .8 } },
+          { id: "morphl", type: "line", source: "morph", layout: { visibility: "none" }, paint: { "line-color": RED, "line-width": 1.6, "line-dasharray": [3, 1.5] } },
+          { id: "roads", type: "line", source: "roads", layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": ["match", ["get", "p"], ...SITE.periods.flatMap(p => [p[0], p[3]]), "#999"], "line-width": ["interpolate", ["linear"], ["zoom"], 5, 1.4, 10, 3.4], "line-opacity": .9 } },
+          { id: "rl", type: "line", source: "rl", layout: { "line-cap": "round" }, paint: { "line-color": RED, "line-width": ["interpolate", ["linear"], ["zoom"], 4, 1.1, 9, 2.6], "line-opacity": .85, "line-dasharray": [6, 2] } },
+          { id: "num", type: "symbol", source: "rl", minzoom: 5.6, layout: { "symbol-placement": "line-center", "text-field": ["get", "rn"], "text-font": ["Ink Italic"], "text-size": ["interpolate", ["linear"], ["zoom"], 5.6, 12, 9, 17], "text-offset": [0, -.6], "text-allow-overlap": false },
+            paint: { "text-color": RED, "text-halo-color": "rgba(243,229,191,.9)", "text-halo-width": 1.4 } },
+          { id: "arr", type: "line", source: "arr", layout: { visibility: "none", "line-cap": "round" }, paint: { "line-color": "#1F4E7A", "line-width": 1.4, "line-opacity": .8 } },
+          { id: "arrh", type: "circle", source: "arr", layout: { visibility: "none" }, filter: ["==", "$type", "LineString"], paint: { "circle-radius": 0 } },
+          { id: "mlab", type: "raster", source: "mlab", layout: { visibility: "none" }, paint: { "raster-opacity": .8 } },
+          { id: "st", type: "symbol", source: "st", layout: { "icon-image": ["case", ["==", ["get", "cp"], 1], "tower", ["==", ["get", "loc"], 1], "town", "town-pale"], "icon-size": ["interpolate", ["linear"], ["zoom"], 4, .6, 8, 1.1], "icon-allow-overlap": true, "icon-anchor": "bottom",
+            "text-field": ["get", "n"], "text-font": ["Ink Roman"], "text-size": ["interpolate", ["linear"], ["zoom"], 4, 0, 5.4, 11, 9, 16], "text-offset": [0, .3], "text-anchor": "top", "text-optional": true },
+            paint: { "text-color": INK, "text-halo-color": "rgba(243,229,191,.92)", "text-halo-width": 1.5 } },
+          { id: "sel", type: "circle", source: "sel", paint: { "circle-radius": 14, "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": RED, "circle-stroke-width": 3 } }] } });
+    mm.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+    mm.on("styleimagemissing", () => {});
+    mm.on("error", () => { /* offline tiles: the inked map still works */ });
+    mm.on("load", () => { inkIcons(mm); mReady = true; document.querySelector("#mmap .loading")?.remove(); bind(mm, "st"); applyLayers(); drawSel(); });
+    layersControl();
+  } catch (e) { console.warn(e); fallback(); }
+}
+function bind(map, layer) {
+  map.on("click", layer, e => { const f = e.features[0]; if (f) select(f.properties.k, false); });
+  map.on("mouseenter", layer, () => map.getCanvas().style.cursor = "pointer");
+  map.on("mouseleave", layer, () => map.getCanvas().style.cursor = "");
+}
+const vis = b => b ? "visible" : "none";
+function applyLayers() {
+  document.querySelectorAll(".maplibregl-ctrl-attrib.maplibregl-compact").forEach(a => { a.classList.remove("maplibregl-compact-show"); a.removeAttribute("open"); });
+  if (fReady) { fm.setLayoutProperty("pts", "visibility", vis(LY.fdots)); fm.setLayoutProperty("plab", "visibility", vis(LY.flab && LY.fdots)); fm.setLayoutProperty("grid", "visibility", vis(LY.grid)); fm.setLayoutProperty("coast", "visibility", vis(LY.coast)); }
+  if (mReady) {
+    mm.setLayoutProperty("rl", "visibility", vis(LY.rlines)); mm.setLayoutProperty("num", "visibility", vis(LY.rlines && LY.numerals));
+    mm.setLayoutProperty("roads", "visibility", vis(LY.roads && T === 0)); mm.setLayoutProperty("arr", "visibility", vis(LY.arrows && T === 0));
+    mm.setLayoutProperty("modern", "visibility", vis(LY.modern)); mm.setPaintProperty("modern", "raster-opacity", LY.modernK / 100);
+    mm.setLayoutProperty("relief", "visibility", vis(LY.relief)); mm.setPaintProperty("relief", "raster-opacity", LY.reliefK / 100);
+    mm.setLayoutProperty("mlab", "visibility", vis(LY.mlabels));
+    mm.setLayoutProperty("st", "text-field", LY.names ? ["get", "n"] : "");
+    mm.setLayoutProperty("morphf", "visibility", vis(T > 0)); mm.setLayoutProperty("morphl", "visibility", vis(T > 0));
+    mm.setPaintProperty("land", "fill-opacity", 1 - .55 * T); mm.setPaintProperty("coastline", "line-opacity", 1 - .7 * T);
+  }
+  legend();
+}
+function layersControl() {
+  const mk = (box, html) => { const w = document.createElement("div"); w.className = "lyrWrap";
+    w.innerHTML = `<button class="lyrBtn" aria-expanded="false">Map layers</button><div class="lyrPanel" hidden>${html}<button class="reset">Reset layers</button></div>`;
+    document.getElementById(box).appendChild(w);
+    const b = w.querySelector(".lyrBtn"), p = w.querySelector(".lyrPanel");
+    ["click", "dblclick", "mousedown", "touchstart", "wheel"].forEach(t => w.addEventListener(t, e => e.stopPropagation(), { passive: true }));
+    b.onclick = () => { const o = p.hidden; p.hidden = !o; b.setAttribute("aria-expanded", o); };
+    w.querySelectorAll("input[data-l][type=checkbox]").forEach(i => { i.checked = !!LY[i.dataset.l]; i.onchange = () => { LY[i.dataset.l] = i.checked; saveLY(); applyLayers(); }; });
+    w.querySelectorAll("input[data-l][type=range]").forEach(i => { i.value = LY[i.dataset.l]; i.oninput = () => { LY[i.dataset.l] = +i.value; saveLY(); applyLayers(); }; });
+    w.querySelector(".reset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); document.querySelectorAll(".lyrPanel input[data-l][type=checkbox]").forEach(i => i.checked = !!LY[i.dataset.l]); document.querySelectorAll(".lyrPanel input[type=range]").forEach(i => i.value = LY[i.dataset.l]); applyLayers(); };
+  };
+  mk("fmap", `<div class="hd">On the parchment</div><div class="row"><label><input type="checkbox" data-l="fdots">Towns I located</label></div>
+    <div class="row"><label><input type="checkbox" data-l="flab">Their modern names</label></div>
+    <div class="row"><label><input type="checkbox" data-l="grid">National Grid, 25 km, bent to fit</label></div>
+    <div class="row"><label><input type="checkbox" data-l="coast">Modern coastline, bent to fit</label></div>`);
+  mk("mmap", `<div class="hd">The Gough Map's roads</div><div class="row"><label><input type="checkbox" data-l="rlines">Red lines, town to town</label></div>
+    <div class="row"><label><input type="checkbox" data-l="numerals">Written miles (Roman numerals)</label></div>
+    <div class="row"><label><input type="checkbox" data-l="roads">Real roads beneath, by period</label></div>
+    <div class="row"><label><input type="checkbox" data-l="arrows">Where the map puts each town</label><div class="sub">a blue stroke from the true place</div></div>
+    <div class="row"><label><input type="checkbox" data-l="names">Town names</label></div>
+    <div class="hd">Where am I?</div>
+    <div class="row"><label><input type="checkbox" data-l="modern">Modern map</label><div class="sub"><span>opacity</span><input type="range" min="15" max="100" data-l="modernK" aria-label="Modern map opacity"></div></div>
+    <div class="row"><label><input type="checkbox" data-l="mlabels">Modern place names</label></div>
+    <div class="row"><label><input type="checkbox" data-l="relief">Hill shading</label><div class="sub"><span>opacity</span><input type="range" min="10" max="80" data-l="reliefK" aria-label="Hill shading opacity"></div></div>`);
+}
+function legend() {
+  const lg = document.getElementById("legend");
+  lg.innerHTML = `<span><i style="background:transparent;border:2px solid ${INK}"></i>located town (parchment)</span><span><i style="background:transparent;border:2px solid ${BLUE}"></i>control point in Scotland or on the Wall</span><span><i class="ln" style="border-color:${RED};border-top-style:dashed"></i>red line</span>` +
+    (LY.roads ? SITE.periods.filter(p => p[0] !== 0).map(p => `<span><i class="ln" style="border-color:${p[3]}"></i>${esc(p[2])} road</span>`).join("") : "") +
+    `<span><i style="background:#C9A24A"></i>town not found on the parchment</span>`;
+}
+document.getElementById("morph").addEventListener("input", e => {
+  T = +e.target.value / 100;
+  if (mReady) { mm.getSource("morph").setData(mMorph()); mm.getSource("st").setData(mSt()); mm.getSource("rl").setData(mLines()); applyLayers(); drawSel(); }
+});
+document.getElementById("northUp").onclick = e => { const on = e.currentTarget.getAttribute("aria-pressed") !== "true"; e.currentTarget.setAttribute("aria-pressed", on);
+  if (fReady) fm.easeTo({ bearing: on ? 270 - (R.shape.turn_deg - 90) : 0, duration: 900 }); };
+
+/* selection */
+function drawSel() {
+  pins.forEach(p => p.remove()); pins = [];
+  const r = SEL != null ? byId[SEL] : null, pt = c => FC([{ type: "Feature", properties: {}, geometry: { type: "Point", coordinates: c } }]);
+  if (fReady) fm.getSource("sel").setData(r && r[C.x] != null ? pt(px2ll(r[C.x], r[C.y])) : FC([]));
+  if (mReady) mm.getSource("sel").setData(r ? pt(posM(r)) : FC([]));
+  if (!r || typeof maplibregl === "undefined") return;
+  const pin = (map, c, t) => { const d = document.createElement("div"); d.className = "pinL"; d.textContent = t; pins.push(new maplibregl.Marker({ element: d, anchor: "bottom", offset: [0, -16] }).setLngLat(c).addTo(map)); };
+  if (fReady && r[C.x] != null) pin(fm, px2ll(r[C.x], r[C.y]), r[C.name]);
+  if (mReady) pin(mm, posM(r), r[C.name]);
+}
+const qc = x => x == null ? "" : (x >= .8 && x <= 1.25 ? "ok" : (x >= 2 / 3 && x <= 1.5 ? "mid" : "bad"));
+const CONF = { high: "label read on the map", med: "the right drawing on the right red line", low: "uncertain: faded, or one of several drawings" };
+function side() {
+  const box = document.getElementById("side"); const r = SEL != null ? byId[SEL] : null;
+  if (!r) { box.innerHTML = `<div class="sub">Click a town on either map, or search above. The panel shows how I found it on the parchment, how far the map misplaces it, and each red line from it: the miles written on the map, and the real road.</div>`; return; }
+  const ls = linesOf(r[C.id]).map(l => { const o = l[1] === r[C.id] ? l[2] : l[1]; const est = l[3] ? l[3] * K : null, q = est ? l[5] / est : null;
+    return `<tr data-k="${o}"><td>${esc(byId[o][C.name])}</td><td class="r"><span class="rn">${roman(l[3])}</span>${l[3] ? " (" + l[3] + ")" : ""}</td><td class="r">${l[5].toFixed(1)}</td><td class="r">${l[4].toFixed(1)}</td><td class="r ${qc(q)}">${q ? (l[5] / l[3]).toFixed(2) : ""}</td><td>${l[6] != null ? esc(PER[l[6]].short) : ""}</td></tr>`; }).join("");
+  box.innerHTML = `<div class="sub"><span class="chip" style="background:${RC[r[C.reg]]}"></span>${esc(RN[r[C.reg]])} · ${esc(r[C.county])}${r[C.kind] ? " · control point" : ""}</div>
+    <div class="big">${esc(r[C.name])}</div>
+    <table class="kv"><tr><td>On the parchment</td><td>${r[C.x] != null ? "found: " + CONF[r[C.conf]] : "not found: worn or unreadable"}</td></tr>
+    ${r[C.err] != null ? `<tr><td>Misplaced by</td><td>${r[C.err].toFixed(0)} km, at the map's average scale</td></tr>` : ""}</table>
+    ${ls ? `<table class="legs"><thead><tr><th>Red line to</th><th class="r">Written</th><th class="r">Road km</th><th class="r">Straight</th><th class="r">km/mile</th><th>Road</th></tr></thead><tbody>${ls}</tbody></table>` : ""}`;
+  box.querySelectorAll(".legs tr[data-k]").forEach(tr => tr.onclick = () => select(+tr.dataset.k));
+}
+function select(k, move = true) {
+  const r = byId[k]; if (!r) return; SEL = k; drawSel(); side();
+  if (fReady && r[C.x] != null) fm.flyTo({ center: px2ll(r[C.x], r[C.y]), zoom: Math.max(fm.getZoom(), 4.6), duration: 800 });
+  if (mReady) mm.flyTo({ center: posM(r), zoom: Math.max(mm.getZoom(), 7), duration: 800 });
+  if (FBK) FBK();
+  if (move && small()) document.getElementById("atlas").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+window.select = select;
+(function focusRow() {
+  const row = document.getElementById("focusRow"); const nid = n => ST.find(r => r[C.name] === n)[C.id];
+  [["Whole map", null], ["London", "London"], ["York", "York"], ["Bristol", "Bristol"], ["Exeter", "Exeter"], ["Aberystwyth", "Aberystwyth"], ["Lincoln", "Lincoln"], ["Kendal", "Kendal"], ["Orkney", "Orkney (Mainland)"]].forEach(([t, n]) => {
+    const b = document.createElement("button"); b.className = "btn"; b.textContent = t; row.appendChild(b);
+    b.onclick = () => { if (!n) { SEL = null; drawSel(); side(); if (fReady) fm.fitBounds([FB0, FB1], { padding: 4, duration: 800 }); if (mReady) mm.flyTo({ center: [-2.6, 53.6], zoom: small() ? 4.3 : 4.75, duration: 800 }); if (FBK) FBK(); return; } select(nid(n)); }; });
+})();
+(function search() {
+  const q = document.getElementById("q"), sug = document.getElementById("sug");
+  const IDX = ST.map(r => ({ k: r[C.id], t: r[C.name], s: r[C.county] + (r[C.x] != null ? " · on both maps" : " · modern map only"), h: (r[C.name] + " " + r[C.county]).toLowerCase() }));
+  let cur = [], ai = -1;
+  const show = () => { sug.innerHTML = cur.map((c, i) => `<li role="option" aria-selected="${i === ai}" data-i="${i}">${esc(c.t)} <span>${esc(c.s)}</span></li>`).join(""); sug.style.display = cur.length ? "block" : "none";
+    sug.querySelectorAll("li").forEach(li => li.onmousedown = e => { e.preventDefault(); pick(cur[+li.dataset.i]); }); };
+  const pick = c => { if (!c) return; q.value = c.t; sug.style.display = "none"; select(c.k); };
+  q.addEventListener("input", () => { const v = q.value.trim().toLowerCase(); ai = -1; if (v.length < 2) { cur = []; show(); return; }
+    cur = IDX.filter(x => x.h.includes(v)).sort((a, b) => (a.t.toLowerCase().startsWith(v) ? 0 : 1) - (b.t.toLowerCase().startsWith(v) ? 0 : 1)).slice(0, 12); show(); });
+  q.addEventListener("keydown", e => { if (e.key === "ArrowDown") { ai = Math.min(cur.length - 1, ai + 1); show(); e.preventDefault(); } else if (e.key === "ArrowUp") { ai = Math.max(0, ai - 1); show(); e.preventDefault(); }
+    else if (e.key === "Enter") pick(cur[ai >= 0 ? ai : 0]); else if (e.key === "Escape") sug.style.display = "none"; });
+  q.addEventListener("blur", () => setTimeout(() => sug.style.display = "none", 150));
+})();
+
+/* fallback: a still view of the parchment and a plain outline map */
+let FBK = null;
+function fallback() {
+  const fb = document.getElementById("fmap"), mb = document.getElementById("mmap");
+  [fb, mb].forEach(b => b.querySelector(".loading")?.remove());
+  const img = new Image(); img.src = "img/gough_small.jpg"; const sw = IM.small[0] / IM.full[0];
+  const mk = (box, note) => { const cv = document.createElement("canvas"); cv.className = "fallback"; box.appendChild(cv); const n = document.createElement("div"); n.className = "fbnote"; n.textContent = note; box.appendChild(n); return cv; };
+  const fc = mk(fb, "The map library did not load: a still view of the parchment. Click a ring to select a town."), mc = mk(mb, "Still outline of the island (Natural Earth). Click a town.");
+  let FT, MT;
+  const draw = () => { const d = devicePixelRatio || 1;
+    { const W = fb.clientWidth, H = fb.clientHeight; fc.width = W * d; fc.height = H * d; const x = fc.getContext("2d"); x.setTransform(d, 0, 0, d, 0, 0); x.fillStyle = "#E2D6B8"; x.fillRect(0, 0, W, H);
+      const k = Math.min(W / IM.full[0], H / IM.full[1]), ox = (W - IM.full[0] * k) / 2, oy = (H - IM.full[1] * k) / 2; FT = { k, ox, oy };
+      if (img.complete && img.naturalWidth) x.drawImage(img, ox, oy, IM.full[0] * k, IM.full[1] * k);
+      ST.forEach(r => { if (r[C.x] == null) return; x.beginPath(); x.arc(ox + r[C.x] * k, oy + r[C.y] * k, r[C.id] === SEL ? 6 : 3, 0, 7); x.strokeStyle = r[C.id] === SEL ? RED : INK; x.lineWidth = r[C.id] === SEL ? 2.5 : 1.2; x.stroke(); }); }
+    { const W = mb.clientWidth, H = mb.clientHeight; mc.width = W * d; mc.height = H * d; const x = mc.getContext("2d"); x.setTransform(d, 0, 0, d, 0, 0);
+      const lo0 = -8.5, lo1 = 2.2, la0 = 49.8, la1 = 59.4, cl = Math.cos(54.5 * Math.PI / 180), k = Math.min(W / ((lo1 - lo0) * cl), H / (la1 - la0)), ox = (W - k * (lo1 - lo0) * cl) / 2, oy = (H - k * (la1 - la0)) / 2; MT = { k, ox, oy, cl, lo0, la1 };
+      const P = (lo, la) => [ox + (lo - lo0) * cl * k, oy + (la1 - la) * k];
+      x.fillStyle = "#C9D9E4"; x.fillRect(0, 0, W, H); x.fillStyle = PAPER; x.strokeStyle = INK; x.lineWidth = .8;
+      LAND.features.forEach(f => { const g = f.geometry, ps = g.type === "Polygon" ? [g.coordinates] : g.coordinates; ps.forEach(pg => { x.beginPath(); pg[0].forEach((c, j) => { const [a, b] = P(c[0], c[1]); j ? x.lineTo(a, b) : x.moveTo(a, b); }); x.fill(); x.stroke(); }); });
+      x.strokeStyle = RED; x.lineWidth = 1; LINES.forEach(l => { const a = P(byId[l[1]][C.lon], byId[l[1]][C.lat]), b = P(byId[l[2]][C.lon], byId[l[2]][C.lat]); x.beginPath(); x.moveTo(...a); x.lineTo(...b); x.stroke(); });
+      ST.forEach(r => { const [a, b] = P(r[C.lon], r[C.lat]); x.beginPath(); x.arc(a, b, r[C.id] === SEL ? 6 : 2.6, 0, 7); x.fillStyle = r[C.id] === SEL ? RED : INK; x.fill(); }); } };
+  const hit = (e, box, geo) => { const b = box.getBoundingClientRect(), mx = e.clientX - b.left, my = e.clientY - b.top; let best = null, bd = 14;
+    ST.forEach(r => { let px, py; if (geo) { px = MT.ox + (r[C.lon] - MT.lo0) * MT.cl * MT.k; py = MT.oy + (MT.la1 - r[C.lat]) * MT.k; } else { if (r[C.x] == null) return; px = FT.ox + r[C.x] * FT.k; py = FT.oy + r[C.y] * FT.k; }
+      const dd = Math.hypot(px - mx, py - my); if (dd < bd) { bd = dd; best = r[C.id]; } }); if (best != null) select(best, false); };
+  fc.addEventListener("click", e => hit(e, fb, false)); mc.addEventListener("click", e => hit(e, mb, true));
+  img.onload = draw; draw(); new ResizeObserver(draw).observe(fb); new ResizeObserver(draw).observe(mb); FBK = draw; legend();
+}
+
+/* charts */
+function regChart() {
+  const box = document.getElementById("regChart"); const D = R.regions_table.slice().sort((a, b) => b.err_median_km - a.err_median_km);
+  resp(box, (W, sm) => { const lw = sm ? 92 : 120, rh = 34, H = 10 + D.length * rh + 28, svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Misplacement by region" }, box);
+    const mx = 40, x = v => lw + v / mx * (W - lw - (sm ? 96 : 150));
+    [0, 10, 20, 30, 40].forEach(v => { el("line", { x1: x(v), x2: x(v), y1: 6, y2: 10 + D.length * rh, stroke: css("--rule") }, svg); lbl(svg, x(v), H - 10, v + " km", "lab s m", "middle"); });
+    D.forEach((d, i) => { const y = 10 + i * rh, c = RC[RN.indexOf(d.region)]; lbl(svg, lw - 8, y + rh / 2 + 4, d.region, "lab", "end");
+      const r = el("rect", { x: x(0), y: y + 7, width: x(d.err_median_km) - x(0), height: rh - 14, fill: c, "fill-opacity": .85 }, svg);
+      lbl(svg, x(d.err_median_km) + 6, y + rh / 2 + 4, `${d.err_median_km.toFixed(0)} km · scale ${d.scale_rel.toFixed(2)}`, "lab s", "start");
+      r.addEventListener("mousemove", e => showTip(`<b>${esc(d.region)}</b>, ${d.n} towns<br>median misplacement ${d.err_median_km} km<br>drawn at ${d.scale_rel.toFixed(2)} times the map's average scale<br>turned ${d.turn_deg > 0 ? "a further " + d.turn_deg : "back " + (-d.turn_deg)}° against the whole map<br>stretch ${d.aniso.toFixed(2)}`, e.clientX, e.clientY)); r.addEventListener("mouseleave", hideTip); }); });
+}
+function mileChart() {
+  const box = document.getElementById("mileChart"); const P = LINES.filter(l => l[3] > 0);
+  resp(box, (W, sm) => { const H = Math.min(440, W * .8), ml = 46, mb = 40, svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Written miles against road km" }, box);
+    const x = v => ml + v / 52 * (W - ml - 12), y = v => H - mb - v / 110 * (H - mb - 10);
+    el("path", { d: `M${x(0)} ${y(0)} L${x(52)} ${y(52 * K * 1.25)} L${x(52)} ${y(52 * K * .8)} Z`, fill: css("--rule"), opacity: .8 }, svg);
+    [0, 10, 20, 30, 40, 50].forEach(v => { el("line", { x1: x(v), x2: x(v), y1: y(0), y2: y(110), stroke: css("--rule") }, svg); lbl(svg, x(v), H - 22, v, "lab s m", "middle"); });
+    [0, 25, 50, 75, 100].forEach(v => { el("line", { x1: x(0), x2: x(52), y1: y(v), y2: y(v), stroke: css("--rule") }, svg); lbl(svg, ml - 6, y(v) + 4, v, "lab s m", "end"); });
+    el("line", { x1: x(0), y1: y(0), x2: x(52), y2: y(52 * K), stroke: css("--fg"), "stroke-dasharray": "4 3" }, svg);
+    lbl(svg, (ml + W) / 2, H - 4, "miles written on the map", "lab s m", "middle");
+    const t = lbl(svg, 12, (H - mb) / 2, "km along the real road", "lab s m", "middle"); t.setAttribute("transform", `rotate(-90 12 ${(H - mb) / 2})`);
+    P.forEach(l => { const jit = ((l[0] * 7919) % 13 - 6) / 30; const c = el("circle", { cx: x(l[3] + jit), cy: y(Math.min(110, l[5])), r: sm ? 3 : 3.8, fill: PER[l[6] ?? 0].col, "fill-opacity": .8, stroke: css("--card"), "stroke-width": .6 }, svg);
+      c.style.cursor = "pointer";
+      c.addEventListener("mousemove", e => showTip(`<b>${esc(byId[l[1]][C.name])}</b> to <b>${esc(byId[l[2]][C.name])}</b><br>written <span style="font-style:italic">${roman(l[3])}</span> (${l[3]}); road ${l[5].toFixed(1)} km, straight ${l[4].toFixed(1)} km<br>${(l[5] / l[3]).toFixed(2)} km a mile · ${esc(PER[l[6] ?? 0].name)}`, e.clientX, e.clientY)); c.addEventListener("mouseleave", hideTip); c.addEventListener("click", () => select(l[1])); }); });
+  document.getElementById("mileLegend").innerHTML = SITE.periods.filter(p => P.some(l => (l[6] ?? 0) === p[0])).map(p => `<span><i style="background:${p[3]}"></i>${esc(p[1])}</span>`).join("") + `<span><i class="sq" style="background:var(--rule)"></i>within 25%</span>`;
+}
+function drawChart() {
+  const box = document.getElementById("drawChart"); const P = LINES.filter(l => l[3] > 0 && byId[l[1]][C.x] != null && byId[l[2]][C.x] != null).map(l => {
+    const a = byId[l[1]], b = byId[l[2]], dk = Math.hypot(a[C.x] - b[C.x], a[C.y] - b[C.y]) / SITE.sim.px_per_km; return { l, ed: Math.abs(Math.log(dk / l[5])), en: Math.abs(Math.log(l[3] * K / l[5])), dk }; });
+  resp(box, (W, sm) => { const S = Math.min(W, 460), H = S, ml = 46, mb = 40, svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Error of drawn length against written figure" }, box);
+    const m = Math.log(3), x = v => ml + Math.min(v, m) / m * (S - ml - 12), y = v => H - mb - Math.min(v, m) / m * (H - mb - 10);
+    [0, .25, .5, 1, 2].forEach(p => { const v = Math.log(1 + p); el("line", { x1: x(v), x2: x(v), y1: y(0), y2: y(m), stroke: css("--rule") }, svg); el("line", { x1: x(0), x2: x(m), y1: y(v), y2: y(v), stroke: css("--rule") }, svg); lbl(svg, x(v), H - 22, Math.round(p * 100) + "%", "lab s m", "middle"); lbl(svg, ml - 6, y(v) + 4, Math.round(p * 100) + "%", "lab s m", "end"); });
+    el("line", { x1: x(0), y1: y(0), x2: x(m), y2: y(m), stroke: css("--fg"), "stroke-dasharray": "4 3" }, svg);
+    lbl(svg, (ml + S) / 2, H - 4, "error of the written figure", "lab s m", "middle");
+    const t = lbl(svg, 12, (H - mb) / 2, "error of the drawn length", "lab s m", "middle"); t.setAttribute("transform", `rotate(-90 12 ${(H - mb) / 2})`);
+    if (W - S > 150) { lbl(svg, S + 14, 40, "above the line:", "lab s m"); lbl(svg, S + 14, 56, "the number is better", "lab s b"); lbl(svg, S + 14, H - 70, "below:", "lab s m"); lbl(svg, S + 14, H - 54, "the drawing is better", "lab s b"); }
+    P.forEach(p => { const c = el("circle", { cx: x(p.en), cy: y(p.ed), r: sm ? 3 : 3.6, fill: p.en < p.ed ? css("--red") : css("--blue"), "fill-opacity": .75 }, svg); c.style.cursor = "pointer";
+      c.addEventListener("mousemove", e => showTip(`<b>${esc(byId[p.l[1]][C.name])}</b> to <b>${esc(byId[p.l[2]][C.name])}</b><br>road ${p.l[5].toFixed(1)} km<br>written ${p.l[3]} miles = ${(p.l[3] * K).toFixed(1)} km<br>drawn ${p.dk.toFixed(1)} km at the map's scale`, e.clientX, e.clientY)); c.addEventListener("mouseleave", hideTip); c.addEventListener("click", () => select(p.l[1])); }); });
+}
+function jChart() {
+  const box = document.getElementById("jChart"); const D = Object.entries(R.journeys).map(([k, v]) => ({ k, ...v })).sort((a, b) => a.road_km - b.road_km);
+  resp(box, (W, sm) => { const lw = sm ? 96 : 120, rh = 34, H = 8 + D.length * rh + 26, svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Journeys from London" }, box);
+    const mx = 560, x = v => lw + v / mx * (W - lw - 60);
+    [0, 100, 200, 300, 400, 500].forEach(v => { el("line", { x1: x(v), x2: x(v), y1: 4, y2: 8 + D.length * rh, stroke: css("--rule") }, svg); if (!sm || v % 200 === 0) lbl(svg, x(v), H - 8, v + " km", "lab s m", "middle"); });
+    D.forEach((d, i) => { const y = 8 + i * rh; lbl(svg, lw - 8, y + rh / 2 + 4, d.k, "lab", "end");
+      const a = el("rect", { x: x(0), y: y + 5, width: x(d.map_km) - x(0), height: 11, fill: css("--red") }, svg);
+      const b = el("rect", { x: x(0), y: y + 18, width: x(d.road_km) - x(0), height: 9, fill: css("--muted"), "fill-opacity": .55 }, svg);
+      lbl(svg, x(Math.max(d.map_km, d.road_km)) + 5, y + 16, `${d.miles} mi`, "lab s b");
+      [a, b].forEach(q => { q.addEventListener("mousemove", e => showTip(`<b>London to ${esc(d.k)}</b><br>${d.miles} written miles over ${d.legs} red lines${d.faded ? " (" + d.faded + " faded, filled in)" : ""} = ${fmt(d.map_km)} km<br>real road ${fmt(d.road_km)} km; straight ${fmt(d.gc_km)} km<br>via ${esc(d.via.slice(0, 8).join(", "))}${d.via.length > 8 ? "..." : ""}`, e.clientX, e.clientY)); q.addEventListener("mouseleave", hideTip); }); }); });
+  document.getElementById("jLegend").innerHTML = `<span><i class="sq" style="background:var(--red)"></i>by the map's figures</span><span><i class="sq" style="background:var(--muted);opacity:.55"></i>along the real roads</span>`;
+}
+function perChart() {
+  const box = document.getElementById("perChart"); const D = SITE.periods.map(p => ({ p: p[0], name: p[1], col: p[3], ...R.roads.by_period[p[2]] })).filter(d => d.km > 0);
+  resp(box, (W, sm) => { const H = sm ? 150 : 120, svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Road km by period" }, box);
+    let x0 = 0; const tot = D.reduce((s, d) => s + d.km, 0), x = v => v / tot * (W - 2);
+    D.forEach((d, i) => { const r = el("rect", { x: x(x0), y: 20, width: Math.max(1, x(d.km) - 1), height: 44, fill: d.col }, svg);
+      if (x(d.km) > 54) { lbl(svg, x(x0) + 5, 47, d.pct.toFixed(0) + "%", "lab b").setAttribute("style", "fill:#fff"); }
+      r.addEventListener("mousemove", e => showTip(`<b>${esc(d.name)}</b><br>${fmt(d.km)} km, ${d.pct}% of the road under the red lines`, e.clientX, e.clientY)); r.addEventListener("mouseleave", hideTip); x0 += d.km; });
+    let lx = 0, ly = 84; D.forEach(d => { const w = 18 + d.name.length * 6.6; if (lx + w > W) { lx = 0; ly += 18; } el("rect", { x: lx, y: ly - 9, width: 10, height: 10, fill: d.col }, svg); lbl(svg, lx + 14, ly, d.name, "lab s m"); lx += w + 10; });
+    svg.setAttribute("viewBox", `0 0 ${W} ${ly + 8}`); });
+}
+
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; redraws.forEach(f => f()); };
+startMaps(); side(); regChart(); mileChart(); drawChart(); jChart(); perChart();
+</script>
+/*FULLSCREEN*/
+</body>
+</html>

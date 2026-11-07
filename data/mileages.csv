@@ -1,0 +1,170 @@
+line,from,to,value,straight_km,road_km,kpu_road,kpu_gc,r,main_period
+1,Newent,Hereford,17,25.54,34.16,2.009,1.502,0.966,1
+2,Clyro,Brecon,10,22.46,23.33,2.333,2.246,1.121,1
+4,St Clears,Llawhaden,11,20.39,25.37,2.306,1.854,1.108,4
+5,Haverfordwest,St David's,7,22.24,26.51,3.787,3.177,1.82,4
+6,Cardigan,Aberystwyth,24,53.59,60.62,2.526,2.233,1.214,5
+7,Aberystwyth,Aberdovey,12,14.67,16.4,1.367,1.222,0.657,4
+8,Aberdovey,Barmouth,12,19.95,43.64,3.637,1.662,1.748,4
+9,Barmouth,Llanenddwyn,12,7.77,7.71,0.642,0.648,0.309,4
+11,Harlech,Criccieth,12,10.37,20.83,1.736,0.864,0.834,4
+12,Criccieth,Caernarfon,24,25.02,39.35,1.64,1.042,0.788,4
+13,Caernarfon,Bangor,8,14.0,14.57,1.821,1.75,0.875,4
+14,Bangor,Capel Curig,15,19.75,24.44,1.629,1.317,0.783,5
+15,Capel Curig,Conwy,8,20.35,26.0,3.25,2.544,1.562,5
+17,Abergele,Rhuddlan,4,7.62,8.16,2.04,1.905,0.98,4
+18,Warrington,Wigan,8,17.51,19.89,2.486,2.189,1.195,1
+19,Wigan,Preston,12,24.65,26.95,2.246,2.054,1.079,1
+20,Stony Stratford,Northampton,11,20.39,22.05,2.005,1.854,0.963,5
+21,Skipton,Settle,10,20.96,21.88,2.188,2.096,1.051,2
+22,Leeming Bar,Helperby,12,25.26,27.17,2.264,2.105,1.088,1
+23,Leeming Bar,Gilling,10,18.41,21.78,2.178,1.841,1.047,1
+24,Pocklington,Market Weighton,7,10.4,11.03,1.576,1.486,0.757,1
+25,Brecon,Llywel,10,17.53,15.72,1.572,1.753,0.755,1
+26,Llawhaden,Haverfordwest,8,12.19,13.93,1.741,1.524,0.837,4
+27,Castle Bolton,Hawes,10,16.6,19.48,1.948,1.66,0.936,5
+30,Okehampton,Launceston,16,27.58,29.31,1.832,1.724,0.88,1
+31,Launceston,Camelford,20,22.72,26.43,1.322,1.136,0.635,5
+32,Camelford,Bodmin,15,16.92,27.68,1.845,1.128,0.887,3
+33,Sherborne,Crewkerne,20,20.81,23.63,1.182,1.04,0.568,5
+34,Shaftesbury,Sherborne,12,23.35,24.73,2.061,1.946,0.99,2
+35,Winchelsea,Battle,7,15.57,21.55,3.079,2.224,1.479,5
+37,Rye,Winchelsea,8,3.99,4.67,0.584,0.499,0.281,5
+38,Boreham Street,Lewes,18,25.06,32.69,1.816,1.392,0.873,1
+39,Lewes,Bramber,10,23.0,28.66,2.866,2.3,1.377,1
+40,Bramber,Arundel,10,17.34,25.5,2.55,1.734,1.225,1
+41,Arundel,Chichester,10,15.67,16.81,1.681,1.567,0.808,1
+42,Chichester,Havant,22,14.38,14.64,0.665,0.654,0.32,1
+43,Kingston,Cobham,5,11.94,13.07,2.614,2.388,1.256,3
+44,Guildford,Cobham,15,15.08,17.45,1.163,1.005,0.559,3
+45,Farnham,Guildford,9,15.65,16.68,1.853,1.739,0.891,1
+46,Winchester,New Alresford,7,11.36,12.08,1.726,1.623,0.829,1
+47,Farnham,Alton,7,14.99,15.51,2.216,2.141,1.065,1
+48,Alton,New Alresford,7,14.0,18.96,2.709,2.0,1.302,1
+49,Salisbury,Winchester,20,33.7,38.01,1.9,1.685,0.913,3
+50,Salisbury,Shaftesbury,18,28.96,32.39,1.799,1.609,0.865,2
+51,Chard,Crewkerne,12,11.96,12.86,1.072,0.997,0.515,1
+52,Honiton,Chard,11,17.71,19.58,1.78,1.61,0.855,1
+53,Exeter,Honiton,12,26.06,26.94,2.245,2.172,1.079,1
+54,Okehampton,Exeter,20,33.01,35.71,1.786,1.65,0.858,2
+55,Brentford,Colnbrook,17,14.69,15.7,0.924,0.864,0.444,2
+56,Colnbrook,Maidenhead,7,14.32,13.94,1.991,2.046,0.957,2
+57,Maidenhead,Reading,10,19.02,21.43,2.143,1.902,1.03,2
+58,Reading,Newbury,15,25.3,27.25,1.817,1.687,0.873,5
+59,Newbury,Hungerford,7,13.77,14.94,2.134,1.967,1.026,2
+60,Hungerford,Marlborough,8,14.41,15.44,1.93,1.801,0.927,1
+61,Bristol,Marlborough,50,60.23,62.06,1.241,1.205,0.596,5
+62,Malmesbury,Bristol,20,37.27,41.19,2.06,1.864,0.99,5
+63,Faringdon,Malmesbury,20,36.48,39.61,1.98,1.824,0.952,5
+64,Faringdon,Oxford,10,24.73,29.14,2.914,2.473,1.4,2
+65,Northleach,Gloucester,15,28.32,33.49,2.233,1.888,1.073,5
+66,Northleach,Burford,8,14.26,15.25,1.906,1.782,0.916,5
+67,Oxford,Witney,10,15.75,19.21,1.921,1.575,0.923,3
+68,Tetsworth,Oxford,10,18.24,20.18,2.018,1.824,0.97,2
+69,High Wycombe,Tetsworth,10,19.82,21.37,2.137,1.982,1.027,5
+70,Uxbridge,High Wycombe,12,20.93,21.95,1.829,1.744,0.879,5
+71,Burford,Witney,12,10.79,12.44,1.037,0.899,0.498,5
+72,Reading,Oxford,20,38.71,45.53,2.276,1.936,1.094,2
+73,Newport,Bristol,15,26.71,28.44,1.896,1.781,0.911,5
+74,Gloucester,Newent,7,13.13,14.56,2.08,1.876,1.0,1
+75,Hereford,Clyro,12,29.94,35.85,2.988,2.495,1.436,1
+76,Llandeilo,Carmarthen,10,21.76,23.44,2.344,2.176,1.126,1
+78,Llywel,Llangadog,18,16.38,21.17,1.176,0.91,0.565,5
+79,Flint,Rhuddlan,10,23.11,27.93,2.793,2.311,1.342,1
+80,Chester,Flint,10,17.31,23.04,2.304,1.731,1.107,1
+81,Tewkesbury,Gloucester,8,15.43,16.84,2.105,1.929,1.012,1
+82,Tewkesbury,Worcester,13,22.53,24.27,1.867,1.733,0.897,2
+83,Worcester,Kidderminster,12,22.17,26.22,2.185,1.848,1.05,2
+84,Kidderminster,Bridgnorth,12,19.59,21.58,1.798,1.632,0.864,2
+85,Bridgnorth,Shrewsbury,15,29.92,32.54,2.169,1.995,1.042,5
+86,Droitwich,Worcester,10,9.91,11.04,1.104,0.991,0.531,1
+87,Birmingham,Droitwich,10,28.46,29.01,2.901,2.846,1.394,1
+88,Lichfield,Birmingham,10,23.81,28.1,2.81,2.381,1.35,1
+89,Solihull,Droitwich,14,29.93,36.08,2.577,2.138,1.238,2
+90,Coventry,Solihull,8,18.0,20.25,2.531,2.25,1.216,4
+91,High Barnet,St Albans,10,14.59,14.79,1.479,1.459,0.711,5
+92,St Albans,Dunstable,10,19.16,20.81,2.081,1.916,1.0,1
+93,Dunstable,Stony Stratford,8,29.91,30.69,3.836,3.739,1.843,1
+95,Buckingham,Towcester,6,14.9,18.17,3.028,2.483,1.455,1
+96,Towcester,Daventry,12,18.27,19.7,1.642,1.522,0.789,1
+97,Daventry,Coventry,16,29.33,31.09,1.943,1.833,0.934,5
+98,Coventry,Coleshill,8,16.3,18.71,2.339,2.038,1.124,2
+99,Coleshill,Lichfield,12,22.15,24.56,2.047,1.846,0.984,5
+101,Stone,Newcastle-under-Lyme,6,13.12,14.23,2.372,2.187,1.14,2
+102,Newcastle-under-Lyme,Warrington,24,48.47,49.89,2.079,2.02,0.999,1
+103,Preston,Lancaster,20,32.75,33.89,1.695,1.638,0.814,1
+104,Kendal,Lancaster,16,31.38,34.92,2.182,1.961,1.049,5
+107,Penrith,Carlisle,16,28.47,28.8,1.8,1.779,0.865,1
+108,Northampton,Market Harborough,12,26.77,27.2,2.267,2.231,1.089,1
+109,Market Harborough,Leicester,12,22.69,23.67,1.973,1.891,0.948,1
+110,Coventry,Leicester,16,35.57,43.4,2.712,2.223,1.303,2
+111,Leicester,Melton Mowbray,10,22.31,24.32,2.432,2.231,1.169,5
+112,Melton Mowbray,Grantham,10,23.26,26.62,2.662,2.326,1.279,5
+113,Lichfield,Derby,16,35.73,37.53,2.346,2.233,1.127,1
+114,Derby,Chesterfield,15,34.86,36.82,2.455,2.324,1.18,1
+115,Chesterfield,Doncaster,16,37.37,42.39,2.649,2.336,1.273,1
+116,Doncaster,Wakefield,13,30.17,31.65,2.435,2.321,1.17,5
+118,Settle,Kirkby Lonsdale,12,25.78,24.7,2.058,2.148,0.989,1
+119,Kirkby Lonsdale,Kendal,8,16.87,19.04,2.38,2.109,1.144,5
+121,Kirkby Lonsdale,Sedbergh,10,14.04,19.2,1.92,1.404,0.923,1
+122,Hawes,Sedbergh,10,21.41,24.07,2.407,2.141,1.157,5
+123,Richmond,Castle Bolton,10,16.66,20.14,2.014,1.666,0.968,5
+125,Spalding,Boston,12,23.19,26.26,2.188,1.932,1.052,5
+126,Boston,Wainfleet,12,22.62,27.84,2.32,1.885,1.115,4
+127,Old Bolingbroke,Horncastle,5,10.06,13.0,2.6,2.012,1.249,4
+128,Boston,Old Bolingbroke,9,21.13,23.12,2.569,2.348,1.234,5
+129,Horncastle,Caistor,16,34.79,37.65,2.353,2.174,1.131,1
+130,Caistor,Barton-upon-Humber,12,22.38,25.96,2.163,1.865,1.04,1
+131,Barton-upon-Humber,Glanford Brigg,8,15.12,16.34,2.042,1.89,0.981,3
+133,Spital-in-the-Street,Lincoln,10,18.33,18.33,1.833,1.833,0.881,1
+134,Glanford Brigg,Spital-in-the-Street,10,17.55,19.85,1.985,1.755,0.954,3
+135,Sleaford,Lincoln,14,27.39,31.58,2.256,1.956,1.084,4
+136,Boston,Lincoln,26,44.43,60.98,2.345,1.709,1.127,6
+137,Ware,Barkway,12,21.25,22.77,1.898,1.771,0.912,2
+138,Barkway,Cambridge,12,23.83,25.24,2.103,1.986,1.011,5
+139,Norwich,Thetford,32,44.69,46.07,1.44,1.397,0.692,5
+140,Thetford,Bury St Edmunds,10,19.25,19.74,1.974,1.925,0.949,5
+141,York,Helperby,10,24.09,26.75,2.675,2.409,1.285,5
+142,Howden,York,16,28.01,37.95,2.372,1.751,1.14,3
+143,York,Malton,14,26.74,28.27,2.019,1.91,0.97,5
+144,Malton,Pickering,5,12.37,13.57,2.714,2.474,1.304,5
+145,Pocklington,York,10,20.23,21.27,2.127,2.023,1.022,1
+146,Market Weighton,York,16,29.37,30.78,1.924,1.836,0.924,1
+147,Beverley,Market Weighton,8,15.66,16.3,2.038,1.958,0.979,3
+148,Beverley,Bridlington,16,31.62,36.93,2.308,1.976,1.109,3
+149,Bridlington,Scarborough,12,26.32,28.73,2.394,2.193,1.15,5
+150,Scarborough,Whitby,12,26.38,34.0,2.833,2.198,1.362,0
+151,Whitby,Guisborough,17,29.28,32.8,1.929,1.722,0.927,5
+152,Waltham Holy Cross,Ware,8,14.11,17.88,2.235,1.764,1.074,1
+153,Ware,Royston,13,26.2,27.92,2.148,2.015,1.032,1
+154,Royston,Caxton,9,18.31,18.55,2.061,2.034,0.99,1
+155,Caxton,Huntingdon,8,14.94,15.08,1.885,1.868,0.906,1
+156,Wansford,Stamford,5,8.85,9.25,1.85,1.77,0.889,5
+157,Stamford,Grantham,16,31.23,33.56,2.098,1.952,1.008,1
+158,Grantham,Newark-on-Trent,10,21.69,22.6,2.26,2.169,1.086,5
+159,Tuxford,Blyth,10,19.73,22.29,2.229,1.973,1.071,5
+160,Newark-on-Trent,Tuxford,10,18.12,20.69,2.069,1.812,0.994,4
+161,Blyth,Doncaster,8,16.62,21.43,2.679,2.078,1.287,1
+162,Doncaster,Pontefract,10,22.43,24.34,2.434,2.243,1.17,1
+163,Wetherby,Boroughbridge,8,18.21,19.57,2.446,2.276,1.176,5
+164,Boroughbridge,Leeming Bar,14,25.98,26.23,1.874,1.856,0.9,1
+165,Pontefract,Wetherby,20,26.54,28.89,1.445,1.327,0.694,1
+166,Gilling,Bowes,10,20.72,24.52,2.452,2.072,1.178,1
+167,Bowes,Brough,13,19.72,20.86,1.605,1.517,0.771,1
+168,Brough,Appleby-in-Westmorland,11,12.57,13.09,1.19,1.143,0.572,5
+169,Appleby-in-Westmorland,Penrith,10,19.62,21.08,2.108,1.962,1.013,1
+170,Bury St Edmunds,Newmarket,10,21.21,23.01,2.301,2.121,1.106,5
+171,Newmarket,Cambridge,10,20.18,21.38,2.138,2.018,1.027,5
+173,Huntingdon,Ogerston,14,22.39,26.27,1.876,1.599,0.902,1
+175,Chester,Liverpool,10,24.94,27.62,2.762,2.494,1.327,3
+176,Waltham Holy Cross,London,12,20.15,24.43,2.036,1.679,0.978,1
+177,High Barnet,London,10,17.6,19.93,1.993,1.76,0.958,4
+178,Uxbridge,London,15,27.67,29.07,1.938,1.845,0.931,5
+180,Kingston,London,10,19.18,19.9,1.99,1.918,0.956,4
+181,Gloucester,Newport,15,24.88,25.5,1.7,1.659,0.817,2
+182,Canterbury,Rye,17,43.09,50.62,2.978,2.535,1.431,5
+183,Bridport,Lyme Regis,10,12.31,14.26,1.426,1.231,0.685,1
+184,Abingdon,Oxford,5,9.31,10.57,2.114,1.862,1.016,5
+185,Chester,Overton,12,24.7,29.38,2.448,2.058,1.177,5
+186,Shrewsbury,Overton,12,31.76,34.83,2.902,2.647,1.395,5
+174,Wansford,Ogerston,5,9.63,11.0,2.2,1.926,1.057,4

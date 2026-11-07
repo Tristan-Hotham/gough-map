@@ -1,0 +1,164 @@
+id,name,kind,county,region,lon,lat,E,N,x,y,conf,map_lon,map_lat,dE_km,dN_km,err_km,loo_km,note
+1,Aberdovey,way station,Merionethshire,Wales,-4.04568,52.54369,261371.3,295948.8,8100.0,5110.0,med,-5.0152,52.5357,-65.8,1.4,65.8,17.4,Aberdovey: after xii
+2,Abergele,way station,Denbighshire,Wales,-3.58394,53.28484,294500.0,377600.0,7180.0,4280.0,low,-3.7007,53.3362,-7.7,5.9,9.7,14.1,Abergele: faded vignette
+3,Aberystwyth,way station,Cardiganshire,Wales,-4.08594,52.41415,258224.9,281619.6,8520.0,5100.0,med,-5.0244,52.1535,-65.0,-26.7,70.3,23.2,Aberystwyth: coastal vignette at end of xxiv line from Cardigan
+4,Abingdon,way station,Berkshire,South-east,-1.28271,51.67138,449700.0,197200.0,8910.0,2680.0,low,-1.5055,51.6606,-15.4,-1.3,15.5,16.7,Abingdon: end of v line from Oxford (label not read)
+5,Alton,way station,Hampshire,South-east,-0.98066,51.14582,471400.0,139000.0,9500.0,2070.0,high,-0.7013,51.0744,19.7,-7.6,21.1,1.7,Alton: label Alton; vii from Farnham
+6,Appleby-in-Westmorland,way station,Westmorland,North,-2.48883,54.57782,368500.0,520400.0,5870.0,3520.0,low,-2.3997,54.4806,5.7,-10.9,12.3,14.2,Appleby: vignette after xi
+7,Arundel,way station,Sussex,South-east,-0.55794,50.8554,501600.0,107200.0,9704.0,1765.0,low,-0.2933,50.8617,18.6,1.1,18.6,6.7,Arundel: between two x numerals
+8,Bangor,way station,Carnarvonshire,Wales,-4.12712,53.22693,258100.0,372100.0,7080.0,4600.0,high,-4.1791,53.4425,-2.7,24.1,24.2,2.6,Bangor: cathedral spire; viii line from Caernarfon
+9,Barkway,way station,Hertfordshire,South-east,0.0118,52.00165,538200.0,235600.0,8290.0,1645.0,high,0.0995,52.1301,5.6,14.5,15.5,9.7,Barkway: label Berkway
+10,Barmouth,way station,Merionethshire,Wales,-4.05538,52.72289,261282.3,315897.3,7910.0,5100.0,low,-4.9893,52.7081,-63.1,0.6,63.1,5.0,Barmouth: faded coastal vignette
+11,Barton-upon-Humber,way station,Lincolnshire,East,-0.43888,53.68427,503200.0,422000.0,6600.0,2320.0,med,-0.6466,53.7238,-13.8,4.1,14.4,6.0,Barton upon Humber: spire on the south bank of the Humber
+12,Battle,way station,Sussex,South-east,0.48813,50.91513,575000.0,115800.0,9550.0,1095.0,low,0.6897,50.9341,14.1,2.6,14.3,7.3,Battle: faded town on the line (ADS note)
+13,Beverley,way station,"Yorkshire, East Riding",North,-0.43149,53.84238,503300.0,439600.0,6430.0,2290.0,med,-0.5747,53.875,-9.5,3.4,10.1,13.3,Beverley: label Beuerley
+14,Birmingham,way station,Warwickshire,Midlands,-1.89985,52.47369,406900.0,286200.0,7720.0,2990.0,low,-1.8136,52.764,5.8,32.3,32.8,5.6,Birmingham: spire
+15,Blyth,way station,Nottinghamshire,Midlands,-1.06496,53.37799,462300.0,387200.0,6830.0,2710.0,low,-1.2745,53.5491,-14.1,18.9,23.6,9.4,Blyth: vignette
+17,Boreham Street,way station,Sussex,South-east,0.36715,50.87721,566632.0,111303.5,9605.0,1275.0,med,0.4231,50.9031,3.8,3.0,4.9,5.0,Boreham Street: start of xviii line
+18,Boroughbridge,way station,"Yorkshire, West Riding",North,-1.39298,54.09287,439800.0,466500.0,6230.0,3060.0,low,-1.7306,54.1208,-22.1,3.0,22.3,13.0,Boroughbridge: spire by the red bridge
+19,Boston,way station,Lincolnshire,East,-0.02652,52.97875,532600.0,344200.0,7230.0,1925.0,med,-0.1464,53.1166,-8.4,15.1,17.3,4.8,Boston: big spire by label Boston
+20,Bowes,way station,"Yorkshire, North Riding",North,-2.01232,54.5177,399300.0,513600.0,5895.0,3190.0,low,-1.8889,54.4345,8.0,-9.3,12.2,10.5,Bowes: vignette at start of xiii line
+22,Bramber,way station,Sussex,South-east,-0.31543,50.88273,518600.0,110600.0,9686.0,1622.0,low,-0.086,50.8644,16.2,-1.6,16.3,6.6,Bramber: next station after x
+23,Brecon,way station,Brecknockshire,Wales,-3.39245,51.95125,304400.0,229000.0,8880.0,4030.0,med,-3.4758,51.7782,-6.1,-19.1,20.1,4.1,Brecon: after x numeral
+24,Brentford,way station,Middlesex,South-east,-0.31217,51.48237,517298.4,177285.6,8800.0,1835.0,med,-0.2584,51.6869,3.2,22.8,23.1,14.9,Brentford: label Brayn(ford)
+25,Bridgnorth,way station,Shropshire,Midlands,-2.41715,52.53323,371800.0,292900.0,8000.0,3610.0,low,-2.771,52.5528,-24.0,2.4,24.1,1.9,Bridgnorth: spire after xv from Shrewsbury
+26,Bridlington,way station,"Yorkshire, East Riding",North,-0.18381,54.08609,518900.0,467100.0,6450.0,2130.0,low,-0.3328,53.8421,-9.1,-27.4,28.9,21.1,Bridlington: spire group by label B...
+27,Bridport,way station,Dorset,South-west,-2.75802,50.73235,346600.0,92800.0,10120.0,3250.0,low,-2.4685,50.6041,20.3,-14.4,24.9,4.1,Bridport: faded coastal vignette
+28,Bristol,way station,Gloucestershire,South-west,-2.59436,51.45627,358800.0,173200.0,9230.0,3190.0,high,-2.2857,51.4081,21.4,-5.5,22.1,13.1,Bristol: big spire; label Bristoll; l (50) line to Marlborough
+29,Brough,way station,Westmorland,North,-2.3167,54.52537,379600.0,514500.0,5770.0,3470.0,low,-2.3099,54.5679,0.5,4.7,4.8,17.9,Brough: vignette after xiii
+31,Burford,way station,Oxfordshire,South-east,-1.63443,51.80967,425300.0,212400.0,8830.0,2810.0,low,-1.6852,51.7433,-3.5,-7.4,8.2,4.1,Burford: next vignette west
+32,Bury St Edmunds,way station,Suffolk,East,0.71704,52.24288,585600.0,264000.0,7860.0,1230.0,high,0.7842,52.4759,3.6,26.1,26.3,2.0,Bury St Edmunds: big spire; label Bury
+33,Caernarfon,way station,Carnarvonshire,Wales,-4.27718,53.13922,247773.7,362652.6,7090.0,4830.0,med,-4.53,53.4433,-15.7,34.4,37.8,3.6,Caernarfon: towered vignette at end of xxiv line
+34,Caistor,way station,Lincolnshire,East,-0.31764,53.49655,511700.0,401300.0,6770.0,2230.0,med,-0.5355,53.5617,-14.6,6.9,16.2,4.7,Caistor: end of xii line from Barton
+35,Cambridge,way station,Cambridgeshire,East,0.1176,52.20571,544800.0,258500.0,8060.0,1595.0,high,0.2106,52.3331,5.9,14.4,15.5,6.4,Cambridge: label Cantebrigge
+37,Canterbury,way station,Kent,South-east,1.0773,51.27718,614724.4,157612.6,9075.0,665.0,high,1.3903,51.3157,21.6,5.2,22.3,44.5,Canterbury: big church group labelled Cantuar; xvii line to Rye
+38,Capel Curig,way station,Carnarvonshire,Wales,-3.9124,53.10509,272070.0,358142.0,7210.0,4510.0,med,-4.0523,53.3202,-8.7,24.2,25.7,24.6,Capel Curig: end of xv line from Bangor
+39,Cardigan,way station,Cardiganshire,Wales,-4.65615,52.08329,218100.0,246100.0,8900.0,4940.0,med,-4.8113,51.8021,-11.8,-30.9,33.1,9.1,Cardigan: spire on the coast; xxiv line to Aberystwyth
+41,Carmarthen,way station,Carmarthenshire,Wales,-4.30647,51.85595,241254.1,219999.6,9170.0,4640.0,med,-4.3902,51.5444,-6.9,-34.5,35.1,9.4,Carmarthen: town group
+42,Castle Bolton,way station,"Yorkshire, North Riding",North,-1.94978,54.32244,403364.0,491875.0,6230.0,3295.0,low,-2.0935,54.1383,-9.4,-20.5,22.5,12.3,Castle Bolton: vignette after x
+43,Caxton,way station,Cambridgeshire,East,-0.09311,52.2066,530400.0,258200.0,8155.0,1800.0,high,-0.1072,52.2674,-1.1,6.7,6.8,2.4,Caxton: label Caxton; ix line
+44,Chard,way station,Somerset,South-west,-2.96493,50.87201,332200.0,108500.0,9940.0,3515.0,low,-2.829,50.7848,9.5,-9.8,13.6,6.4,Chard: faded vignette on chain
+45,Chester,way station,Cheshire,Midlands,-2.89049,53.19177,340600.3,366446.3,7280.0,3720.0,high,-2.8616,53.2136,2.0,2.4,3.1,7.7,Chester: cathedral city; xii line to Overton
+46,Chesterfield,way station,Derbyshire,Midlands,-1.42463,53.23644,438500.0,371200.0,6890.0,2785.0,low,-1.3968,53.5008,1.6,29.4,29.5,5.2,Chesterfield: tall spire on the Derby road
+47,Chichester,way station,Sussex,South-east,-0.77863,50.83724,486100.0,104900.0,9715.0,1815.0,high,-0.3664,50.8564,29.0,2.7,29.1,7.6,Chichester: big spire labelled Cicestre
+48,Clyro,way station,Radnorshire,Wales,-3.15001,52.08693,321300.0,243800.0,8740.0,3830.0,med,-3.1697,51.8941,-1.7,-21.4,21.5,11.2,Clyro: end of xii line from Hereford
+50,Coleshill,way station,Warwickshire,Midlands,-1.70388,52.49853,420200.0,289000.0,7830.0,2765.0,low,-1.4916,52.6468,14.3,16.6,21.9,9.1,Coleshill: vignette after viii from Coventry
+51,Colnbrook,way station,Buckinghamshire,South-east,-0.52366,51.48375,502610.2,177121.5,9020.0,2020.0,med,-0.5602,51.5048,-2.6,2.3,3.5,3.5,Colnbrook: end of xvii line from Brentford
+52,Conwy,way station,Carnarvonshire,Wales,-3.8319,53.28145,277961.4,377618.4,7220.0,4410.0,med,-3.9014,53.3063,-4.6,2.9,5.4,15.4,Conwy: castle after viii
+53,Coventry,way station,Warwickshire,Midlands,-1.51188,52.41069,433300.0,279300.0,8020.0,2700.0,med,-1.4198,52.4694,6.2,6.6,9.0,6.5,Coventry: tall spire; xvi numerals either side
+54,Crewkerne,way station,Somerset,South-west,-2.79601,50.88407,344100.0,109700.0,9910.0,3285.0,low,-2.4964,50.7972,21.0,-9.9,23.2,9.6,Crewkerne: faded vignette on chain to Exeter
+55,Criccieth,way station,Carnarvonshire,Wales,-4.23246,52.91597,249991.2,337728.0,7490.0,5095.0,med,-4.9572,53.0898,-47.9,21.1,52.4,9.8,Criccieth: coastal vignette; xxiv line to Caernarfon
+56,Daventry,way station,Northamptonshire,Midlands,-1.16345,52.25591,457200.0,262300.0,8170.0,2490.0,med,-1.1287,52.3161,2.3,6.7,7.1,1.3,Daventry: spire group between Towcester and Coventry
+57,Derby,way station,Derbyshire,Midlands,-1.47786,52.92476,435200.0,336500.0,7090.0,2746.0,low,-1.3647,53.3163,7.2,43.6,44.2,9.9,Derby: vignette at end of xv line
+58,Doncaster,way station,"Yorkshire, West Riding",North,-1.12966,53.5223,457800.0,403200.0,6720.0,2865.0,low,-1.4959,53.6613,-24.4,15.2,28.8,11.4,Doncaster: large red-roofed vignette
+59,Droitwich,way station,Worcestershire,Midlands,-2.14796,52.26777,390000.0,263300.0,7960.0,3080.0,low,-1.9772,52.553,11.6,31.7,33.8,33.0,Droitwich: vignette by label Wyche; x numerals both sides
+60,Dunstable,way station,Bedfordshire,South-east,-0.51647,51.8863,502200.0,221900.0,8560.0,2020.0,high,-0.4926,51.9215,1.6,3.9,4.2,3.3,Dunstable: label Dunstaple
+61,Exeter,way station,Devonshire,South-west,-3.537,50.72108,291600.0,92400.0,10140.0,3860.0,high,-3.3414,50.6237,13.6,-11.1,17.6,9.1,Exeter: label Exon; big spire
+62,Faringdon,way station,Berkshire,South-east,-1.58505,51.65935,428800.0,195700.0,9020.0,2720.0,med,-1.5777,51.564,0.6,-10.6,10.6,9.0,Faringdon: xx line towards Malmesbury
+63,Farnham,way station,Surrey,South-east,-0.79589,51.2142,484200.0,146800.0,9420.0,2010.0,high,-0.6035,51.1415,13.6,-7.8,15.7,5.3,Farnham: label Farnham
+64,Flint,way station,Flintshire,Wales,-3.13001,53.25136,324702.2,373301.0,7330.0,3960.0,low,-3.2295,53.1825,-6.8,-7.5,10.1,11.7,Flint: castle vignette
+65,Gilling,way station,"Yorkshire, North Riding",North,-1.72089,54.44099,418200.0,505100.0,6030.0,3115.0,low,-1.7897,54.3064,-4.4,-15.0,15.6,3.1,Gilling: vignette with x numerals
+66,Glanford Brigg,way station,Lincolnshire,East,-0.49055,53.5519,500100.0,407200.0,6720.0,2390.0,med,-0.7714,53.6214,-18.7,7.4,20.1,5.8,Glanford Brigg: end of viii line from Barton
+67,Gloucester,way station,Gloucestershire,South-west,-2.24582,51.86519,383169.8,218540.7,8890.0,3105.0,high,-2.1235,51.7108,8.4,-17.2,19.1,11.3,Gloucester: label Gloucestre; walled town
+68,Grantham,way station,Lincolnshire,East,-0.6408,52.91185,491500.0,335800.0,7460.0,2375.0,med,-0.8575,52.9497,-14.6,4.0,15.2,10.8,Grantham: big spire; xvi line to Stamford
+69,Guildford,way station,Surrey,South-east,-0.5747,51.2369,499600.0,149600.0,9300.0,1800.0,low,-0.2833,51.2309,20.4,-0.2,20.4,12.7,Guildford: vignette above xv line to Farnham; label part read
+70,Guisborough,way station,"Yorkshire, North Riding",North,-1.05415,54.53557,461300.0,516000.0,5720.0,2560.0,med,-0.8837,54.5421,11.0,0.9,11.1,12.1,Guisborough: end of xvii line
+71,Harlech,way station,Merionethshire,Wales,-4.10926,52.85994,258091.0,331246.0,7720.0,5130.0,low,-5.0233,52.8819,-61.4,4.6,61.6,11.4,Harlech: faded coastal vignette
+72,Havant,way station,Hampshire,South-east,-0.98138,50.85267,471800.0,106400.0,9740.0,1990.0,med,-0.6205,50.8498,25.4,0.1,25.4,8.7,Havant: end of xxii line
+73,Haverfordwest,way station,Pembrokeshire,Wales,-4.96832,51.8019,195437.4,215641.8,9330.0,5030.0,med,-4.9683,51.4145,-1.8,-43.1,43.1,7.3,Haverfordwest: spire; vii line to St Davids
+75,Helperby,way station,"Yorkshire, North Riding",North,-1.32982,54.1222,443900.0,469800.0,6230.0,2880.0,low,-1.4528,54.1068,-8.0,-1.8,8.2,11.3,Helperby: vignette after x from York
+76,Hereford,way station,Herefordshire,Midlands,-2.71605,52.0562,351000.0,240000.0,8640.0,3570.0,high,-2.7778,51.9691,-4.3,-9.6,10.6,7.7,Hereford: big spire beside Herefordia; xvii line to Newent
+77,High Barnet,way station,Hertfordshire,South-east,-0.20464,51.65266,524300.0,196400.0,8790.0,1730.0,med,-0.104,51.6859,6.9,3.9,7.9,9.2,High Barnet: unlabelled vignette between London and St Albans; x lines
+79,Honiton,way station,Devonshire,South-west,-3.18907,50.79979,316300.0,100700.0,10060.0,3690.0,low,-3.0911,50.6865,6.7,-12.7,14.4,1.3,Honiton: after xi numeral
+80,Horncastle,way station,Lincolnshire,East,-0.11784,53.20769,525800.0,369500.0,7030.0,2120.0,med,-0.4089,53.3161,-19.7,11.6,22.9,7.0,Horncastle: spire at end of xvi line
+82,Hungerford,way station,Berkshire,South-east,-1.52255,51.41545,433300.0,168600.0,9380.0,2570.0,low,-1.4058,51.2256,8.3,-21.1,22.6,9.7,Hungerford: label ...rford
+83,Huntingdon,way station,Huntingdonshire,East,-0.18176,52.32939,524000.0,271700.0,7980.0,1855.0,high,-0.161,52.4311,1.1,11.3,11.4,10.7,Huntingdon: label Huntyngdon
+84,Kendal,way station,Westmorland,North,-2.73961,54.3303,352000.0,493000.0,6080.0,3680.0,low,-2.6723,54.3006,4.3,-3.4,5.5,1.7,Kendal: spire after xvi numeral
+85,Kidderminster,way station,Worcestershire,Midlands,-2.24976,52.38986,383100.0,276900.0,8070.0,3390.0,low,-2.4511,52.4749,-13.6,9.5,16.6,19.9,Kidderminster: faded vignette between Bridgnorth and Worcester
+86,Kingston,way station,Surrey,South-east,-0.30617,51.41047,517900.0,169300.0,9020.0,1845.0,low,-0.3063,51.4886,-0.2,8.7,8.7,15.5,Kingston: faded label ...ston
+87,Kirkby Lonsdale,way station,Westmorland,North,-2.59784,54.20346,361100.0,478800.0,6210.0,3620.0,low,-2.5937,54.1787,0.2,-2.8,2.8,2.2,Kirkby Lonsdale: junction vignette
+89,Lancaster,way station,Lancashire,North,-2.79878,54.0504,347800.0,461900.0,6380.0,3700.0,med,-2.7359,54.0295,4.1,-2.4,4.7,2.7,Lancaster: big spire and castle group
+91,Leeming Bar,way station,"Yorkshire, North Riding",North,-1.55985,54.30487,428739.0,490008.0,6040.0,2995.0,low,-1.605,54.2881,-2.9,-1.9,3.5,13.5,Leeming Bar: vignette after xiv
+92,Leicester,way station,Leicestershire,Midlands,-1.13704,52.63421,458500.0,304400.0,7515.0,2672.0,med,-1.3107,52.925,-12.1,32.2,34.4,1.6,Leicester: spire group by label Leycestre
+93,Lewes,way station,Sussex,South-east,0.01118,50.87396,541600.0,110200.0,9672.0,1550.0,med,0.0192,50.8701,0.6,-0.4,0.7,7.8,Lewes: end of xviii line
+94,Lichfield,way station,Staffordshire,Midlands,-1.82689,52.68307,411800.0,309500.0,7460.0,2920.0,low,-1.6759,52.9945,10.1,34.7,36.1,4.7,Lichfield: spire group
+95,Lincoln,way station,Lincolnshire,East,-0.53774,53.23336,497700.0,371700.0,7165.0,2410.0,med,-0.8673,53.22,-22.0,-1.9,22.1,2.2,Lincoln: large walled town at the end of the x line from Spital
+96,Liverpool,way station,Lancashire,North,-2.99427,53.40717,334000.0,390500.0,7050.0,3820.0,low,-2.9897,53.4286,0.3,2.4,2.4,11.5,Liverpool: vignette across the estuary from Chester
+97,Llandeilo,way station,Carmarthenshire,Wales,-3.99326,51.88146,262900.0,222200.0,8940.0,4510.0,low,-4.1838,51.7477,-13.6,-14.5,19.8,11.8,Llandeilo: faded vignette
+98,Llanenddwyn,way station,Merionethshire,Wales,-4.09667,52.78804,258705.0,323224.5,7800.0,5110.0,low,-4.9979,52.8085,-60.7,4.4,60.8,5.0,Llanenddwyn: faded coastal vignette
+99,Llangadog,way station,Carmarthenshire,Wales,-3.88379,51.93901,270600.0,228400.0,8950.0,4400.0,low,-4.0235,51.7335,-10.2,-22.6,24.8,6.5,Llangadog: faded vignette
+100,Llawhaden,way station,Pembrokeshire,Wales,-4.79457,51.82198,207500.0,217400.0,9230.0,4880.0,low,-4.744,51.4998,2.1,-36.0,36.0,5.2,Llawhaden: faded vignette after viii
+101,Llywel,way station,Brecknockshire,Wales,-3.64731,51.95695,286900.0,230000.0,8945.0,4240.0,low,-3.7889,51.7302,-10.3,-25.0,27.0,2.6,Llywel: after second x
+102,London,way station,Middlesex,South-east,-0.08459,51.51325,533010.2,181108.1,8840.0,1610.0,high,0.0628,51.6289,9.9,13.1,16.4,4.1,London castle
+103,Lyme Regis,way station,Dorset,South-west,-2.93217,50.72569,334300.0,92200.0,10170.0,3450.0,low,-2.759,50.5718,12.0,-17.3,21.0,4.3,Lyme Regis: faded coastal vignette
+104,Maidenhead,way station,Berkshire,South-east,-0.72021,51.52275,488887.2,181202.1,9045.0,2150.0,med,-0.7525,51.4938,-2.2,-3.3,3.9,6.5,Maidenhead: spire cluster after vii
+105,Malmesbury,way station,Wiltshire,South-west,-2.0981,51.58452,393300.0,187300.0,9100.0,2950.0,med,-1.9221,51.5089,12.2,-8.4,14.8,6.6,Malmesbury: spire; label ...mesbury; xx line to Bristol
+106,Malton,way station,"Yorkshire, North Riding",North,-0.79851,54.13514,478600.0,471700.0,6430.0,2540.0,low,-0.958,53.8972,-10.0,-26.6,28.5,6.8,Malton: spire near Pickering
+107,Market Harborough,way station,Leicestershire,Midlands,-0.92219,52.47782,473300.0,287200.0,7800.0,2455.0,low,-1.0255,52.6485,-7.3,18.9,20.2,1.8,Market Harborough: vignette between Northampton and Leicester
+109,Marlborough,way station,Wiltshire,South-west,-1.72958,51.4215,418900.0,169200.0,9300.0,2730.0,med,-1.6271,51.3108,7.2,-12.3,14.2,10.1,Marlborough: end of l line from Bristol
+110,Melton Mowbray,way station,Leicestershire,Midlands,-0.88695,52.76517,475200.0,319200.0,7362.0,2665.0,low,-1.2794,53.0631,-26.8,32.8,42.4,17.9,Melton Mowbray: spire between Leicester and Grantham
+111,New Alresford,way station,Hampshire,South-east,-1.16036,51.0906,458900.0,132700.0,9545.0,2120.0,med,-0.7795,51.0381,26.8,-5.5,27.3,8.5,New Alresford: end of vii line from Winchester
+112,Newark-on-Trent,way station,Nottinghamshire,Midlands,-0.81174,53.07729,479700.0,354000.0,7335.0,2520.0,high,-1.0575,53.0755,-16.5,-0.4,16.5,7.0,Newark: label Newerk
+113,Newbury,way station,Berkshire,South-east,-1.32575,51.40189,447000.0,167200.0,9300.0,2550.0,med,-1.3666,51.2965,-2.7,-11.7,12.1,2.2,Newbury: label Neubury
+115,Newent,way station,Gloucestershire,South-west,-2.40427,51.93092,372300.0,225900.0,8740.0,3320.0,med,-2.4213,51.8619,-1.2,-7.7,7.8,13.0,Newent: end of xvii line from Hereford
+116,Newmarket,way station,Cambridgeshire,East,0.4065,52.24333,564400.0,263300.0,7880.0,1460.0,high,0.4403,52.4821,1.4,26.6,26.7,8.2,Newmarket: label Newmarket
+117,Newport,way station,Gloucestershire,South-west,-2.4367,51.67544,369900.0,197498.0,9100.0,3205.0,med,-2.293,51.5272,9.9,-16.5,19.3,10.1,Newport: label Newport across the Severn
+118,Northampton,way station,Northamptonshire,Midlands,-0.89873,52.23755,475300.0,260500.0,8150.0,2310.0,high,-0.8597,52.3188,2.5,9.1,9.4,6.0,Northampton: label Northampton; big spire
+119,Northleach,way station,Gloucestershire,South-west,-1.83888,51.82901,411200.0,214500.0,8810.0,2950.0,low,-1.8875,51.7721,-3.3,-6.3,7.2,8.1,Northleach: start of xv line to Gloucester
+120,Norwich,way station,Norfolk,East,1.30407,52.62993,623700.0,308700.0,7360.0,950.0,high,1.2918,52.8963,-2.2,29.6,29.7,11.3,Norwich: walled city; label Norwyc
+121,Ogerston,way station,Huntingdonshire,East,-0.35146,52.50181,512000.0,290600.0,7970.0,2020.0,med,-0.4039,52.4557,-3.4,-5.2,6.2,9.2,Ogerston: unlabelled vignette at end of xiv line from Huntingdon
+122,Okehampton,way station,Devonshire,South-west,-4.00384,50.73827,258700.0,95100.0,10220.0,4260.0,med,-3.9194,50.5722,5.5,-18.6,19.4,10.5,Okehampton: end of xx line from Exeter
+123,Old Bolingbroke,way station,Lincolnshire,East,0.01651,53.16683,534900.0,365200.0,7110.0,2030.0,low,-0.2855,53.2353,-20.4,7.1,21.6,8.0,Old Bolingbroke: vignette between Boston and Horncastle
+124,Overton,way station,Cheshire,Midlands,-2.93459,52.9713,337333.9,341958.5,7560.0,3810.0,med,-3.0257,52.9648,-6.1,-0.6,6.2,5.1,Overton: between two xii numerals
+125,Oxford,way station,Oxfordshire,South-east,-1.26112,51.75397,451100.0,206400.0,8790.0,2490.0,high,-1.2125,51.754,3.4,0.0,3.4,10.2,Oxford: largest spire in the area; lines to Tetsworth Reading Witney Faringdon
+126,Penrith,way station,Cumberland,North,-2.75343,54.66453,351500.0,530200.0,5650.0,3640.0,low,-2.5619,54.6883,12.4,2.5,12.6,10.6,Penrith: vignette near label
+127,Pickering,way station,"Yorkshire, North Riding",North,-0.77536,54.24546,479900.0,484000.0,6280.0,2530.0,low,-0.9206,54.0323,-9.1,-23.9,25.6,1.0,Pickering: by label Pykeryng
+129,Pontefract,way station,"Yorkshire, West Riding",North,-1.30177,53.69601,446200.0,422400.0,6560.0,2895.0,low,-1.5203,53.8088,-14.5,12.4,19.1,7.7,Pontefract: vignette
+130,Preston,way station,Yorkshire,North,-2.70228,53.76159,353800.0,429700.0,6690.0,3680.0,med,-2.7386,53.7468,-2.4,-1.6,2.9,7.8,Preston: spire on the road south of Lancaster
+131,Reading,way station,Berkshire,South-east,-0.97233,51.45597,471500.0,173500.0,9060.0,2440.0,med,-1.1757,51.5051,-14.2,5.3,15.1,15.3,Reading: large spire; xv line to Newbury
+132,Rhuddlan,way station,Flintshire,Wales,-3.47014,53.29079,302100.0,378100.0,7290.0,4090.0,low,-3.4225,53.2261,3.0,-7.3,7.9,15.2,Rhuddlan: castle vignette
+133,Richmond,way station,"Yorkshire, North Riding",North,-1.735,54.40417,417300.0,501000.0,6100.0,3180.0,low,-1.8994,54.2478,-10.6,-17.4,20.4,5.0,Richmond: spire vignette
+134,Royston,way station,Hertfordshire,South-east,-0.02112,52.04806,535800.0,240700.0,8320.0,1750.0,high,-0.0596,52.1132,-2.8,7.2,7.7,9.0,Royston: label Royston; spire
+135,Rye,way station,Sussex,South-east,0.73243,50.95644,592000.0,121000.0,9375.0,860.0,med,1.0563,51.0668,22.2,13.2,25.8,18.9,Rye: end of xvii line from Kent on the coast
+136,Salisbury,way station,Wiltshire,South-west,-1.79729,51.06916,414300.0,130000.0,9690.0,2600.0,high,-1.4883,50.9468,21.7,-13.5,25.6,4.0,Salisbury: label Salesbury; xx line from Winchester
+137,Scarborough,way station,"Yorkshire, North Riding",North,-0.39464,54.28773,504600.0,489200.0,6190.0,2420.0,low,-0.7377,54.1041,-22.0,-20.9,30.3,12.5,Scarborough: coastal spire group
+139,Settle,way station,"Yorkshire, West Riding",North,-2.27654,54.06892,382000.0,463700.0,6230.0,3440.0,low,-2.3176,54.1484,-2.6,8.9,9.2,3.1,Settle: end of x line from Kirkby Lonsdale
+140,Shaftesbury,way station,Dorset,South-west,-2.19806,51.00622,386200.0,123000.0,9760.0,2930.0,med,-1.9706,50.9084,16.0,-10.9,19.3,3.4,Shaftesbury: label Shaftesbury; spire
+141,Shap,way station,Westmorland,North,-2.67525,54.53109,356400.0,515300.0,5880.0,3640.0,low,-2.5879,54.4795,5.6,-5.8,8.1,1.4,Shap: spire vignette
+142,Sherborne,way station,Dorset,South-west,-2.51665,50.94589,363800.0,116400.0,9810.0,3225.0,med,-2.3997,50.8839,8.2,-6.9,10.7,14.2,Sherborne: end of xii line from Shaftesbury
+143,Shrewsbury,way station,Shropshire,Midlands,-2.75332,52.70777,349200.0,312500.0,7880.0,3850.0,med,-3.1171,52.6765,-24.6,-3.2,24.8,4.3,Shrewsbury: spire; end of xii line
+144,Skipton,way station,"Yorkshire, West Riding",North,-2.01825,53.95779,398900.0,451300.0,6210.0,3330.0,low,-2.1452,54.1589,-8.3,22.4,23.9,10.5,Skipton: vignette at end of x line from Settle
+145,Sleaford,way station,Lincolnshire,East,-0.40855,52.99976,506900.0,345900.0,7254.0,2235.0,low,-0.6167,53.1239,-14.2,13.5,19.6,11.7,Sleaford: vignette by xiiii numeral
+146,Solihull,way station,Warwickshire,Midlands,-1.7765,52.41149,415300.0,279300.0,7870.0,2870.0,low,-1.6533,52.6188,8.3,23.1,24.5,3.8,Solihull: vignette after viii from Coventry
+147,Southampton,way station,Hampshire,South-east,-1.40412,50.89966,442000.0,111300.0,9780.0,2235.0,high,-0.9767,50.835,30.2,-6.9,30.9,11.4,Southampton: label Hampton; spire; no numeral from Havant
+148,Spalding,way station,Lincolnshire,East,-0.15246,52.78478,524700.0,322400.0,7550.0,1905.0,low,-0.1675,52.8251,-1.1,4.5,4.6,6.4,Spalding: spire at end of xii line from Boston
+149,Spital-in-the-Street,way station,Lincolnshire,East,-0.54865,53.398,496600.0,390000.0,7020.0,2410.0,med,-0.8462,53.3514,-19.7,-5.5,20.5,9.7,Spital in the Street: vignette between two x numerals
+150,St Albans,way station,Hertfordshire,South-east,-0.34121,51.75268,514600.0,207300.0,8665.0,1855.0,high,-0.267,51.811,5.0,6.6,8.3,4.1,St Albans: label S Albon; big spire
+151,St Clears,way station,Carmarthenshire,Wales,-4.49883,51.81931,227868.4,216363.1,9200.0,4730.0,low,-4.5235,51.521,-2.8,-33.1,33.2,3.6,St Clears: faded vignette
+153,St David's,way station,Pembrokeshire,Wales,-5.26464,51.88087,175405.0,225296.0,9190.0,5230.0,high,-5.2519,51.5486,-0.8,-37.0,37.0,9.7,St Davids: big church at the tip; vii line from Haverfordwest
+156,Stamford,way station,Lincolnshire,East,-0.47748,52.64915,503100.0,306800.0,7720.0,2200.0,med,-0.6339,52.6986,-10.7,5.3,11.9,2.2,Stamford: town group at end of v line; xvi line onward
+158,Stony Stratford,way station,Buckinghamshire,South-east,-0.8536,52.0564,478700.0,240400.0,8470.0,2270.0,med,-0.8462,52.0254,0.6,-3.4,3.5,6.2,Stony Stratford: label Stratford
+159,Tetsworth,way station,Oxfordshire,South-east,-1.00713,51.70894,468700.0,201600.0,8810.0,2260.0,med,-0.8795,51.7164,8.8,1.0,8.9,13.7,Tetsworth: label ...worth; x line from Oxford
+161,Thetford,way station,Norfolk,East,0.74819,52.41482,587000.0,283200.0,7700.0,1180.0,med,0.8868,52.615,8.5,22.6,24.2,8.9,Thetford: label Thetford; end of xxxii line from Norwich
+162,Towcester,way station,Northamptonshire,Midlands,-0.98752,52.13225,469400.0,248700.0,8330.0,2370.0,low,-0.9737,52.1609,0.9,3.2,3.3,2.5,Towcester: vignette
+163,Tuxford,way station,Nottinghamshire,Midlands,-0.89736,53.23183,473700.0,371100.0,7130.0,2630.0,low,-1.1947,53.2705,-19.9,4.0,20.3,5.2,Tuxford: vignette after x from Newark
+164,Uxbridge,way station,Middlesex,South-east,-0.47997,51.54594,505500.0,184100.0,8910.0,2040.0,med,-0.5732,51.6063,-6.6,6.6,9.3,7.3,Uxbridge: end of xv line from London; label Uxbrig
+165,Wainfleet,way station,Lincolnshire,East,0.23483,53.10719,549700.0,359000.0,7050.0,1900.0,med,-0.0797,53.2771,-21.6,18.3,28.3,12.4,Wainfleet: coastal vignette at end of xii line from Boston
+166,Wakefield,way station,"Yorkshire, West Riding",North,-1.4973,53.6826,433300.0,420800.0,6505.0,3030.0,low,-1.7201,53.8691,-14.8,20.7,25.4,3.7,Wakefield: vignette
+167,Waltham Holy Cross,way station,Essex,South-east,-0.00362,51.68718,538100.0,200600.0,8705.0,1665.0,high,0.0041,51.7565,0.3,7.7,7.7,5.6,Waltham: label Waltham; xii from London
+168,Wansford,way station,Northamptonshire,Midlands,-0.41498,52.57924,507499.0,299116.0,7820.0,2110.0,high,-0.5148,52.5999,-6.8,2.2,7.1,3.4,Wansford: label Walmesford
+169,Ware,way station,Hertfordshire,South-east,-0.0329,51.81267,535700.0,214500.0,8510.0,1715.0,high,-0.0383,51.9379,-0.7,13.9,13.9,5.4,Ware: label Ware; spire
+170,Warrington,way station,Lancashire,North,-2.59537,53.38825,360500.0,388100.0,7060.0,3550.0,low,-2.5804,53.4025,1.0,1.6,1.9,8.5,Warrington: end of xxiv line from the south
+172,Whitby,way station,"Yorkshire, North Riding",North,-0.60908,54.48903,490200.0,511300.0,5940.0,2480.0,med,-0.7925,54.3358,-11.6,-17.3,20.8,9.9,Whitby: abbey spire on the coast; xvii line to Guisborough
+173,Wigan,way station,Lancashire,North,-2.62775,53.54449,358500.0,405500.0,6880.0,3580.0,low,-2.6063,53.5679,1.4,2.6,3.0,3.1,Wigan: vignette on the road
+174,Winchelsea,way station,Sussex,South-east,0.70916,50.9237,590500.0,117300.0,9555.0,1010.0,med,0.8104,50.9205,7.1,-0.1,7.1,18.9,Winchelsea: end of viii line from Rye
+175,Winchester,way station,Hampshire,South-east,-1.31641,51.06284,448000.0,129500.0,9590.0,2320.0,high,-1.0731,51.0145,17.1,-5.2,17.9,11.1,Winchester: label Wynchestre
+176,Witney,way station,Oxfordshire,South-east,-1.48537,51.78034,435600.0,209200.0,8800.0,2700.0,low,-1.5207,51.762,-2.4,-2.1,3.2,3.7,Witney: first vignette west of Oxford
+177,Worcester,way station,Worcestershire,Midlands,-2.22231,52.19123,384900.0,254800.0,8460.0,3200.0,high,-2.2136,52.1078,0.6,-9.3,9.3,34.4,Worcester: spire; label Wircestre
+178,York,way station,"Yorkshire, West Riding",North,-1.08207,53.96219,460323.1,452179.7,6420.0,2780.0,high,-1.3249,53.9264,-15.9,-4.2,16.4,2.9,"York: walled city above the label Eboracum, on the Ouse"
+901,Orkney (Mainland),control point,Scotland,Scotland,-3.1,59.0,336902.2,1013063.7,1900.0,2050.0,low,0.614,57.9474,217.9,-114.7,246.3,111.9,Insula de Orkeney: the middle of the island drawn
+902,Isle of May,control point,Scotland,Scotland,-2.557,56.186,365525.9,699403.0,3550.0,3080.0,med,-1.3924,56.5519,71.9,40.7,82.7,34.4,small island labelled Mai
+903,Bass Rock,control point,Scotland,Scotland,-2.641,56.077,360199.4,687316.6,3850.0,3410.0,med,-1.974,56.3054,41.5,25.2,48.6,29.1,island labelled Bass
+904,Perth,control point,Scotland,Scotland,-3.437,56.396,311395.6,723564.4,4140.0,3720.0,low,-2.5145,56.0639,56.7,-37.8,68.1,64.3,vignette by the label Perthe
+905,"Hadrian's Wall, east end (Wallsend)",control point,Northumberland,North,-1.533,54.988,429981.1,566033.8,5060.0,2850.0,med,-1.2417,55.1648,18.4,19.8,27.1,9.5,upper end of the crenellated wall
+906,"Hadrian's Wall, west end (Bowness-on-Solway)",control point,Cumberland,North,-3.215,54.953,322285.1,562715.1,5320.0,3740.0,med,-2.6821,54.9943,34.2,4.1,34.4,23.9,lower end of the crenellated wall
